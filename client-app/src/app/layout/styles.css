@@ -1,0 +1,33 @@
+/* body{
+  background-color: #eaeaea !important;
+} */
+
+.ui.inverted.top.fixed.menu {
+  background-image: linear-gradient(
+    135deg,
+    rgb(126, 147, 230) 0%,
+    rgb(58, 132, 156) 69%,
+    rgb(118, 178, 180) 89%
+  ) !important;
+}
+
+/* .bottom-left {
+  position: absolute;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+} */
+.container {
+  position: relative;
+  font-family: Arial;
+}
+
+.container .left {
+  position: absolute;
+  top: 50%;
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+}
