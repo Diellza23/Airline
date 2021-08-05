@@ -1,8 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 import { request } from "http";
-import { Nota } from "../models/nota";
-import { Konsultime } from "../models/konsultime";
-import { Studenti } from "../models/studenti";
+import { Punetori } from "../models/punetori";
 
 const sleep = (delay: number) => {
   return new Promise((resolve) => {
@@ -32,36 +30,19 @@ const requests = {
   delete: <T>(url: string) => axios.delete<T>(url).then(responseBody),
 };
 
-const Notat = {
-  list: () => requests.get<Nota[]>("/notat"),
-  details: (id: string) => requests.get<Nota>("/notat/"+id), 
-  create: (nota: Nota) => requests.post<void>("/notat", nota),
-  update: (nota: Nota) => requests.put<void>("/notat/" + nota.id, nota),
-  delete: (id: string) => axios.delete<void>("/notat/" + id)
-};
 
-const Konsultimet = {
-  list: () => requests.get<Konsultime[]>("/konsultimet"),
-  details:(id: string) => requests.get<Konsultime>("/konsultimet/"+id),
-  create: (konsultime : Konsultime) => requests.post<void>("/konsultimet", konsultime),
-  update:(konsultime: Konsultime) => axios.put<void>("/konsultimet/" +konsultime.id, konsultime ),
-  delete:(id: string) => axios.delete<void>("/konsultimet/"+id)
-};
-
-const Studentet = {
-  list: () => requests.get<Studenti[]>("/studentet"),
-  details:(id: string) => requests.get<Studenti>("/studentet/"+id),
-  create: (studenti : Studenti) => requests.post<void>("/studentet", studenti),
-  update:(studenti: Studenti) => axios.put<void>("/studentet/" +studenti.id, studenti ),
-  delete:(id: string) => axios.delete<void>("/studentet/"+id)
+const Punetoret = {
+  list: () => requests.get<Punetori[]>("/punetoret"),
+  details:(id: string) => requests.get<Punetori>("/punetoret/"+id),
+  create: (punetori : Punetori) => requests.post<void>("/punetoret", punetori),
+  update:(punetori: Punetori) => axios.put<void>("/punetoret/" +punetori.id, punetori),
+  delete:(id: string) => axios.delete<void>("/punetoret/"+id)
 };
 
 
 
 const agent = {
-  Notat,
-  Konsultimet,
-  Studentet
+  Punetoret
 };
 
 export default agent;

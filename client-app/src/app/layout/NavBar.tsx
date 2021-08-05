@@ -7,15 +7,11 @@ export default function NavBar() {
     <Menu inverted fixed="top">
       <Container>
         <Menu.Item as={NavLink} to="/" exact header>
-          Profesori Dashboard
+          Main
         </Menu.Item>
-        <Menu.Item as={NavLink} to="/notat" name="Notat e vendosura" />
+        <Menu.Item as={NavLink} to="/punetoret" name="Punetoret" />
         <Menu.Item>
-          <Button as={NavLink} to="/addNota" positive content="Shto Nota" />
-        </Menu.Item>
-        <Menu.Item as={NavLink} to="/konsultimet" name="Konsultimet e vendosura" />
-        <Menu.Item>
-          <Button as={NavLink} to="/addKonsultime" positive content="Shto Konsultime" />
+          <Button as={NavLink} to="/addPunetori" positive content="Shto punetorë" />
         </Menu.Item>
         <Menu.Item></Menu.Item>
       </Container>

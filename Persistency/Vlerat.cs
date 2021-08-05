@@ -10,16 +10,16 @@ namespace Persistency
    {
        public static async Task SeedData(DataContext context) //datacontext si parameter
        {
-            if (context.Notat.Any()) return;
+            if (context.Punetoret.Any()) return;
             
-           var notat = new List<Nota>
+           var notat = new List<Punetori>
            {
-               new Nota
+               new Punetori
                {
-                   Nota_Std = 10,
-                   Date = DateTime.Now.AddMonths(-2),
-                   Description = "Nota e vendosur para ca kohe", //i shton manualisht
-                   
+                    Emri = "Diellza",
+                    Mbiemri = "Kosumi",
+                    Date = DateTime.Now.AddMonths(-2),
+                    AeroplanId = 7
                },
                                                
            };

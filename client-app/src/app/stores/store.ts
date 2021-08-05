@@ -1,15 +1,12 @@
 import { createContext, useContext } from "react";
-import KonsultimeStore from "./konsultimeStore";
-import NotaStore from "./notaStore";
+import PunetoriStore from "./punetoriStore";
 
 interface Store{
-    notaStore: NotaStore
-    konsultimeStore: KonsultimeStore
+    punetoriStore: PunetoriStore
 } 
 
 export const store: Store ={
-    notaStore: new NotaStore(),
-    konsultimeStore: new KonsultimeStore()
+    punetoriStore: new PunetoriStore()
 }
 
 export const StoreContext = createContext(store);

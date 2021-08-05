@@ -10,9 +10,7 @@ namespace Persistency
         {
         }
 
-        public DbSet<Nota> Notat { get; set; } //tabela emrin e ka Notat
-        // public DbSet<Konsultime> Konsultimet { get; set; }
-        public DbSet<Studenti> Studentet{get;set;}
+        public DbSet<Punetori> Punetoret { get; set; }
         
         protected override void OnModelCreating(ModelBuilder builder)
         {

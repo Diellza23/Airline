@@ -6,9 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Persistency;
 using MediatR;
-using Application.Notat;
-// using Application.Konsultimet;
-using Application.Studentet;
+using Application.Punetoret;
 using Application.Core;
 using AutoMapper;
 using FluentValidation.AspNetCore;
@@ -37,18 +35,12 @@ namespace API
                     policy.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin();
                 });
             });
-            services.AddMediatR(typeof(Lista.Handler).Assembly);
-            services.AddMediatR(typeof(ListaS.Handler).Assembly);
-            // services.AddMediatR(typeof(List.Handler).Assembly);
+            services.AddMediatR(typeof(ListaP.Handler).Assembly);
             services.AddControllers().AddFluentValidation(config =>
             {
-                config.RegisterValidatorsFromAssemblyContaining<Krijo>();
-                config.RegisterValidatorsFromAssemblyContaining<KrijoS>();
-                // config.RegisterValidatorsFromAssemblyContaining<Create>();
+                config.RegisterValidatorsFromAssemblyContaining<KrijoP>();
             });
-            services.AddMvc().AddFluentValidation(cfg =>cfg.RegisterValidatorsFromAssemblyContaining<Krijo>());
-            // services.AddMvc().AddFluentValidation(cfg =>cfg.RegisterValidatorsFromAssemblyContaining<Create>());
-            services.AddMvc().AddFluentValidation(cfg =>cfg.RegisterValidatorsFromAssemblyContaining<KrijoS>());
+            services.AddMvc().AddFluentValidation(cfg =>cfg.RegisterValidatorsFromAssemblyContaining<KrijoP>());
 
             services.AddAutoMapper(typeof(MappingProfiles).Assembly);
         }

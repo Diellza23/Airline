@@ -1,5 +1,5 @@
 using Application.Core;
-using Application.Notat;
+using Application.Punetoret;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -29,7 +29,7 @@ namespace API.Extensions
                     policy.AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:3000");
                 });
             });
-            services.AddMediatR(typeof(Lista.Handler).Assembly);
+            services.AddMediatR(typeof(ListaP.Handler).Assembly);
             services.AddAutoMapper(typeof(MappingProfiles).Assembly);
 
             return services;
