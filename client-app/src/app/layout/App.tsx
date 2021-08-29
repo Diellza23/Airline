@@ -3,10 +3,14 @@ import { Container } from "semantic-ui-react";
 import NavBar from "./NavBar";
 import PunetoriDashboard from "../../features/punetoret/dashboard/PunetoriDashboard";
 import { observer } from "mobx-react-lite";
-import { Route, useLocation } from "react-router-dom";
+import { Route, Switch, useLocation } from "react-router-dom";
 import HomePage from "../../features/home/HomePage";
 import DetajetPunetori from "../../features/punetoret/detajet/DetajetPunetori";
 import PunetoriForm from "../../features/punetoret/form/PunetoriForm";
+import TestErrors from "../../features/errors/TestError";
+import { ToastContainer } from "react-toastify";
+import NotFound from "../../features/errors/NotFound";
+// import ServerError from "../../features/errors/ServerError";
 
 function App() {
   const location = useLocation();
@@ -22,6 +26,7 @@ function App() {
     //   }}
     // >
       <>
+      <ToastContainer position='bottom-right' hideProgressBar/>
         <Route exact path="/" component={HomePage} />
         <Route
           path={"/(.+)"}
@@ -29,13 +34,15 @@ function App() {
             <>
               <NavBar />
               <Container style={{ marginTop: "7em" }}>
-                <Route exact path="/punetoret" component={PunetoriDashboard} />
-                <Route path="/punetoret/:id" component={DetajetPunetori} />
-                <Route
-                  key={location.key}
-                  path={["/addPunetori", "/manage/:id"]}
-                  component={PunetoriForm}
-                />
+                <Switch>
+                  <Route exact path="/punetoret" component={PunetoriDashboard} />
+                <Route path='/punetoret/:id' component={DetajetPunetori} />
+                <Route key={location.key} path={["/addPunetori", "/manage/:id"]} component={PunetoriForm}/>                
+                <Route path='/errors' component={TestErrors}/>
+                {/* <Route path='/server-error' component={ServerError}/> */}
+                <Route component={NotFound}/>
+                </Switch>
+                
               </Container>
             </>
           )}

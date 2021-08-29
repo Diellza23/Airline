@@ -10,6 +10,7 @@ using Application.Punetoret;
 using Application.Core;
 using AutoMapper;
 using FluentValidation.AspNetCore;
+using API.Middleware;
 
 namespace API
 {
@@ -19,15 +20,15 @@ namespace API
         {
             Configuration = configuration;
         }
-
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-              services.AddDbContext<DataContext>(opt =>{
-            opt.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
-            });
+              services.AddDbContext<DataContext>(opt =>
+              {
+                opt.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
+                });
             services.AddCors(opt =>
             {
                 opt.AddPolicy("CorsPolicy", policy =>
@@ -43,17 +44,24 @@ namespace API
             services.AddMvc().AddFluentValidation(cfg =>cfg.RegisterValidatorsFromAssemblyContaining<KrijoP>());
 
             services.AddAutoMapper(typeof(MappingProfiles).Assembly);
+            
+            // services.AddSwaggerGen();
         }
-
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            // app.UseMiddleware<ExceptionMiddleware>();
+    //         app.UseSwagger();
+    //         app.UseMiddleware<ExceptionMiddleware>();
+    //             app.UseSwaggerUI(c =>
+    // {
+    //     c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+    // });
 
-            // if (env.IsDevelopment())
-            // {
-                
-            // }
+    //          if (env.IsDevelopment())
+    //          {
+    //             app.UseSwagger();
+    //             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
+    //          }
 
           //  app.UseHttpsRedirection();
 
@@ -63,12 +71,12 @@ namespace API
 
 
             app.UseAuthorization();
-
            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
         }
+        
     }
 }

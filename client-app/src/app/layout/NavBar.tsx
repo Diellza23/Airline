@@ -10,6 +10,7 @@ export default function NavBar() {
           Main
         </Menu.Item>
         <Menu.Item as={NavLink} to="/punetoret" name="Punetoret" />
+        <Menu.Item as={NavLink} to="/errors" name="Errors" />
         <Menu.Item>
           <Button as={NavLink} to="/addPunetori" positive content="Shto punetorë" />
         </Menu.Item>

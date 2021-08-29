@@ -38,7 +38,7 @@ namespace Application.Punetoret
             {
                 var punetori = await _context.Punetoret.FindAsync(request.Punetori.Id);
 
-                if(punetori ==null) return null;
+                if(punetori == null) return null;
 
                 _mapper.Map(request.Punetori, punetori);
                 
