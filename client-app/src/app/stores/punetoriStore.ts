@@ -7,7 +7,7 @@ export default class PunetoriStore {
   selectedPunetori: Punetori | undefined = undefined;
   editMode = false;
   loading = false;
-  loadingInitial = true;
+  loadingInitial = false;
 
   constructor() {
     makeAutoObservable(this);
@@ -94,6 +94,7 @@ export default class PunetoriStore {
         this.loading = false;
       });
     }
+    window.location.href = "http://localhost:3000/punetoret";
   };
   
   updatePunetori = async (punetori: Punetori) => {

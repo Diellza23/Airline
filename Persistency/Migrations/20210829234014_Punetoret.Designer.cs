@@ -9,7 +9,7 @@ using Persistency;
 namespace Persistency.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210725193837_Punetoret")]
+    [Migration("20210829234014_Punetoret")]
     partial class Punetoret
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

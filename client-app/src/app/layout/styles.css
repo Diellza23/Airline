@@ -22,3 +22,7 @@ body {
     width: 100%;
     padding: 20px;
 }
+
+.react-datepicker-wrapper {
+    width: 100%;
+}

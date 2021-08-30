@@ -33,7 +33,7 @@ export default observer(function DetajetPunetori() {
         <Button.Group widths="2">
           <Button
             as={Link}
-            to={"/manage/" + punetori.id}
+            to={`/manage/${punetori.id}`} 
             basic
             color="blue"
             content="MODIFIKO"

@@ -36,8 +36,8 @@ function App() {
               <Container style={{ marginTop: "7em" }}>
                 <Switch>
                   <Route exact path="/punetoret" component={PunetoriDashboard} />
-                <Route path='/punetoret/:id' component={DetajetPunetori} />
-                <Route key={location.key} path={["/addPunetori", "/manage/:id"]} component={PunetoriForm}/>                
+                <Route path='/punetoret/:id' component={DetajetPunetori} /> //`
+                <Route key={location.key} path={["/addPunetori", `/manage/:id`]} component={PunetoriForm}/>                
                 <Route path='/errors' component={TestErrors}/>
                 {/* <Route path='/server-error' component={ServerError}/> */}
                 <Route component={NotFound}/>

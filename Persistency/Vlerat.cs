@@ -12,7 +12,7 @@ namespace Persistency
        {
             if (context.Punetoret.Any()) return;
             
-           var notat = new List<Punetori>
+           var punetoret = new List<Punetori>
            {
                new Punetori
                {

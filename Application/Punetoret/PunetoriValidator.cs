@@ -8,12 +8,10 @@ namespace Application.Punetoret
         public PunetoriValidator()
         {
             // RuleFor(x => x.Id).NotEmpty();
-            RuleFor(x => x.Emri).NotEmpty();
-            RuleFor(x => x.Mbiemri).NotEmpty();
-            RuleFor(x => x.Date).NotEmpty();
-            RuleFor(x=> x.AeroplanId).NotEmpty();
-
-
+            // RuleFor(x => x.Emri).NotEmpty();
+            // RuleFor(x => x.Mbiemri).NotEmpty();
+            // RuleFor(x => x.Date).NotEmpty();
+            // RuleFor(x=> x.AeroplanId).NotEmpty();
         }
     }
 }
