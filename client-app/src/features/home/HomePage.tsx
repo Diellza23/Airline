@@ -112,17 +112,28 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+// const theme = {
+//     color:'white',
+//     // padding:'10px',
+//     backgroundColor:'red'
+//   }
 function HomePage() {
   const classes = useStyles();
 
   return (
+  <>
+  {/* <h1 style={theme}>Diellza</h1> */}
     <div className={classes.root}>
+      
       <TopMenu />
       <SideMenu />
       <MainContent />
       <Footer />
     </div>
+    </>
   );
+
+  
 }
 
 export default HomePage;

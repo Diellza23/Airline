@@ -15,10 +15,16 @@ export default observer(function PunetoriList() {
     setTarget(e.currentTarget.name);
     deletePunetori(id);
   }
+  const theme ={
+    float:'right',
+    display: 'flex',
+    justifyContent: 'space-around'
+  }
 
   return (      
   <>
   {/* <SegmentExm/> */}
+  
     <Segment style={{backgroundColor:"rgba(0,0,25,0.7)"}}>
       <Item.Group divided>
       <h3 style={{textAlign:"center",color:"white",marginBottom:"30px"}}>LISTA E STUARDESEVE</h3>

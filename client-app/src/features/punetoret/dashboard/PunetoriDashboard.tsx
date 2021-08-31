@@ -25,7 +25,7 @@ export default observer(function PunetoriDashboard() {
          backgroundRepeat: "no-repeat",
          backgroundSize: "cover",
          backgroundAttachment: "fixed",
-         marginTop: -50
+         marginTop: -50,
        }}
      > 
      

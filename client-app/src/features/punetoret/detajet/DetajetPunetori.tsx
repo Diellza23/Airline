@@ -17,17 +17,22 @@ export default observer(function DetajetPunetori() {
   if (loadingInitial || !punetori) return <LoadingComponent />;
 
   return (
-    <Card fluid>
-      <Card.Content>
-        <Card.Header> Aeroplani: {punetori.aeroplanId}</Card.Header>
+    <>
+    <h1 style={{textAlign:"center",color:"seagreen"}}>DETAJET E PUNETORIT</h1>
+    <Card fluid style={{backgroundColor:'#f0ffff'}}>
+      <Card.Content style={{backgroundColor:'#f0ffff', padding: '12px 8px 12px 40px',margin:'40px',background: '#eee',fontSize: '15px',borderLeft:'6px solid green',
+      borderBottom:'4px solid green',
+    }}>
+        <Card.Header style={{textTransform:'uppercase',borderBottom:"1px solid black"}}> Aeroplani: {punetori.aeroplanId}</Card.Header>
         <br/>
-        <Card.Meta>Emri: {punetori.emri}</Card.Meta>
+        {/* <hr/> */}
+        <Card.Meta style={{textTransform:'uppercase',color:"black",fontSize:"17px",borderBottom:"1px solid black"}}>Emri: {punetori.emri}</Card.Meta>
         <br/>
-        <Card.Meta>
+        <Card.Meta style={{color:'black', textTransform:'uppercase',fontSize:"17px",borderBottom:"1px solid black"}}>
           <span>Mbiemri: {punetori.mbiemri}</span>
         </Card.Meta>
         <br/>
-        <Card.Meta>Data e fillimit te punes: {punetori.date}</Card.Meta>
+        <Card.Meta style={{textTransform:'uppercase',fontSize:"17px",color:"black"}}>Data e fillimit te punes: {punetori.date}</Card.Meta>
       </Card.Content>
       <Card.Content extra>
         <Button.Group widths="2">
@@ -37,11 +42,12 @@ export default observer(function DetajetPunetori() {
             basic
             color="blue"
             content="MODIFIKO"
-            background-color="black"
+            
           />
           <Button as={Link} to="/punetoret" basic color="red" content="ANULO" />
         </Button.Group>
       </Card.Content>
     </Card>
+    </>
   );
 });
