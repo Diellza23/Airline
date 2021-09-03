@@ -15,7 +15,7 @@ namespace Persistency.Migrations
                     Emri = table.Column<string>(type: "TEXT", nullable: true),
                     Mbiemri = table.Column<string>(type: "TEXT", nullable: true),
                     Date = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    AeroplanId = table.Column<int>(type: "INTEGER", nullable: false)
+                    AeroplanId = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {

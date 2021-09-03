@@ -25,8 +25,8 @@ export default observer(function PunetoriForm() {
     emri: '',
     mbiemri: '',
     date: '',
-    aeroplanId:'',
-  });
+    aeroplanId:''
+  })
 
   const validationSchema = Yup.object({
     emri: Yup.string().required('Emri i punetorit i nevojitur!'),

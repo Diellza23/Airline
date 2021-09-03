@@ -9,7 +9,7 @@ using Persistency;
 namespace Persistency.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210829234014_Punetoret")]
+    [Migration("20210831204504_Punetoret")]
     partial class Punetoret
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,8 +24,8 @@ namespace Persistency.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("AeroplanId")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("AeroplanId")
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("TEXT");

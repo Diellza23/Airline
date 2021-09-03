@@ -44,7 +44,7 @@ namespace Application.Punetoret
                 
                 var result = await _context.SaveChangesAsync() >0;
 
-                if(!result) return Result<Unit>.Failure("Failed to update punetori info");
+                if(!result) return Result<Unit>.Failure("Modifikimi deshtoi");
 
                 return Result<Unit>.Success(Unit.Value);
             }

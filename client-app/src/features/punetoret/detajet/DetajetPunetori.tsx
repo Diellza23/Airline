@@ -42,7 +42,6 @@ export default observer(function DetajetPunetori() {
             basic
             color="blue"
             content="MODIFIKO"
-            
           />
           <Button as={Link} to="/punetoret" basic color="red" content="ANULO" />
         </Button.Group>

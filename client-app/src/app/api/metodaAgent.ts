@@ -43,7 +43,6 @@ axios.interceptors.response.use(async response => {
     case 404:
       history.push('/not-found');
       break;
-
   }
   return Promise.reject(error);
 })
@@ -64,7 +63,7 @@ const Punetoret = {
   details:(id: string) => requests.get<Punetori>("/punetoret/"+id),
   create: (punetori : Punetori) => requests.post<void>("/punetoret", punetori),
   // update:(punetori: Punetori) => axios.put<void>("/punetoret/" +punetori.id, punetori),
-  update: (punetori: Punetori) => requests.put<void>(`/punetoret/${punetori.id}`, punetori),
+  update: (punetori: Punetori) => axios.put<void>(`/punetoret/${punetori.id}`, punetori),
   delete:(id: string) => axios.delete<void>("/punetoret/"+id)
   // delete: (id: string) => requests.delete(`/punetoret/${id}`)
 };

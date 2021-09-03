@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Domain;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -25,8 +27,9 @@ namespace API
             try
             {
                 var context = services.GetRequiredService<DataContext>();  //me popullu me perdor brenda variables
+                var userManager = services.GetRequiredService<UserManager<AppUser>>();
                 await context.Database.MigrateAsync(); //nese nuk ka databaze e krijon vet
-                // await Vlerat.SeedData(context);
+                await Vlerat.SeedData(context, userManager);
             }
             catch(Exception ex)
             {

@@ -11,24 +11,30 @@ using Application.Core;
 using AutoMapper;
 using FluentValidation.AspNetCore;
 using API.Middleware;
+using API.Extensions;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace API
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private readonly IConfiguration _config;
+
+        public Startup(IConfiguration config)
         {
-            Configuration = configuration;
+            _config = config;
         }
-        public IConfiguration Configuration { get; }
+        public IConfiguration Configuration { get;}
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-              services.AddDbContext<DataContext>(opt =>
-              {
-                opt.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
-                });
+            //   services.AddDbContext<DataContext>(opt =>
+            //   {
+            //     opt.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
+            //     });
             services.AddCors(opt =>
             {
                 opt.AddPolicy("CorsPolicy", policy =>
@@ -37,31 +43,39 @@ namespace API
                 });
             });
             services.AddMediatR(typeof(ListaP.Handler).Assembly);
-            services.AddControllers().AddFluentValidation(config =>
+            services.AddControllers(opt =>
+            {
+                var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+                opt.Filters.Add(new AuthorizeFilter(policy));
+            })
+            .AddFluentValidation(config =>
             {
                 config.RegisterValidatorsFromAssemblyContaining<KrijoP>();
             });
-            services.AddMvc().AddFluentValidation(cfg =>cfg.RegisterValidatorsFromAssemblyContaining<KrijoP>());
+            services.AddApplicationServices(_config);
+            services.AddIdentityServices(_config);
+
+            services.AddMvc().AddFluentValidation(config => config.RegisterValidatorsFromAssemblyContaining<KrijoP>());
 
             services.AddAutoMapper(typeof(MappingProfiles).Assembly);
-            
+
+  
             // services.AddSwaggerGen();
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-    //         app.UseSwagger();
-    //         app.UseMiddleware<ExceptionMiddleware>();
+            app.UseMiddleware<ExceptionMiddleware>();
     //             app.UseSwaggerUI(c =>
     // {
     //     c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
     // });
 
-    //          if (env.IsDevelopment())
-    //          {
-    //             app.UseSwagger();
-    //             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
-    //          }
+             if (env.IsDevelopment())
+             {
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
+             }
 
           //  app.UseHttpsRedirection();
 
@@ -69,7 +83,7 @@ namespace API
 
             app.UseCors("CorsPolicy");
 
-
+            app.UseAuthentication();
             app.UseAuthorization();
            
             app.UseEndpoints(endpoints =>
