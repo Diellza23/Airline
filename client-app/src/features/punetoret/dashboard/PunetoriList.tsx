@@ -39,11 +39,12 @@ export default observer(function PunetoriList() {
               <Item.Extra>
                 <Button
                   as={Link}
-                  to={"/punetoret/" + punetori.id}
+                  to={`/punetoret/${punetori.id}`}
                   floated="right"
                   content="SHIKO"
                   color="blue"
                 />
+                
                 <Button
                   name={punetori.id}
                   loading={loading && target === punetori.id}

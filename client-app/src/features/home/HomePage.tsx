@@ -99,41 +99,76 @@
 //     </React.Fragment>
 //   );
 // };
+import { observer } from 'mobx-react-lite';
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import TopMenu from './TopMenu';
-import SideMenu from './SideMenu';
-import Footer from './Footer';
-import MainContent from './MainContent';
+import { Link } from 'react-router-dom';
+import { Container, Header, Segment, Image, Button } from 'semantic-ui-react';
+import { useStore } from '../../app/stores/store';
+// import { makeStyles } from '@material-ui/core/styles';
+// import TopMenu from './TopMenu';
+// import SideMenu from './SideMenu';
+// import Footer from './Footer';
+// import MainContent from './MainContent';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    display: 'flex',
-  },
-}));
+// const useStyles = makeStyles(theme => ({
+//   root: {
+//     display: 'flex',
+//   },
+// }));
 
-// const theme = {
-//     color:'white',
-//     // padding:'10px',
-//     backgroundColor:'red'
-//   }
-function HomePage() {
-  const classes = useStyles();
+// // const theme = {
+// //     color:'white',
+// //     // padding:'10px',
+// //     backgroundColor:'red'
+// //   }
+// function HomePage() {
+//   const classes = useStyles();
 
-  return (
-  <>
-  {/* <h1 style={theme}>Diellza</h1> */}
-    <div className={classes.root}>
+//   return (
+//   <>
+//   {/* <h1 style={theme}>Diellza</h1> */}
+//     <div className={classes.root}>
       
-      <TopMenu />
-      <SideMenu />
-      <MainContent />
-      <Footer />
-    </div>
-    </>
-  );
+//       <TopMenu />
+//       <SideMenu />
+//       <MainContent />
+//       <Footer />
+//     </div>
+//     </>
+//   );
 
   
-}
+// }
 
-export default HomePage;
+// export default HomePage;
+
+export default observer(function HomePage() {
+  const {userStore} = useStore();
+  return (
+    <Segment inverted textAlign='center' vertical className='masthead'>
+      <Image size='massive' src='/assets/airline.png' alt='logo' style={{padding: '25px',
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: 'auto',
+  backgroundPosition:'center'}} />
+      <Container text style={{marginTop:'-450px'}}>
+        <Header as='h1'  >
+          Airline
+        </Header>
+        {userStore.isLoggedIn ? (
+          <>
+              <Header as='h2'  content='Welcome to Airlines'/>
+              <Button as={Link} to='/punetoret' size='huge' inverted>
+                Stafi
+              </Button>
+          </>
+
+        ) : (
+          <Button as={Link} to='/login' size='huge' inverted>
+                Login
+              </Button>
+        )}
+        
+      </Container>
+    </Segment>
+  )
+})

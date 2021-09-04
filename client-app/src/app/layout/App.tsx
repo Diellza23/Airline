@@ -10,6 +10,8 @@ import PunetoriForm from "../../features/punetoret/form/PunetoriForm";
 import TestErrors from "../../features/errors/TestError";
 import { ToastContainer } from "react-toastify";
 import NotFound from "../../features/errors/NotFound";
+import LoginForm from "../../features/users/LoginForm";
+import ServerError from "../../features/errors/ServerError";
 // import ServerError from "../../features/errors/ServerError";
 
 function App() {
@@ -37,9 +39,10 @@ function App() {
                 <Switch>
                   <Route exact path="/punetoret" component={PunetoriDashboard} />
                 <Route path='/punetoret/:id' component={DetajetPunetori} /> //`
-                <Route key={location.key} path={["/addPunetori", `/manage/:id`]} component={PunetoriForm}/>                
+                <Route key={location.key} path={['/addPunetori', '/manage/:id']} component={PunetoriForm}/>                
                 <Route path='/errors' component={TestErrors}/>
-                {/* <Route path='/server-error' component={ServerError}/> */}
+                <Route path='/server-error' component={ServerError} />
+                <Route path='/login' component={LoginForm}/> 
                 <Route component={NotFound}/>
                 </Switch>
                 

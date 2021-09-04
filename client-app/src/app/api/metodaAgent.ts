@@ -3,6 +3,7 @@ import { request } from "http";
 import { toast } from "react-toastify";
 import { history } from "../..";
 import { Punetori } from "../models/punetori";
+import { User, UserFormValues } from "../models/user";
 import { store } from "../stores/store";
 
 const sleep = (delay: number) => {
@@ -35,13 +36,21 @@ axios.interceptors.response.use(async response => {
         }
       }
       throw modalStateErrors.flat();
-    } 
+    } else {
+      toast.error(data);
+    }
     break;
     case 401:
       toast.error('unauthorized');
       break;
+
     case 404:
       history.push('/not-found');
+      break;
+
+    case 500:
+      store.commonStore.setServerError(data);
+      history.push('/server-error');
       break;
   }
   return Promise.reject(error);
@@ -68,10 +77,18 @@ const Punetoret = {
   // delete: (id: string) => requests.delete(`/punetoret/${id}`)
 };
 
+const Account = {
+  current: () => requests.get<User>('/account'),
+  login: (user: UserFormValues) => requests.post<User>('/account/login', user),
+  register: (user: UserFormValues) => requests.post<User>('/account/register', user)
+}
+
 
 
 const agent = {
-  Punetoret
+  Punetoret,
+  Account
+
 };
 
 export default agent;
