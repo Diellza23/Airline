@@ -32,7 +32,8 @@ namespace API.Controllers
         public async Task<IActionResult> ModifikoPunetori(Guid id, Punetori punetori)
         {
             punetori.Id = id;
-            return HandleResult(await Mediator.Send(new Edit.Command { Punetori = punetori }));
+            return Ok(await Mediator.Send(new Edit.Command{Punetori = punetori}));
+            // return HandleResult(await Mediator.Send(new Edit.Command { Punetori = punetori }));
         }
 
         [HttpDelete("{id}")]

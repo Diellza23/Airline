@@ -1,3 +1,4 @@
+import { format } from "date-fns";
 import { observer } from "mobx-react-lite";
 import React, { SyntheticEvent, useState } from "react";
 import { Link } from "react-router-dom";
@@ -35,14 +36,14 @@ export default observer(function PunetoriList() {
               <br/>
               <Item.Extra as="a" style={{color:"white"}}>EMRI: {punetori.emri}</Item.Extra>
               <Item.Meta style={{color:"white"}}> MBIEMRI: {punetori.mbiemri}</Item.Meta>
-              <Item.Meta style={{color:"white"}}>DATA E FILLIMIT TE PUNES: {punetori.date}</Item.Meta>
+              <Item.Meta style={{color:"white"}}>DATA E FILLIMIT TE PUNES: {format(punetori.date!,'dd MMM yyyy h:mm aa')}</Item.Meta>
               <Item.Extra>
                 <Button
                   as={Link}
                   to={`/punetoret/${punetori.id}`}
                   floated="right"
                   content="SHIKO"
-                  color="blue"
+                  color="green"
                 />
                 
                 <Button
@@ -51,7 +52,7 @@ export default observer(function PunetoriList() {
                   onClick={(e) => handlePunetoriDelete(e, punetori.id)}
                   floated="right"
                   content="FSHIJ"
-                  color="red"
+                  color="pink"
                 />
               </Item.Extra>
             </Item.Content>

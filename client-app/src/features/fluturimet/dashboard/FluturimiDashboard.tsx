@@ -3,24 +3,24 @@ import React, { useEffect } from "react";
 import { Grid } from "semantic-ui-react";
 import LoadingComponent from "../../../app/layout/LoadingComponent";
 import { useStore } from "../../../app/stores/store";
-// import Popper from "../../home/Popper";
-import PunetoriList from "./PunetoriList";
+import FluturimiList from "./FluturimiList";
 
-export default observer(function PunetoriDashboard() {
-  const { punetoriStore } = useStore();
-  const {loadPunetoret, punetoriRegistry} = punetoriStore;
+
+export default observer(function FluturimiDashboard() {
+  const { fluturimiStore } = useStore();
+  const {loadFluturimet, fluturimiRegistry} = fluturimiStore;
 
   useEffect(() => {
-    if(punetoriRegistry.size <= 1) loadPunetoret();
-  }, [punetoriRegistry.size, loadPunetoret]);
+    if(fluturimiRegistry.size <= 1) loadFluturimet();
+  }, [fluturimiRegistry.size, loadFluturimet]);
 
-  if (punetoriStore.loadingInitial)
-    return <LoadingComponent content="Loading Punetoret.." />;
+  if (fluturimiStore.loadingInitial)
+    return <LoadingComponent content="Loading Fluturimet.." />;
 
   return (
      <div
        style={{
-         backgroundImage: `url("https://img.freepik.com/free-vector/pilots-airplane-cockpit-jet-with-control-panel_33099-2238.jpg?size=626&ext=jpg")`,
+         backgroundImage: `url("https://images.all-free-download.com/images/graphiclarge/people_at_airport_design_in_colored_style_6826054.jpg")`,
          backgroundPosition: "center",
          backgroundRepeat: "no-repeat",
          backgroundSize: "cover",
@@ -31,7 +31,7 @@ export default observer(function PunetoriDashboard() {
      
     <Grid>
       <Grid.Column width="10">
-        <PunetoriList />
+        <FluturimiList />
       </Grid.Column>
       <Grid.Column width="5">
       </Grid.Column>

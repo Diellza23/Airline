@@ -9,3 +9,17 @@ export const categoryOptions = [
     {text:"Switzerland-Airlines", value:'8'},
     {text:"Italy-Airlines", value:'9'}
 ]
+
+export const categoryOpsions = [
+    {text:"Australia: InternationalAirport", value:'Australia: InternationalAirport'},
+    {text:"Kosovo: Prishtina-InternationalAirport", value:'Albania-PrishtinaInternationa'},
+    {text:"America: NewYork-InternationalAirport", value:'America: NewYork-InternationalAirport'},
+    {text:"America: NewJersey-InternationalAirport", value:'America: NewJersey-InternationalAirport'},
+    {text:"Albania: Tirana-InternationalAirport", value:'Albania: Tirana-InternationalAirport'},
+    {text:"Japan: Tokyo-InternationalAirport", value:'Japan: Tokyo-InternationalAirport'},
+    {text:"China: Buhan-InternationalAirport", value:'China: Buhan-InternationalAirport'},
+    {text:"France: Lion-InternationalAirport", value:'France: Lion-InternationalAirport'},
+    {text:"Spain: Ibiza-InternationalAirport", value:'Spain: Ibiza-InternationalAirport'},
+    {text:"Italy: Venice-InternationalAirport", value:'Italy: Venice-InternationalAirport'},
+    {text:"Netherlands: Amsterdam-InternationalAirport", value:'Netherlands: Amsterdam-InternationalAirport'},
+]

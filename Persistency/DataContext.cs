@@ -11,6 +11,24 @@ namespace Persistency
         }
 
         public DbSet<Punetori> Punetoret { get; set; }
+        public DbSet<PunetoretUseret> PunetoriUserat{get; set;}
+        public DbSet<Fluturimi> Fluturimet {get; set;}
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            builder.Entity<PunetoretUseret>(x => x.HasKey(aa => new {aa.AppUserId, aa.PunetoriId}));
+            
+            builder.Entity<PunetoretUseret>()
+            .HasOne(u => u.AppUser)
+            .WithMany(a => a.Punetoret)
+            .HasForeignKey(aa => aa.AppUserId);
+
+            builder.Entity<PunetoretUseret>()
+            .HasOne(u => u.Punetori)
+            .WithMany(a => a.Vizitoret)
+            .HasForeignKey(aa => aa.PunetoriId);
+        }
         
     }
 }

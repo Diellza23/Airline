@@ -1,6 +1,7 @@
 import { makeAutoObservable, runInAction } from "mobx";
 import agent from "../api/metodaAgent";
 import { Punetori } from "../models/punetori";
+import {format} from 'date-fns';
 
 export default class PunetoriStore {
   punetoriRegistry = new Map<string, Punetori>();
@@ -15,18 +16,18 @@ export default class PunetoriStore {
 
   get punetoretByDate() {
     return Array.from(this.punetoriRegistry.values()).sort(
-      (a, b) => Date.parse(a.date) - Date.parse(b.date)
+      (a, b) => a.date!.getTime() - b.date!.getTime()
     );
   }
 
   get groupedPunetoret() {
     return Object.entries(   //nje array i objekteve, cdo objekt e ka nje key qe o date dhe per cdo date do kemi array te datave
       this.punetoretByDate.reduce((punetoret, punetori) => {
-        const date = punetori.date;  
+        const date = format(punetori.date!, 'dd MMM yyyy') 
         punetoret[date] = punetoret[date] ? [...punetoret[date], punetori] : [punetori];
         return punetoret;
       }, {} as {[key: string]: Punetori[]})
-    )
+    )//change punetori,dateEnd
   }
 
   loadPunetoret = async () => {
@@ -66,9 +67,9 @@ export default class PunetoriStore {
   }
 
   private setPunetori = (punetori: Punetori) => {
-    punetori.date = punetori.date.split("T")[0];
+    punetori.date = new Date(punetori.date!);
     this.punetoriRegistry.set(punetori.id, punetori);
-  };
+  };//qitu ma ndryshe u kon
 
   private getPunetori = (id: string) => {
     return this.punetoriRegistry.get(id);
@@ -94,7 +95,6 @@ export default class PunetoriStore {
         this.loading = false;
       });
     }
-    window.location.href = "http://localhost:3000/punetoret";
   };
   
   updatePunetori = async (punetori: Punetori) => {

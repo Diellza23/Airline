@@ -1,9 +1,9 @@
 body {
-    background-color: #eaeaea !important;
+    background-color: #e7dee7 !important;
 }
 
 .ui.inverted.top.fixed.menu {
-    background-image: linear-gradient( 135deg, rgb(126, 147, 230) 0%, rgb(58, 132, 156) 69%, rgb(118, 178, 180) 89%) !important;
+    background-image: linear-gradient( 135deg, rgb(86, 201, 195) 0%, rgb(95, 156, 179) 69%, rgb(15, 159, 255) 89%) !important;
 }
 
 .container {
@@ -15,14 +15,12 @@ body {
     position: absolute;
     top: 50%;
     background: rgb(0, 0, 0);
-    /* Fallback color */
     background: rgba(0, 0, 0, 0.5);
-    /* Black background with 0.5 opacity */
     color: #f1f1f1;
     width: 100%;
     padding: 20px;
 }
 
-.react-datepicker-wrapper {
+*/ .react-datepicker-wrapper {
     width: 100%;
 }

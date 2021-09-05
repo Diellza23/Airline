@@ -1,5 +1,6 @@
 using Application.Core;
 using Application.Punetoret;
+using Application.Fluturimet;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -30,6 +31,7 @@ namespace API.Extensions
                 });
             });
             services.AddMediatR(typeof(ListaP.Handler).Assembly);
+            services.AddMediatR(typeof(ListaF.Handler).Assembly);
             services.AddAutoMapper(typeof(MappingProfiles).Assembly);
 
             return services;

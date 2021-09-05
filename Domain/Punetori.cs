@@ -10,6 +10,8 @@ namespace Domain
       public string Mbiemri {get; set;}
       public DateTime Date {get; set;}
       public string AeroplanId { get; set; }
+      public ICollection<PunetoretUseret> Vizitoret{ get; set; }
+      
 
     }
 }

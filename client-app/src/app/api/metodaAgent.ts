@@ -3,6 +3,7 @@ import { request } from "http";
 import { toast } from "react-toastify";
 import { history } from "../..";
 import { Punetori } from "../models/punetori";
+import { Fluturimi } from "../models/fluturimi";
 import { User, UserFormValues } from "../models/user";
 import { store } from "../stores/store";
 
@@ -76,10 +77,16 @@ const Punetoret = {
   list: () => requests.get<Punetori[]>("/punetoret"),
   details:(id: string) => requests.get<Punetori>("/punetoret/"+id),
   create: (punetori : Punetori) => requests.post<void>("/punetoret", punetori),
-  // update:(punetori: Punetori) => axios.put<void>("/punetoret/" +punetori.id, punetori),
-  update: (punetori: Punetori) => axios.put<void>(`/punetoret/${punetori.id}`, punetori),
+  update: (punetori: Punetori) => requests.put<void>(`/punetoret/${punetori.id}`, punetori),
   delete:(id: string) => axios.delete<void>("/punetoret/"+id)
-  // delete: (id: string) => requests.delete(`/punetoret/${id}`)
+};
+
+const Fluturimet = {
+  list: () => requests.get<Fluturimi[]>("/fluturimet"),
+  details:(id: string) => requests.get<Fluturimi>("/fluturimet/"+id),
+  create: (fluturimi : Fluturimi) => requests.post<void>("/fluturimet", fluturimi),
+  update: (fluturimi: Fluturimi) => requests.put<void>(`/fluturimet/${fluturimi.id}`, fluturimi),
+  delete:(id: string) => axios.delete<void>("/fluturimet/"+id)
 };
 
 const Account = {
@@ -92,7 +99,8 @@ const Account = {
 
 const agent = {
   Punetoret,
-  Account
+  Account,
+  Fluturimet
 
 };
 

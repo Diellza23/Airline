@@ -20,11 +20,11 @@ export default observer(function PunetoriForm() {
   const { addPunetori, updatePunetori, loading, loadPunetori,loadingInitial } = punetoriStore;
   const {id} = useParams<{id: string}>();
   
-  const [punetori, setPunetori] = useState({
+  const [punetori, setPunetori] = useState<Punetori>({
     id: '',
     emri: '',
     mbiemri: '',
-    date: '',
+    date: null,
     aeroplanId:''
   })
 
@@ -53,9 +53,11 @@ export default observer(function PunetoriForm() {
       }
 
 
-  if(loadingInitial) return <LoadingComponent content='Loading Punetoret...'/>
+  if(loadingInitial) return <LoadingComponent content='Punetoret duke u ngarkuar...'/>
 
   return (
+    <>
+    <h2 style={{textTransform:"uppercase",textAlign:"center"}}>Shto Punetorin</h2>
     
     <Segment clearing>
       <Header content='Detajet punetori' sub color='teal'/>
@@ -67,13 +69,13 @@ export default observer(function PunetoriForm() {
         {({ handleSubmit, isValid, isSubmitting, dirty}) => (
             <Form className='ui form' onSubmit={handleSubmit} autoComplete="off">
                 <h4>Emri:</h4>
-                <MyTextInput name='emri' placeholder='emri'/>
+                <MyTextInput name='emri' placeholder='Emri..'/>
                 <h4>Mbiemri:</h4>
-                <MyTextInput placeholder="Shto Mbiemrin.." name='mbiemri'/>
+                <MyTextInput placeholder="Mbiemri.." name='mbiemri'/>
                 <h4>Data e fillimit te punes:</h4>
-                <MyDateInput placeholderText='Data'  name='date' showTimeSelect timeCaption='time' dateFormat='MMMM d, yyyy h:mm aa' />
+                <MyDateInput placeholderText='Zgjedh daten'  name='date' showTimeSelect timeCaption='time' dateFormat='MMMM d, yyyy h:mm aa' />
                 <h4>Aeroplani: </h4>
-                <MySelectInput options={categoryOptions}placeholder="Shto Id Aeroplanit" name="aeroplanId"  />
+                <MySelectInput options={categoryOptions}placeholder="Linja e Aeroplanit.." name="aeroplanId"  />
                 <Button 
                 disabled={isSubmitting || !dirty || !isValid}
                 loading={loading} floated="right"  positive type="submit" content="SHTO"/>
@@ -83,5 +85,6 @@ export default observer(function PunetoriForm() {
       </Formik>
       
     </Segment>
+    </>
   );
 })

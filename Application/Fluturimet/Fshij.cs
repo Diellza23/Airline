@@ -5,7 +5,7 @@ using Application.Core;
 using MediatR;
 using Persistency;
 
-namespace Application.Punetoret
+namespace Application.Fluturimet
 {
     public class Fshij
     {
@@ -24,15 +24,15 @@ namespace Application.Punetoret
 
             public async Task<Result<Unit>> Handle(Command request, CancellationToken cancellationToken)
             {
-                var punetori = await _context.Punetoret.FindAsync(request.Id); //guid id
+                var fluturimi = await _context.Fluturimet.FindAsync(request.Id); //guid id
 
-                if(punetori == null) return null;
+                if(fluturimi == null) return null;
             
-                _context.Remove(punetori);
+                _context.Remove(fluturimi);
 
                 var result = await _context.SaveChangesAsync()>0;
 
-                if(!result) return Result<Unit>.Failure("Failded to delete punetori");
+                if(!result) return Result<Unit>.Failure("Failded to delete fluturimi");
 
                 return Result<Unit>.Success(Unit.Value);
             }
