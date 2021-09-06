@@ -17,10 +17,12 @@ export default observer(function DetajetPunetori() {
 
   if (loadingInitial || !punetori) return <LoadingComponent />;
 
+
+
   return (
     <>
-    <h1 style={{textAlign:"center",color:"grey"}}>DETAJET E PUNETORIT</h1>
-    <Card fluid style={{backgroundColor:'#f0ffff'}}>
+    <h1 style={{textAlign:"center",color:"whitesmoke",backgroundColor:"#ff7a7a", padding:"20px"}}>DETAJET E PUNETORIT</h1>
+    <Card fluid style={{backgroundColor:'#b9fae2'}}>
       <Card.Content style={{backgroundColor:'#f0ffff', padding: '12px 8px 12px 40px',margin:'40px',background: '#eee',fontSize: '15px',borderLeft:'6px solid black',
       borderBottom:'4px solid black',
     }}>
@@ -40,11 +42,11 @@ export default observer(function DetajetPunetori() {
           <Button
             as={Link}
             to={`/manage/${punetori.id}`} 
-            basic
+            
             color="blue"
             content="MODIFIKO"
           />
-          <Button as={Link} to="/punetoret" basic color="red" content="ANULO" />
+          <Button as={Link} to="/punetoret" color="pink" content="ANULO" />
         </Button.Group>
       </Card.Content>
     </Card>

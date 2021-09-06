@@ -19,8 +19,8 @@ export default observer(function DetajetFluturimi() {
 
   return (
     <>
-    <h1 style={{textAlign:"center",color:"solid black"}}>FLIGHT DETAILS</h1>
-    <Card fluid style={{backgroundColor:'#f0ffff'}}>
+    <h1 style={{textAlign:"center",color:"white",backgroundColor:"#74718a", padding:"25px"}}>FLIGHT DETAILS</h1>
+    <Card fluid style={{backgroundColor:'#74718a'}}>
       <Card.Content style={{backgroundColor:'#f0ffff', padding: '12px 8px 12px 40px',margin:'40px',background: '#eee',fontSize: '15px',borderLeft:'6px solid black',
       borderBottom:'4px solid black',
     }}>
@@ -36,11 +36,10 @@ export default observer(function DetajetFluturimi() {
           <Button
             as={Link}
             to={`/managee/${fluturimi.id}`} 
-            basic
-            color="blue"
+            color="green"
             content="MODIFIKO"
           />
-          <Button as={Link} to="/fluturimet" basic color="red" content="ANULO" />
+          <Button as={Link} to="/fluturimet"  color="pink" content="ANULO" />
         </Button.Group>
       </Card.Content>
     </Card>

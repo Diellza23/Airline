@@ -55,30 +55,31 @@ export default observer(function FluturimiForm() {
   if(loadingInitial) return <LoadingComponent content='Loading fluturimet...'/>
 
   return (
-    
-    <Segment clearing>
-      <Header content='Detajet fluturimi' sub color='teal'/>
+    <>
+    <h1 style={{textAlign:"center",textTransform:"uppercase",border:"1px solid green",borderRadius:"5px",backgroundColor:"#41d9a0",color:"white",padding:"20px",marginBottom:"50px"}}>Detajet e Fluturimit</h1>
+    <Segment clearing style={{backgroundColor:"#b0cbf5"}}>
       <Formik
       validationSchema={validationSchema} 
       enableReinitialize 
       initialValues={fluturimi} 
       onSubmit={values => handleFormSubmit(values)}>
         {({ handleSubmit, isValid, isSubmitting, dirty}) => (
-            <Form className='ui form' onSubmit={handleSubmit} autoComplete="off">
-                <h4>Vendi i nisjes:</h4>
+            <Form className='ui form' onSubmit={handleSubmit} autoComplete="off" >
+                <h4 style={{textTransform:"uppercase",fontFamily:"sans-serif"}}>Vendi i nisjes:</h4>
                 <MyTextInput name='vendiNisjes' placeholder='Vendi i nisjes'/>
-                <h4>Vendi i mberritjes:</h4>
+                <h4 style={{textTransform:"uppercase",fontFamily:"sans-serif"}}>Vendi i mberritjes:</h4>
                 <MySelectInput options={categoryOpsions}placeholder="Destinacioni.." name="vendiMberritjes"  />
-                <h4>Data e fluturimit:</h4>
+                <h4 style={{textTransform:"uppercase",fontFamily:"sans-serif"}}>Data e fluturimit:</h4>
                 <MyDateInput placeholderText='Zgjedh daten'  name='date' showTimeSelect timeCaption='time' dateFormat='MMMM d, yyyy h:mm aa' />
                 <Button 
                 disabled={isSubmitting || !dirty || !isValid}
                 loading={loading} floated="right"  positive type="submit" content="SHTO"/>
-                <Button as={Link} to ='/fluturimet' floated="right" type="button" content="ANULO" basic color="red"/>
+                <Button as={Link} to ='/fluturimet' floated="right" type="button" content="ANULO" color="orange"/>
             </Form>
         )}
       </Formik>
       
     </Segment>
+    </>
   );
 })

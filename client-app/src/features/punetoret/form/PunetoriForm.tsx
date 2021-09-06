@@ -57,10 +57,9 @@ export default observer(function PunetoriForm() {
 
   return (
     <>
-    <h2 style={{textTransform:"uppercase",textAlign:"center"}}>Shto Punetorin</h2>
+    <h1 style={{textAlign:"center",color:"white",backgroundColor:"#c159cf", padding:"25px",textTransform:"uppercase"}}>Detajet e punetorit</h1>
     
     <Segment clearing>
-      <Header content='Detajet punetori' sub color='teal'/>
       <Formik
       validationSchema={validationSchema} 
       enableReinitialize 
@@ -79,7 +78,7 @@ export default observer(function PunetoriForm() {
                 <Button 
                 disabled={isSubmitting || !dirty || !isValid}
                 loading={loading} floated="right"  positive type="submit" content="SHTO"/>
-                <Button as={Link} to ='/punetoret' floated="right" type="button" content="ANULO" basic color="red"/>
+                <Button as={Link} to ='/punetoret' floated="right" type="button" content="ANULO"  color="pink"/>
             </Form>
         )}
       </Formik>

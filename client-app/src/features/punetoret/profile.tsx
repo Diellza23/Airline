@@ -9,10 +9,10 @@ export default function Profile() {
   } = useStore();
 
 
-
+  // style={{textAlign:"center",color:"white",backgroundColor:"#c159cf", padding:"25px",textTransform:"uppercase"}}
   return (
     <>
-    <h1 style={{textTransform:"uppercase",textAlign:"left"}}>Te dhena personale</h1>
+    <h1 style={{textTransform:"uppercase",textAlign:"left",padding:"20px",border:"1px solid gray",backgroundColor:"lightgrey"}}>Te dhena personale</h1>
       <table className="ui celled table">
         <thead>
           <tr>
@@ -65,7 +65,7 @@ export default function Profile() {
   </div>
 </div>
 
-<div className="ui category search" style={{float:"right",marginTop:"-330px"}}>
+<div className="ui category search" style={{float:"right",marginTop:"-335px",marginRight:"20px"}}>
   <div className="ui icon input">
     <input className="prompt" type="text" placeholder="Search..."/>
     <i className="search icon"></i>
