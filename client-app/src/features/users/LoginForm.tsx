@@ -37,7 +37,6 @@ export default observer (function LoginForm() {
                     <img src="/assets/google.png"  width="22" height="22"/></a>
                     </div>
                     <h6 style={{float:"left"}}>Copyright<img src="/assets/copy.png" width="13" height="10"/>2021 All rights reserved.</h6>
-                    
                 </Form>
             )}
         </Formik>

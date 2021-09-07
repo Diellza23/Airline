@@ -16,7 +16,7 @@ export default function Profile() {
       <table className="ui celled table">
         <thead>
           <tr>
-            <th style={{ width: "100px", height: "30px" }}>
+            <th style={{ width: "200px", height: "30px" }}>
               Emri: {user?.displayName}
             </th>
             <th>Username : {user?.username}</th>

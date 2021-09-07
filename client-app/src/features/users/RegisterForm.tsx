@@ -41,7 +41,7 @@ export default observer (function RegisterForm() {
                         name='error' render={() => 
                         <ValidationErrors errors={errors.error}/>}
                     />
-                    <Button disabled={!isValid || !dirty || isSubmitting} loading={isSubmitting} positive content='Register' type='submit' fluid
+                    <Button disabled={!isValid || !dirty || isSubmitting} loading={isSubmitting} positive content='Sign up' type='submit' fluid
                     style={{borderRadius:"20px"}}/>
                     <h5>Already have an account? Login instead. </h5>
                     
