@@ -8,5 +8,7 @@ namespace Domain
       public string VendiNisjes {get; set;}
       public string VendiMberritjes {get; set;}
       public DateTime Date {get; set;}
+    
+      // public Udhetari Udhetari { get; set; }
     }
 }

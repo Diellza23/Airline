@@ -6,6 +6,8 @@ import { Punetori } from "../models/punetori";
 import { Fluturimi } from "../models/fluturimi";
 import { User, UserFormValues } from "../models/user";
 import { store } from "../stores/store";
+import { Udhetari } from "../models/udhetari";
+import { UdhetariUser, UdhetariUserFormValues } from "../models/udhetariUser";
 
 const sleep = (delay: number) => {
   return new Promise((resolve) => {
@@ -92,15 +94,38 @@ const Fluturimet = {
 const Account = {
   current: () => requests.get<User>('/account'),
   login: (user: UserFormValues) => requests.post<User>('/account/login', user),
-  register: (user: UserFormValues) => requests.post<User>('/account/register', user)
-}
+  // register: (user: UserFormValues) => requests.post<User>('/account/register', user)
+};
+
+const Udhetaret = {
+  list: () => requests.get<Udhetari[]>("/udhetari"),
+  details: (id: string) => requests.get<Udhetari>(`/udhetari/${id}`),
+  create: (udhetari: Udhetari) => axios.post<void>(`/udhetari`, udhetari),
+  update: (udhetari: Udhetari) => {
+    console.log("upd:", udhetari);
+    return axios.put<void>(`/udhetari/${udhetari.id}`, udhetari);
+  },
+  delete: (id: string) => axios.delete<void>(`/udhetari/${id}`),
+};
+
+const AccountUdhetari = {
+  currentUdhetari: () =>
+    requests.get<UdhetariUser>("/UdhetariAccount/currentUdhetari"),
+    
+  login: (udhetari: UdhetariUserFormValues) =>
+    requests.post<UdhetariUser>("/UdhetariAccount/loginUdhetari", udhetari),
+  register: (udhetari: UdhetariUserFormValues) =>
+    requests.post<UdhetariUser>("/UdhetariAccount/registerUdhetari", udhetari),
+};
 
 
 
 const agent = {
   Punetoret,
   Account,
-  Fluturimet
+  Fluturimet,
+  Udhetaret,
+  AccountUdhetari
 
 };
 

@@ -6,6 +6,7 @@ import { Button, Item, Segment } from "semantic-ui-react";
 import { useStore } from "../../../app/stores/store";
 // import SegmentExm from "./SegmentExm";
 
+
 export default observer(function PunetoriList() {
   const { punetoriStore } = useStore();
   const { deletePunetori, punetoretByDate, loading } = punetoriStore;

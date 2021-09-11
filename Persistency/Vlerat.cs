@@ -42,6 +42,23 @@ namespace Persistency
 
            await context.SaveChangesAsync();
        }
+       public static async Task SeedDataUdhetaret(DataContext context, UserManager<Udhetari> userManager)
+        {
+            if (!userManager.Users.Any())
+            {
+                var udhetaret = new List<Udhetari>
+                {
+                    new Udhetari{DisplayName = "DiellzaKosumi", Emri = "Diellza", Mbiemri = "Kosumi", Birthday = new DateTime(2001, 12, 12), UserName= "diellzakosumi", Email= "diellza@airline.net"},
+                    new Udhetari{DisplayName = "Melanie B", Emri = "Melanie", Mbiemri = "Halliwel", Birthday = new DateTime(2002, 10, 05), UserName= "melb", Email= "melb@airline.net"},
+                };
+
+                foreach (var udhetari in udhetaret)
+                {
+                    await userManager.CreateAsync(udhetari, "Pa$$w0rd");
+                }
+            }
+
+        }
        
    }
 }

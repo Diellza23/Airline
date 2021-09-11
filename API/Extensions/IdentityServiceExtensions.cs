@@ -22,6 +22,13 @@ namespace API.Extensions
             .AddEntityFrameworkStores<DataContext>()
             .AddSignInManager<SignInManager<AppUser>>();
 
+            services.AddIdentityCore<Udhetari>(opt =>
+           {
+               opt.Password.RequireNonAlphanumeric = false;
+           }).AddEntityFrameworkStores<DataContext>()
+           .AddSignInManager<SignInManager<Udhetari>>();
+
+
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["TokenKey"]));
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

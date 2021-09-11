@@ -30,6 +30,8 @@ namespace API
                 var userManager = services.GetRequiredService<UserManager<AppUser>>();
                 await context.Database.MigrateAsync(); //nese nuk ka databaze e krijon vet
                 await Vlerat.SeedData(context, userManager);
+                var udhetariManager = services.GetRequiredService<UserManager<Udhetari>>();
+                await Vlerat.SeedDataUdhetaret(context, udhetariManager);
             }
             catch(Exception ex)
             {

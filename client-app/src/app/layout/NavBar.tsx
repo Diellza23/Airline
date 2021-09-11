@@ -9,11 +9,12 @@ export default observer(function NavBar() {
   return (
     <Menu inverted fixed="top">
       <Container >
-        <Menu.Item as={NavLink} to="/" exact header style={{textTransform:"uppercase"}}>
+        {/* <Menu.Item as={NavLink} to="/" exact header style={{textTransform:"uppercase"}}>
           Home
-        </Menu.Item>
+        </Menu.Item> */}
         <Menu.Item as={NavLink} to="/punetoret" name="Punetoret" style={{textTransform:"uppercase",fontWeight:"bold"}}/>
         <Menu.Item as={NavLink} to="/fluturimet" name="Fluturimet" style={{textTransform:"uppercase",fontWeight:"bold"}}/>
+        {/* <Menu.Item as={NavLink} to="/udhetari" name="Udhetari" style={{textTransform:"uppercase",fontWeight:"bold"}}/> */}
         {/* <Menu.Item as={NavLink} to="/errors" name="Errors" /> */}
         {/* <Menu.Item>
           <Button as={NavLink} to="/addPunetori" positive content="Shto punetorë" />
@@ -31,6 +32,7 @@ export default observer(function NavBar() {
           </Dropdown>
         </Menu.Item>
         <Menu.Item></Menu.Item>
+        
       </Container>
     </Menu>
   );

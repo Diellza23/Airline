@@ -3,6 +3,7 @@ import CommonStore from "./commonStore";
 import FluturimiStore from "./fluturimiStore";
 import ModalStore from "./modalStore";
 import PunetoriStore from "./punetoriStore";
+import UdhetariStore from "./udhetariStore";
 import UserStore from "./userStore";
 
 interface Store{
@@ -11,6 +12,7 @@ interface Store{
     userStore: UserStore;
     commonStore: CommonStore;
     modalStore: ModalStore;
+    udhetariStore: UdhetariStore;
 } 
 
 export const store: Store ={
@@ -19,6 +21,7 @@ export const store: Store ={
     userStore: new UserStore(),
     commonStore: new CommonStore(),
     modalStore: new ModalStore(),
+    udhetariStore: new UdhetariStore()
 }
 
 export const StoreContext = createContext(store);

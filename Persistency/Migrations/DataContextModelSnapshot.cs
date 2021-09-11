@@ -95,6 +95,9 @@ namespace Persistency.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("UdhetariId")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("VendiMberritjes")
                         .HasColumnType("TEXT");
 
@@ -103,25 +106,9 @@ namespace Persistency.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("UdhetariId");
+
                     b.ToTable("Fluturimet");
-                });
-
-            modelBuilder.Entity("Domain.PunetoretUseret", b =>
-                {
-                    b.Property<string>("AppUserId")
-                        .HasColumnType("TEXT");
-
-                    b.Property<Guid>("PunetoriId")
-                        .HasColumnType("TEXT");
-
-                    b.Property<bool>("IsHost")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("AppUserId", "PunetoriId");
-
-                    b.HasIndex("PunetoriId");
-
-                    b.ToTable("PunetoriUserat");
                 });
 
             modelBuilder.Entity("Domain.Punetori", b =>
@@ -145,6 +132,70 @@ namespace Persistency.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Punetoret");
+                });
+
+            modelBuilder.Entity("Domain.Udhetari", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("Birthday")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("DisplayName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Emri")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Mbiemri")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Udhetaret");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -275,23 +326,13 @@ namespace Persistency.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Domain.PunetoretUseret", b =>
+            modelBuilder.Entity("Domain.Fluturimi", b =>
                 {
-                    b.HasOne("Domain.AppUser", "AppUser")
-                        .WithMany("Punetoret")
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("Domain.Udhetari", "Udhetari")
+                        .WithMany("Fluturimet")
+                        .HasForeignKey("UdhetariId");
 
-                    b.HasOne("Domain.Punetori", "Punetori")
-                        .WithMany("Vizitoret")
-                        .HasForeignKey("PunetoriId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("AppUser");
-
-                    b.Navigation("Punetori");
+                    b.Navigation("Udhetari");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -345,14 +386,9 @@ namespace Persistency.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Domain.AppUser", b =>
+            modelBuilder.Entity("Domain.Udhetari", b =>
                 {
-                    b.Navigation("Punetoret");
-                });
-
-            modelBuilder.Entity("Domain.Punetori", b =>
-                {
-                    b.Navigation("Vizitoret");
+                    b.Navigation("Fluturimet");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,7 +1,10 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, Route } from "react-router-dom";
 import { Button, Grid } from "semantic-ui-react";
+import NavBar from "../../app/layout/NavBar";
 import { useStore } from "../../app/stores/store";
+import FluturimiForm from "../fluturimet/form/FluturimiForm";
+import PunetoriForm from "./form/PunetoriForm";
 
 export default function Profile() {
   const {
@@ -12,6 +15,7 @@ export default function Profile() {
   // style={{textAlign:"center",color:"white",backgroundColor:"#c159cf", padding:"25px",textTransform:"uppercase"}}
   return (
     <>
+    <NavBar/>
     <h1 style={{textTransform:"uppercase",textAlign:"left",padding:"20px",border:"1px solid gray",backgroundColor:"lightgrey"}}>Te dhena personale</h1>
       <table className="ui celled table">
         <thead>
