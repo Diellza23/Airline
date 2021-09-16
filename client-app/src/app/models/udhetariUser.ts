@@ -10,12 +10,12 @@ export interface UdhetariUser {
     email?: string;
 }
 
-export interface UdhetariUserFormValues {
+export interface UdhetariuserFormValues {
     email: string;
     password: string;
     displayName?: string;
     userName?: string;
-    Birthday?: string | Date;
+    birthday?: string | Date;
     emri?: string;
     mbiemri?: string;
 }

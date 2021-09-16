@@ -7,7 +7,8 @@ import { Fluturimi } from "../models/fluturimi";
 import { User, UserFormValues } from "../models/user";
 import { store } from "../stores/store";
 import { Udhetari } from "../models/udhetari";
-import { UdhetariUser, UdhetariUserFormValues } from "../models/udhetariUser";
+import { UdhetariUser, UdhetariuserFormValues } from "../models/udhetariUser";
+import { Rezervimi } from "../models/rezervimi";
 
 const sleep = (delay: number) => {
   return new Promise((resolve) => {
@@ -91,6 +92,14 @@ const Fluturimet = {
   delete:(id: string) => axios.delete<void>("/fluturimet/"+id)
 };
 
+const Rezervimet = {
+  list: () => requests.get<Rezervimi[]>("/rezervimet"),
+  details:(id: string) => requests.get<Rezervimi>("/rezervimet/"+id),
+  create: (rezervimi : Rezervimi) => requests.post<void>("/rezervimet", rezervimi),
+  update: (rezervimi: Rezervimi) => requests.put<void>(`/rezervimet/${rezervimi.id}`, rezervimi),
+  delete:(id: string) => axios.delete<void>("/rezervimet/"+id)
+};
+
 const Account = {
   current: () => requests.get<User>('/account'),
   login: (user: UserFormValues) => requests.post<User>('/account/login', user),
@@ -102,7 +111,7 @@ const Udhetaret = {
   details: (id: string) => requests.get<Udhetari>(`/udhetari/${id}`),
   create: (udhetari: Udhetari) => axios.post<void>(`/udhetari`, udhetari),
   update: (udhetari: Udhetari) => {
-    console.log("upd:", udhetari);
+    // console.log("upd:", udhetari);
     return axios.put<void>(`/udhetari/${udhetari.id}`, udhetari);
   },
   delete: (id: string) => axios.delete<void>(`/udhetari/${id}`),
@@ -111,10 +120,9 @@ const Udhetaret = {
 const AccountUdhetari = {
   currentUdhetari: () =>
     requests.get<UdhetariUser>("/UdhetariAccount/currentUdhetari"),
-    
-  login: (udhetari: UdhetariUserFormValues) =>
+  login: (udhetari: UdhetariuserFormValues) =>
     requests.post<UdhetariUser>("/UdhetariAccount/loginUdhetari", udhetari),
-  register: (udhetari: UdhetariUserFormValues) =>
+  register: (udhetari: UdhetariuserFormValues) =>
     requests.post<UdhetariUser>("/UdhetariAccount/registerUdhetari", udhetari),
 };
 
@@ -125,6 +133,7 @@ const agent = {
   Account,
   Fluturimet,
   Udhetaret,
+  Rezervimet,
   AccountUdhetari
 
 };

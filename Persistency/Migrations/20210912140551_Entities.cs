@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Persistency.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class Entities : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -46,6 +46,20 @@ namespace Persistency.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Fluturimet",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    VendiNisjes = table.Column<string>(type: "TEXT", nullable: true),
+                    VendiMberritjes = table.Column<string>(type: "TEXT", nullable: true),
+                    Date = table.Column<DateTime>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Fluturimet", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -198,27 +212,6 @@ namespace Persistency.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Fluturimet",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
-                    VendiNisjes = table.Column<string>(type: "TEXT", nullable: true),
-                    VendiMberritjes = table.Column<string>(type: "TEXT", nullable: true),
-                    Date = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    UdhetariId = table.Column<string>(type: "TEXT", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Fluturimet", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Fluturimet_Udhetaret_UdhetariId",
-                        column: x => x.UdhetariId,
-                        principalTable: "Udhetaret",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -255,11 +248,6 @@ namespace Persistency.Migrations
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
                 unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Fluturimet_UdhetariId",
-                table: "Fluturimet",
-                column: "UdhetariId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -286,13 +274,13 @@ namespace Persistency.Migrations
                 name: "Punetoret");
 
             migrationBuilder.DropTable(
+                name: "Udhetaret");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
-                name: "Udhetaret");
         }
     }
 }

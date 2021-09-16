@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistency;
 
 namespace Persistency.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20210912140551_Entities")]
+    partial class Entities
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -127,32 +129,6 @@ namespace Persistency.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Punetoret");
-                });
-
-            modelBuilder.Entity("Domain.Rezervimi", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("Departure")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Personat")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("Return")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Vendi_Mberritjes")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Vendi_Nisjes")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Rezervimet");
                 });
 
             modelBuilder.Entity("Domain.Udhetari", b =>

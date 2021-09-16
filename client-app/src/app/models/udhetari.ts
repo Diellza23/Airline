@@ -7,13 +7,4 @@ export interface Udhetari {
     mbiemri: string
   }
 
-  export interface UdhetariuserFormValues{
-    email: string;
-    password: string;
-    displayName?: string;
-    userName?: string;
-    emri?: string;
-    mbiemri?: string;
-    birthday?: string | Date;
-  }
   

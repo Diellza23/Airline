@@ -1,12 +1,14 @@
 import React from "react";
 import { Link, NavLink, Route } from "react-router-dom";
 import { Button, Grid } from "semantic-ui-react";
-import NavBar from "../../app/layout/NavBar";
+import NavBar from "./NavBar";
 import { useStore } from "../../app/stores/store";
 import FluturimiForm from "../fluturimet/form/FluturimiForm";
 import PunetoriForm from "./form/PunetoriForm";
+import { observer } from "mobx-react-lite";
 
-export default function Profile() {
+export default observer(function Profile() {
+
   const {
     userStore: { user },
   } = useStore();
@@ -43,7 +45,7 @@ export default function Profile() {
           data-position="right center"
           style={{backgroundColor:"#59f7f7",fontSize:"17px"}}
         >
-          Njoftimet---
+          Reminder---
         </div>
         <a className="item">
           <div className="ui small label">1</div>
@@ -87,4 +89,4 @@ export default function Profile() {
 
     </>
   );
-}
+})

@@ -8,47 +8,50 @@ import { v4 as uuid } from "uuid";
 import { Formik, Form } from "formik";
 import * as Yup from 'yup';
 import MyTextInput from "../../../app/common/form/MyTextInput";
-import MySelectInput from "./MySelectInput";
+// import MySelectInput from "./MySelectInput";
 import { categoryOptions } from "../../../app/common/options/categoryOptions";
 import MyDateInput from "../../../app/common/form/MyDateInput";
-import { Punetori } from "../../../app/models/punetori";
+import { Rezervimi } from "../../../app/models/rezervimi";
+import MySelectInput from "../../punetoret/form/MySelectInput";
 
-export default observer(function PunetoriForm() {                           
+export default observer(function RezervimiForm() {                           
   const history = useHistory();
 
-  const {punetoriStore} = useStore();
-  const { addPunetori, updatePunetori, loading, loadPunetori,loadingInitial } = punetoriStore;
+  const {rezervimiStore} = useStore();
+  const { addRezervimi, updateRezervimi, loading, loadRezervimi,loadingInitial } = rezervimiStore;
   const {id} = useParams<{id: string}>();
   
-  const [punetori, setPunetori] = useState<Punetori>({
+  const [rezervimi, setRezervimi] = useState<Rezervimi>({
     id: '',
-    emri: '',
-    mbiemri: '',
-    date: null,
-    aeroplanId:''
+    vendi_Nisjes:'',
+    vendi_Mberritjes:'',
+    departure: null,
+    return: null,
+    personat:''
   })
 
   const validationSchema = Yup.object({
-    emri: Yup.string().required('Emri i punetorit i nevojitur!'),
-    mbiemri: Yup.string().required('Mbiemri i punetorit i nevojitur!'),
-    date: Yup.string().required('Data e punesimit e nevojitur!').nullable(),
-    aeroplanId: Yup.string().required('Id e Aeroplanit e nevojitur!')
+    vendi_Nisjes: Yup.string().required('Emri i punetorit i nevojitur!'),
+    vendi_Mberritjes: Yup.string().required('Mbiemri i punetorit i nevojitur!'),
+    departure: Yup.string().required('Data e punesimit e nevojitur!').nullable(),
+    return: Yup.string().required('Data e punesimit e nevojitur!').nullable(),
+    personat: Yup.string().required('Id e Aeroplanit e nevojitur!')
   })
 
   useEffect(() =>{
-    if(id) loadPunetori(id).then(punetori => setPunetori(punetori!))
-  }, [id, loadPunetori]); //dependency 
+    if(id) loadRezervimi(id).then(rezervimi => setRezervimi(rezervimi!))
+  }, [id, loadRezervimi]); //dependency 
 
 
-  function handleFormSubmit(punetori: Punetori) {
-      if(punetori.id.length === 0){ 
-        let newPunetori = {
-          ...punetori,
+  function handleFormSubmit(rezervimi: Rezervimi) {
+      if(rezervimi.id.length === 0){ 
+        let newRezervimi = {
+          ...rezervimi,
           id:uuid()
         };
-        addPunetori(newPunetori).then(() => history.push(`/punetoret/${newPunetori.id}`))
+        addRezervimi(newRezervimi).then(() => history.push(`/rezervimet/${newRezervimi.id}`))
       } else{
-        updatePunetori(punetori).then(() => history.push(`/punetoret/${punetori.id}`))
+        updateRezervimi(rezervimi).then(() => history.push(`/rezervimet/${rezervimi.id}`))
       }
       }
 
@@ -57,13 +60,13 @@ export default observer(function PunetoriForm() {
 
   return (
     <>
-    <h1 style={{textAlign:"center",color:"white",backgroundColor:"rgba(148, 124, 176, 1)", padding:"25px",textTransform:"uppercase"}}>Detajet e punetorit</h1>
+    <h1 style={{textAlign:"center",color:"white",backgroundColor:"#c159cf", padding:"25px",textTransform:"uppercase"}}>Detajet e punetorit</h1>
     
     <Segment clearing>
       <Formik
       validationSchema={validationSchema} 
       enableReinitialize 
-      initialValues={punetori} 
+      initialValues={rezervimi} 
       onSubmit={values => handleFormSubmit(values)}>
         {({ handleSubmit, isValid, isSubmitting, dirty}) => (
             <Form className='ui form' onSubmit={handleSubmit} autoComplete="off">
@@ -78,7 +81,7 @@ export default observer(function PunetoriForm() {
                 <Button 
                 disabled={isSubmitting || !dirty || !isValid}
                 loading={loading} floated="right"  positive type="submit" content="SHTO"/>
-                <Button as={Link} to ='/punetoret' floated="right" type="button" content="ANULO"  color="pink"/>
+                <Button as={Link} to ='/rezervimet' floated="right" type="button" content="ANULO"  color="pink"/>
             </Form>
         )}
       </Formik>

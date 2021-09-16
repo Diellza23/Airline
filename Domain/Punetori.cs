@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 
 namespace Domain
 {
@@ -10,7 +9,6 @@ namespace Domain
       public string Mbiemri {get; set;}
       public DateTime Date {get; set;}
       public string AeroplanId { get; set; }
-      
 
     }
 }

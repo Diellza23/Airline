@@ -29,7 +29,7 @@ export default observer(function PunetoriDashboard() {
        }}
      > 
      
-    <Grid>
+    <Grid style={{marginLeft:"185px",width:"1200px"}}>
       <Grid.Column width="10">
         <PunetoriList />
       </Grid.Column>

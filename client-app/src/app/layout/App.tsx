@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Container } from "semantic-ui-react";
-import NavBar from "./NavBar";
+import NavBar from "../../features/punetoret/NavBar";
 import PunetoriDashboard from "../../features/punetoret/dashboard/PunetoriDashboard";
 import FluturimiDashboard from "../../features/fluturimet/dashboard/FluturimiDashboard";
 import { observer } from "mobx-react-lite";
@@ -19,15 +19,13 @@ import { useStore } from "../stores/store";
 import LoadingComponent from "./LoadingComponent";
 import ModalContainer from "../common/modals/ModalContainer";
 import Profile from "../../features/punetoret/profile";
-// import NavBarUdhetari from "../../featuresUdhetari/NavBarUdhetari";
-// import UdhetariPage from "../../featuresUdhetari/UdhetariPage";
-// import UdhetariDashboard from "../../features/udhetaret/dashboard/UdhetariDashboard";
-// import UdhetariDetails from "../../features/udhetaretAdmin/details/UdhetariDetails";
-// import UdhetariList from "../../features/udhetaret/dashboard/UdhetariList";
 import LoginFormUdhetari from "../../features/udhetaret/form/LoginFormUdhetari";
 import UdhetariNavBar from "../../features/udhetaret/UdhetariNavBar";
 import UdhetariProfile from "../../features/udhetaret/UdhetariProfile";
-// import ProfileUdhetari from "../../features/udhetaret/profileUdhetari";
+import DetajetRezervimi from "../../features/rezervimet/detajet/DetajetRezervimi";
+import RezervimiDashboard from "../../features/rezervimet/dashboard/RezervimiDashboard";
+import RezervimiForm from "../../features/rezervimet/form/RezervimiForm";
+// import UdhetaretList from "../../features/udhetaret/UdhetaretList";
 
 function App() {
   const location = useLocation();
@@ -42,14 +40,14 @@ function App() {
     }
   }, [commonStore, userStore])
 
-  commonStore.setAppLoaded();
-  useEffect(() => {
-    if(commonStore.token) {
-      udhetariStore.getUdhetari().finally(() => commonStore.setAppLoaded());
-    } else {
-      commonStore.setAppLoaded();
-    }
-  }, [commonStore, udhetariStore])
+  //  useEffect(() => {
+  //   if(commonStore.token) {
+  //     udhetariStore.getUdhetari().finally(() => commonStore.setAppLoaded());
+  //   } else {
+  //     commonStore.setAppLoaded();
+  //   }
+   
+  //  }, [commonStore, udhetariStore])
 
   if(!commonStore.appLoaded) return <LoadingComponent content='Loading app..'/>
 
@@ -59,29 +57,28 @@ function App() {
       <ModalContainer/>
         <Route exact path="/" component={HomePage} />
 
-        <Route path={"/(.+)"} render={() => (
+        
             <>
-              <NavBar />
              <Container style={{ marginTop: "7em" }}>
                 <Switch>    
                   <Route exact path="/punetoret" component={PunetoriDashboard} />
-                  <Route exact path="/profile" component={Profile} />
+                  <Route path="/profile" component={Profile} />
                   <Route exact path="/fluturimet" component={FluturimiDashboard} />
                 <Route path='/punetoret/:id' component={DetajetPunetori} /> 
                 <Route path='/fluturimet/:id' component={DetajetFluturimi} />
                 <Route key={location.key} path={['/addPunetori', '/manage/:id']} component={PunetoriForm}/>                
                 <Route key={location.key} path={['/addFluturimi', '/managee/:id']} component={FluturimiForm}/>                
                 {/* <Route path='/errors' component={TestErrors}/> */}
-                {/* <Route path='/server-error' component={ServerError} /> */}
-                <Route path='/login' component={LoginForm}/> 
+                <Route path='/server-error' component={ServerError} />
+                {/* <Route path='/login' component={LoginForm}/>  */}
                 {/* <Route component={NotFound}/> */}
                 </Switch>
                 
               </Container>
               <Switch></Switch>
             </>
-          )}
-        />
+          
+        
         {/* <Route path={"/udhetariPage/(.+)"} render={() => ( */}
             <>
               {/* <UdhetariNavBar /> */}
@@ -89,54 +86,14 @@ function App() {
                 <Switch>    
                   {/* <Route exact path="/udhetariProfile" component={UdhetariProfile} /> */}
                   <Route path="/udhetariProfile" component={UdhetariProfile} />
+                  <Route key={location.key} path={['/addRezervimi', '/manageee/:id']} component={RezervimiForm}/>  
+                  <Route exact path="/rezervimet" component={RezervimiDashboard} />
+                  <Route path='/rezervimet/:id' component={DetajetRezervimi} />
                 {/* <Route path='/loginUdhetari' component={LoginFormUdhetari}/>  */}
                 </Switch>
                 
             </>
-          {/* )} */}
-        {/* /> */}
-
-      {/* <Route path="/udhetariPage" component={UdhetariPage} />
-      <Route
-        path={"/udhetariPage/(.+)"}
-        render={() => (
-          <>
-            <NavBarUdhetari />
-
-            <Container style={{ marginTop: "7em" }}>
-              <Switch>
-                
-                <Route
-                  path="/nxenesiPage/njoftimet/"
-                  component={DashboardNjoftimi}
-                />
-                <Route
-                  path="/nxenesiPage/librat/"
-                  component={DashboardLibri}
-                />
-                <Route
-                  path="/nxenesiPage/feedbacks"
-                  component={NxenesiFeedbacks}
-                />
-                <Route
-                  path="/nxenesiPage/oraret"
-                  component={OraretDashboardStudenti}
-                />
-                <Route
-                  path="/nxenesiPage/autobusatOrari"
-                  component={AutobusatDashboardStudenti}
-                />
-                <Route
-                  path="/nxenesiPage/aktivitetet"
-                  component={AktivitetetDashboardStudenti}
-                />
-              </Switch>
-            </Container>
-          </>
-        )}
-      /> */}
       </>
-    // </div>
   );
 }
 

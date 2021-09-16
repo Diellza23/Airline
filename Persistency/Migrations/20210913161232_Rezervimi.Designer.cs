@@ -9,8 +9,8 @@ using Persistency;
 namespace Persistency.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210910163032_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20210913161232_Rezervimi")]
+    partial class Rezervimi
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -97,9 +97,6 @@ namespace Persistency.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("UdhetariId")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("VendiMberritjes")
                         .HasColumnType("TEXT");
 
@@ -107,8 +104,6 @@ namespace Persistency.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("UdhetariId");
 
                     b.ToTable("Fluturimet");
                 });
@@ -134,6 +129,32 @@ namespace Persistency.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Punetoret");
+                });
+
+            modelBuilder.Entity("Domain.Rezervimi", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("Departure")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Personat")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("Return")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Vendi_Mberritjes")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Vendi_Nisjes")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Rezervimet");
                 });
 
             modelBuilder.Entity("Domain.Udhetari", b =>
@@ -328,15 +349,6 @@ namespace Persistency.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Domain.Fluturimi", b =>
-                {
-                    b.HasOne("Domain.Udhetari", "Udhetari")
-                        .WithMany("Fluturimet")
-                        .HasForeignKey("UdhetariId");
-
-                    b.Navigation("Udhetari");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -386,11 +398,6 @@ namespace Persistency.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("Domain.Udhetari", b =>
-                {
-                    b.Navigation("Fluturimet");
                 });
 #pragma warning restore 612, 618
         }

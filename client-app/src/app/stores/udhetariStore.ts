@@ -1,14 +1,10 @@
 import React from 'react';
 import { makeAutoObservable, runInAction } from "mobx";
-// import NxenesiDashboard from "../../features/nxenesit/dashboard/NxenesiDashboard";
-// import agent from "../api/agent";
-// import { Nxenesi } from "../models/nxenesi";
 import {v4 as uuid} from 'uuid';
-// import {Nxenesiuser, NxenesiuserFormValues } from "../models/nxenesiuser";
 import { store } from "./store";
 import { history } from "../..";
 import { convertCompilerOptionsFromJson } from "typescript";
-import { UdhetariUser, UdhetariUserFormValues } from '../models/udhetariUser';
+import { UdhetariUser, UdhetariuserFormValues } from '../models/udhetariUser';
 import agent from '../api/metodaAgent';
 import { Udhetari } from '../models/udhetari';
 
@@ -32,12 +28,13 @@ export default class UdhetariStore {
         return this.udhetariRegistry.size;
     }
 
-    loginUdhetari = async (creds: UdhetariUserFormValues) => {
+    loginUdhetari = async (creds: UdhetariuserFormValues) => {
         try {
             const udhetaret = await agent.AccountUdhetari.login(creds);
             store.commonStore.setToken(udhetaret.token);
             runInAction(() => this.udhetariSelected = udhetaret);
             history.push("/udhetariProfile");
+            window.location.reload()
             store.modalStore.closeModal();
         } catch(error) {
             throw error;
@@ -48,7 +45,6 @@ export default class UdhetariStore {
         store.commonStore.setToken(null);
         window.localStorage.removeItem('jwt');
         this.udhetariSelected = null;
-        alert('Are u sure?')
         history.push('/');
     }
 
@@ -60,18 +56,18 @@ export default class UdhetariStore {
             console.log(error);
         }
     }
-    getUdhetarin = async () => {
-        try {
-           const udhetaret =  await agent.AccountUdhetari.currentUdhetari();
-           runInAction(() => this.udhetariSelected = udhetaret);
+    // getUdhetarin = async () => {
+    //     try {
+    //        const udhetaret =  await agent.AccountUdhetari.currentUdhetari();
+    //        runInAction(() => this.udhetariSelected = udhetaret);
 
-           history.push("/udhetariProfile");
+    //        history.push("/udhetariProfile");
 
 
-        } catch(error) {
-            console.log(error);
-        }
-    }
+    //     } catch(error) {
+    //         console.log(error);
+    //     }
+    // }
 
     get udhetaretByDate() {
         return Array.from(this.udhetariRegistry.values()).sort((a, b) => Date.parse(a.birthday) - Date.parse(b.birthday));
@@ -103,21 +99,21 @@ export default class UdhetariStore {
         this.selectedUdhetari = undefined;
     }
 
-    openForm = (id?: string) => {
-        id ? this.selectUdhetarin(id) : this.cancelSelectedUdhetari();
-        this.editMode = true;
-    }
+    // openForm = (id?: string) => {
+    //     id ? this.selectUdhetarin(id) : this.cancelSelectedUdhetari();
+    //     this.editMode = true;
+    // }
 
-    openForm2 = (id?: string) => {
-        id ? this.selectUdhetarin(id) : this.cancelSelectedUdhetari();
-        this.editMode = true;
-    }
+    // openForm2 = (id?: string) => {
+    //     id ? this.selectUdhetarin(id) : this.cancelSelectedUdhetari();
+    //     this.editMode = true;
+    // }
 
-    closeForm = () => {
-        this.editMode = false;
-    }
+    // closeForm = () => {
+    //     this.editMode = false;
+    // }
 
-    register = async (creds: UdhetariUserFormValues) => {
+    register = async (creds: UdhetariuserFormValues) => {
         try {
             console.log("creds Udhetari: ", creds);
             await agent.AccountUdhetari.register(creds);
@@ -129,8 +125,6 @@ export default class UdhetariStore {
     createUdhetarin = async (udhetari: Udhetari) => {
         this.loading = true;
         udhetari.id = uuid();
-        
-        //console.log("nx", nxenesi)
         try{
             await agent.Udhetaret.create(udhetari);
             runInAction(() => {

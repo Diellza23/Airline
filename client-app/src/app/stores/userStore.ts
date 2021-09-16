@@ -1,11 +1,14 @@
 import { makeAutoObservable, runInAction } from "mobx";
 import { history } from "../..";
 import agent from "../api/metodaAgent";
+import { Udhetari } from "../models/udhetari";
+import { UdhetariUser, UdhetariUserFormValues } from "../models/udhetariUser";
 import { User, UserFormValues } from "../models/user";
 import { store } from "./store";
 
 export default class UserStore {
     user: User | null = null;
+    udhetari: UdhetariUser | null = null;
 
     constructor() {
         makeAutoObservable(this)
@@ -23,6 +26,18 @@ export default class UserStore {
             history.push('/profile');
             store.modalStore.closeModal();
         } catch(error) {
+            throw error;
+        }
+    }
+    
+    udhetariLogin = async(values: UdhetariUserFormValues) => {
+        try{
+            const udhetari = await agent.AccountUdhetari.login(values);
+            store.commonStore.setToken(udhetari.token);
+            runInAction(() => this.udhetari = udhetari);
+            history.push('/UdhetariProfile');
+
+        }catch(error){
             throw error;
         }
     }
@@ -48,7 +63,7 @@ export default class UserStore {
             const user = await agent.Account.register(creds);
             store.commonStore.setToken(user.token);
             runInAction(() => this.user = user)
-            history.push('/punetoret');
+            history.push('/profile');
             store.modalStore.closeModal();
         } catch(error) {
             throw error;

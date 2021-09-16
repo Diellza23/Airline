@@ -21,10 +21,10 @@ export default observer(function DetajetPunetori() {
 
   return (
     <>
-    <h1 style={{textAlign:"center",color:"whitesmoke",backgroundColor:"#ff7a7a", padding:"20px"}}>DETAJET E PUNETORIT</h1>
-    <Card fluid style={{backgroundColor:'#b9fae2'}}>
-      <Card.Content style={{backgroundColor:'#f0ffff', padding: '12px 8px 12px 40px',margin:'40px',background: '#eee',fontSize: '15px',borderLeft:'6px solid black',
-      borderBottom:'4px solid black',
+    <h1 style={{textAlign:"center",color:"white",backgroundColor:"rgba(190, 144, 212,1)", padding:"20px"}}>DETAJET E PUNETORIT</h1>
+    <Card fluid style={{backgroundColor:'rgba(232, 236, 241, 1)'}}>
+      <Card.Content style={{backgroundColor:'whitesmoke', padding: '12px 8px 12px 40px',margin:'40px',background: '#eee',fontSize: '15px',borderLeft:'4px solid grey',
+      borderBottom:"5px solid pink"
     }}>
         <Card.Header style={{textTransform:'uppercase',borderBottom:"1px solid black"}}> Aeroplani: {punetori.aeroplanId}</Card.Header>
         <br/>
@@ -43,10 +43,10 @@ export default observer(function DetajetPunetori() {
             as={Link}
             to={`/manage/${punetori.id}`} 
             
-            color="blue"
+            color="green"
             content="MODIFIKO"
           />
-          <Button as={Link} to="/punetoret" color="pink" content="ANULO" />
+          <Button as={Link} to="/punetoret" color="blue" content="ANULO" />
         </Button.Group>
       </Card.Content>
     </Card>

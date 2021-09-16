@@ -19,10 +19,10 @@ export default observer(function DetajetFluturimi() {
 
   return (
     <>
-    <h1 style={{textAlign:"center",color:"white",backgroundColor:"#74718a", padding:"25px"}}>FLIGHT DETAILS</h1>
-    <Card fluid style={{backgroundColor:'#74718a'}}>
-      <Card.Content style={{backgroundColor:'#f0ffff', padding: '12px 8px 12px 40px',margin:'40px',background: '#eee',fontSize: '15px',borderLeft:'6px solid black',
-      borderBottom:'4px solid black',
+    <h1 style={{textAlign:"center",color:"white",backgroundColor:"rgba(103, 128, 159, 1)", padding:"25px"}}>FLIGHT DETAILS</h1>
+    <Card fluid style={{backgroundColor:'rgba(103, 128, 159, 1)'}}>
+      <Card.Content style={{backgroundColor:'#f0ffff', padding: '12px 8px 12px 40px',margin:'40px',background: '#eee',fontSize: '15px',borderLeft:'3px solid grey',
+      
     }}>
         <Card.Header style={{textTransform:'uppercase',borderBottom:"1px solid black"}}> Vendi i nisjes: {fluturimi.vendiNisjes}</Card.Header>
         <br/>
@@ -39,7 +39,7 @@ export default observer(function DetajetFluturimi() {
             color="green"
             content="MODIFIKO"
           />
-          <Button as={Link} to="/fluturimet"  color="pink" content="ANULO" />
+          <Button as={Link} to="/fluturimet" color="orange" content="ANULO"/>
         </Button.Group>
       </Card.Content>
     </Card>

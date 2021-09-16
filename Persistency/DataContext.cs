@@ -11,9 +11,9 @@ namespace Persistency
         }
 
         public DbSet<Punetori> Punetoret { get; set; }
-        // public DbSet<PunetoretUseret> PunetoriUserat{get; set;}
         public DbSet<Fluturimi> Fluturimet {get; set;}
         public DbSet<Udhetari> Udhetaret {get; set;}
+        public DbSet<Rezervimi> Rezervimet{get;set;}
 
         // protected override void OnModelCreating(ModelBuilder builder)
         // {

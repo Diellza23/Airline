@@ -19,7 +19,7 @@ namespace API.Controllers
         }
     
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetUdhetarin(string id)
+        public async Task<IActionResult> GetUdhetari(string id)
         {
             return HandleResult(await Mediator.Send(new Detajet.Query { Id = id }));
         }
@@ -29,20 +29,6 @@ namespace API.Controllers
         {
             return Ok(await Mediator.Send(new KrijoU.Command{Udhetari = udhetari}));
         }
-
-        // [HttpPut("{id}")]
-        // public async Task<IActionResult> EditUdhetarin(string id, Udhetari udhetari)
-        // {
-        //     Udhetari actualUdhetari = (await Mediator.Send(new Detajet.Query{Id= id})); 
-
-        //     udhetari.Id = id;
-        //     udhetari.PasswordHash = actualUdhetari.PasswordHash;
-        //     udhetari.NormalizedEmail = actualUdhetari.NormalizedEmail;
-        //     udhetari.NormalizedUserName = actualUdhetari.NormalizedUserName;
-
-        //     return Ok(await Mediator.Send(new Edit.Command{Udhetari = udhetari}));
-        // }
-
         
         [HttpPut("{id}")]
         public async Task<IActionResult> EditUdhetarin(string id, Udhetari udhetari)

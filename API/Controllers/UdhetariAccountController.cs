@@ -72,7 +72,7 @@ namespace API.Controllers
 
         [Authorize]
         [HttpGet("currentUdhetari")]
-        public async Task<ActionResult<UdhetariDto>> GetCurrentUdhetarin()
+        public async Task<ActionResult<UdhetariDto>> GetCurrentUdhetari()
         {
             var udhetari = await _userManager.FindByEmailAsync(User.FindFirstValue(ClaimTypes.Email));
 

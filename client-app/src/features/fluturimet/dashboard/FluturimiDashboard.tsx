@@ -29,7 +29,7 @@ export default observer(function FluturimiDashboard() {
        }}
      > 
      
-    <Grid>
+    <Grid style={{marginLeft:"160px",width:"1300px"}}>
       <Grid.Column width="10">
         <FluturimiList />
       </Grid.Column>

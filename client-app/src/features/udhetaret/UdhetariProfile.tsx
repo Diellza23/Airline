@@ -13,9 +13,9 @@ export default observer( function UdhetariProfile () {
           <UdhetariNavBar />
         </Grid.Column>
         <Grid.Column>
-          <Grid divided='vertically' style={{marginTop:"3em"}}>
+          <Grid divided='vertically' style={{marginTop:"2em"}}>
 
-            <Grid.Row columns={2} style={{marginBottom:"1em"}}>
+            <Grid.Row columns={2} style={{marginBottom:"2em"}}>
               <Grid.Column width='5'>
     
               </Grid.Column>
@@ -31,7 +31,7 @@ export default observer( function UdhetariProfile () {
               <Table celled >
                   <Table.Header>
                     <Table.Row>
-                      <Table.HeaderCell style={{textTransform:"uppercase"}}><Icon style={{marginRight:"2em"}} className='id badge outline icon'/>Informata Personale</Table.HeaderCell>
+                      <Table.HeaderCell style={{textTransform:"uppercase"}}><Icon style={{marginRight:"2em"}} className='id badge outline icon'/>Te dhena personale</Table.HeaderCell>
                     </Table.Row>
                   </Table.Header>
 

@@ -1,4 +1,5 @@
 import { observer } from 'mobx-react-lite';
+import { userInfo } from 'os';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Header, Segment, Image, Button } from 'semantic-ui-react';
@@ -23,6 +24,7 @@ export default observer(function HomePage() {
         <Header as='h1'  >
           Airline
         </Header>
+        
         {userStore.isLoggedIn ? (
           <>
               <Header as='h2'  content='Welcome to Airlines'/>
@@ -33,7 +35,7 @@ export default observer(function HomePage() {
 
         ) : (
           <>
-                <Button onClick={() => modalStore.openModal(<LoginForm/>)} size='huge' inverted>
+                <Button onClick={() => modalStore.openModal(<LoginForm/>)} size='huge' style={{color:"white",backgroundColor:"#ff9f45"}}>
                 Login Admin!
               </Button>
                 {/* <Button onClick={() => modalStore.openModal(<RegisterForm/>)} size='huge' inverted>
@@ -49,12 +51,10 @@ export default observer(function HomePage() {
                     </>
 
                 ) : (
-                    <Button onClick={() => modalStore.openModal(<LoginFormUdhetari />)} size='huge' inverted>
-                        Login as user
+                    <Button onClick={() => modalStore.openModal(<LoginFormUdhetari />)} size='huge' style={{color:"grey",backgroundColor:"#ffeb33"}}>
+                        Login User
                     </Button>
-
                 )}
-        
       </Container>
     </Segment>
   )
