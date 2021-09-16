@@ -25,6 +25,7 @@ import UdhetariProfile from "../../features/udhetaret/UdhetariProfile";
 import DetajetRezervimi from "../../features/rezervimet/detajet/DetajetRezervimi";
 import RezervimiDashboard from "../../features/rezervimet/dashboard/RezervimiDashboard";
 import RezervimiForm from "../../features/rezervimet/form/RezervimiForm";
+import UdhetariDashboard from "../../features/udhetaret/dashboard/UdhetariDashboard";
 // import UdhetaretList from "../../features/udhetaret/UdhetaretList";
 
 function App() {
@@ -32,22 +33,22 @@ function App() {
   const {commonStore, userStore, udhetariStore} = useStore();
 
   commonStore.setAppLoaded();
-  useEffect(() => {
-    if(commonStore.token) {
-      userStore.getUser().finally(() => commonStore.setAppLoaded());
-    } else {
-      commonStore.setAppLoaded();
-    }
-  }, [commonStore, userStore])
-
-  //  useEffect(() => {
+  // useEffect(() => {
   //   if(commonStore.token) {
-  //     udhetariStore.getUdhetari().finally(() => commonStore.setAppLoaded());
+  //     userStore.getUser().finally(() => commonStore.setAppLoaded());
   //   } else {
   //     commonStore.setAppLoaded();
   //   }
+  // }, [commonStore, userStore])
+
+   useEffect(() => {
+    if(commonStore.token) {
+      udhetariStore.getUdhetari().finally(() => commonStore.setAppLoaded());
+    } else {
+      commonStore.setAppLoaded();
+    }
    
-  //  }, [commonStore, udhetariStore])
+   }, [commonStore, udhetariStore])
 
   if(!commonStore.appLoaded) return <LoadingComponent content='Loading app..'/>
 
@@ -59,13 +60,14 @@ function App() {
 
         
             <>
-             <Container style={{ marginTop: "7em" }}>
+             <Container style={{ padding: 0, margin: 0 }}>
                 <Switch>    
                   <Route exact path="/punetoret" component={PunetoriDashboard} />
                   <Route path="/profile" component={Profile} />
                   <Route exact path="/fluturimet" component={FluturimiDashboard} />
                 <Route path='/punetoret/:id' component={DetajetPunetori} /> 
                 <Route path='/fluturimet/:id' component={DetajetFluturimi} />
+                <Route exact path="/users" component={UdhetariDashboard} />
                 <Route key={location.key} path={['/addPunetori', '/manage/:id']} component={PunetoriForm}/>                
                 <Route key={location.key} path={['/addFluturimi', '/managee/:id']} component={FluturimiForm}/>                
                 {/* <Route path='/errors' component={TestErrors}/> */}

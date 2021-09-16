@@ -33,7 +33,6 @@ namespace API.Controllers
         {
             punetori.Id = id;
             return Ok(await Mediator.Send(new Edit.Command{Punetori = punetori}));
-            // return HandleResult(await Mediator.Send(new Edit.Command { Punetori = punetori }));
         }
 
         [HttpDelete("{id}")]

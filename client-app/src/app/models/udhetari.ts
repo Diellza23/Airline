@@ -5,6 +5,8 @@ export interface Udhetari {
     birthday: string
     emri: number
     mbiemri: string
+    userName:string
+    displayName: string
   }
 
   

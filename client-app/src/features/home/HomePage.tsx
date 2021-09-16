@@ -7,6 +7,7 @@ import { useStore } from '../../app/stores/store';
 import udhetariStore from '../../app/stores/udhetariStore';
 import UdhetariStore from '../../app/stores/udhetariStore';
 import LoginFormUdhetari from '../udhetaret/form/LoginFormUdhetari';
+import RegisterFormUdhetari from '../udhetaret/form/RegisterFormUdhetari';
 // import LoginFormUdhetari from '../udhetaret/form/LoginFormUdhetari';
 import LoginForm from '../users/LoginForm';
 import RegisterForm from '../users/RegisterForm';
@@ -38,9 +39,9 @@ export default observer(function HomePage() {
                 <Button onClick={() => modalStore.openModal(<LoginForm/>)} size='huge' style={{color:"white",backgroundColor:"#ff9f45"}}>
                 Login Admin!
               </Button>
-                {/* <Button onClick={() => modalStore.openModal(<RegisterForm/>)} size='huge' inverted>
-                Register!
-              </Button> */}
+                <Button onClick={() => modalStore.openModal(<RegisterFormUdhetari/>)} size='huge' style={{color:"white",backgroundColor:"green"}}>
+                Sign Up!
+              </Button>
           </>
         )}
           {udhetariStore.isLoggedIn ? (

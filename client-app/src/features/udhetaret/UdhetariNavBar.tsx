@@ -12,7 +12,7 @@ export default observer(function UdhetariNavBar() {
   return (
     <Sidebar.Pushable
       className="sideBarA"
-      style={{ marginTop: "-44px", marginBottom: "40px" }}
+      
     >
       <Sidebar
         as={Menu}
@@ -23,16 +23,12 @@ export default observer(function UdhetariNavBar() {
         width="wide"
         direction="left"
       >
-        {isLoggedIn ? (
-          <Menu.Item
-            style={{ marginTop: "20%" }}
-            as={NavLink}
-            to="/udhetariProfile"
-          >
-            <Icon name="user" />
-            Profili
-          </Menu.Item>
-        ) : null}
+        {/* {isLoggedIn ? ( */}
+        <Menu.Item style={{}} as={NavLink} to="/udhetariProfile">
+          <Icon name="user" />
+          Profili
+        </Menu.Item>
+        {/* ) : null} */}
         <Menu.Item as={NavLink} to="/rezervimet">
           <Icon className="suitcase icon" />
           Rezervo Bileta

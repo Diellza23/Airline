@@ -24,7 +24,7 @@ export const store: Store ={
     commonStore: new CommonStore(),
     modalStore: new ModalStore(),
     udhetariStore: new UdhetariStore(),
-    rezervimiStore: new RezervimiStore()
+    rezervimiStore: new RezervimiStore(),
 }
 
 export const StoreContext = createContext(store);

@@ -2,7 +2,7 @@ import { makeAutoObservable, runInAction } from "mobx";
 import { history } from "../..";
 import agent from "../api/metodaAgent";
 import { Udhetari } from "../models/udhetari";
-import { UdhetariUser, UdhetariUserFormValues } from "../models/udhetariUser";
+import { UdhetariUser, UdhetariuserFormValues } from "../models/udhetariUser";
 import { User, UserFormValues } from "../models/user";
 import { store } from "./store";
 
@@ -30,7 +30,7 @@ export default class UserStore {
         }
     }
     
-    udhetariLogin = async(values: UdhetariUserFormValues) => {
+    udhetariLogin = async(values: UdhetariuserFormValues) => {
         try{
             const udhetari = await agent.AccountUdhetari.login(values);
             store.commonStore.setToken(udhetari.token);

@@ -14,7 +14,8 @@ export default observer(function NavBar() {
         </Menu.Item> */}
         <Menu.Item as={NavLink} to="/punetoret" name="Punetoret" style={{textTransform:"uppercase",fontWeight:"bold"}}/>
         <Menu.Item as={NavLink} to="/fluturimet" name="Fluturimet" style={{textTransform:"uppercase",fontWeight:"bold"}}/>
-        <Menu.Item as={NavLink} to="/rezervimet" name="Rezervimet" style={{textTransform:"uppercase",fontWeight:"bold"}}/>
+        {/* <Menu.Item as={NavLink} to="/rezervimet" name="Rezervimet" style={{textTransform:"uppercase",fontWeight:"bold"}}/> */}
+        <Menu.Item as={NavLink} to="/users" name="Users" style={{textTransform:"uppercase",fontWeight:"bold"}}/>
         {/* <Menu.Item as={NavLink} to="/udhetari" name="Udhetari" style={{textTransform:"uppercase",fontWeight:"bold"}}/> */}
         {/* <Menu.Item as={NavLink} to="/errors" name="Errors" /> */}
         {/* <Menu.Item>
