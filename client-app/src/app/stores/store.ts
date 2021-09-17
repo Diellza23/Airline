@@ -2,6 +2,7 @@ import { createContext, useContext } from "react";
 import CommonStore from "./commonStore";
 import FluturimiStore from "./fluturimiStore";
 import ModalStore from "./modalStore";
+import OfertaStore from "./ofertaStore";
 import PunetoriStore from "./punetoriStore";
 import RezervimiStore from "./rezervimiStore";
 import UdhetariStore from "./udhetariStore";
@@ -15,6 +16,7 @@ interface Store{
     modalStore: ModalStore;
     udhetariStore: UdhetariStore;
     rezervimiStore: RezervimiStore;
+    ofertaStore: OfertaStore;
 } 
 
 export const store: Store ={
@@ -25,6 +27,7 @@ export const store: Store ={
     modalStore: new ModalStore(),
     udhetariStore: new UdhetariStore(),
     rezervimiStore: new RezervimiStore(),
+    ofertaStore: new OfertaStore()
 }
 
 export const StoreContext = createContext(store);

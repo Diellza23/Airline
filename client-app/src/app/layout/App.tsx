@@ -27,6 +27,9 @@ import RezervimiDashboard from "../../features/rezervimet/dashboard/RezervimiDas
 import RezervimiForm from "../../features/rezervimet/form/RezervimiForm";
 import UdhetariDashboard from "../../features/udhetaret/dashboard/UdhetariDashboard";
 import ListaFluturimeveDashboard from "../../features/udhetaret/dashboard/ListaFluturimeveDashboard";
+import OfertaDashboard from "../../features/ofertat/dashboard/OfertaDashboard";
+import DetajetOferta from "../../features/ofertat/detajet/DetajetOferta";
+import OfertaForm from "../../features/ofertat/form/OfertaForm";
 // import UdhetaretList from "../../features/udhetaret/UdhetaretList";
 
 function App() {
@@ -34,22 +37,22 @@ function App() {
   const {commonStore, userStore, udhetariStore} = useStore();
 
   commonStore.setAppLoaded();
-  // useEffect(() => {
-  //   if(commonStore.token) {
-  //     userStore.getUser().finally(() => commonStore.setAppLoaded());
-  //   } else {
-  //     commonStore.setAppLoaded();
-  //   }
-  // }, [commonStore, userStore])
-
-   useEffect(() => {
+  useEffect(() => {
     if(commonStore.token) {
-      udhetariStore.getUdhetari().finally(() => commonStore.setAppLoaded());
+      userStore.getUser().finally(() => commonStore.setAppLoaded());
     } else {
       commonStore.setAppLoaded();
     }
+  }, [commonStore, userStore])
+
+  //  useEffect(() => {
+  //   if(commonStore.token) {
+  //     udhetariStore.getUdhetari().finally(() => commonStore.setAppLoaded());
+  //   } else {
+  //     commonStore.setAppLoaded();
+  //   }
    
-   }, [commonStore, udhetariStore])
+  //  }, [commonStore, udhetariStore])
 
   if(!commonStore.appLoaded) return <LoadingComponent content='Loading app..'/>
 
@@ -64,14 +67,18 @@ function App() {
              <Container style={{  }}>
                 <Switch>    
                   <Route exact path="/punetoret" component={PunetoriDashboard} />
+                  <Route exact path="/ofertat" component={OfertaDashboard} />
                   <Route path="/profile" component={Profile} />
                   <Route exact path="/fluturimet" component={FluturimiDashboard} />
                 <Route path='/punetoret/:id' component={DetajetPunetori} /> 
                 <Route path='/fluturimet/:id' component={DetajetFluturimi} />
+                <Route path='/ofertat/:id' component={DetajetOferta} />
                 <Route exact path="/users" component={UdhetariDashboard} />
                 <Route exact path="/listafluturimeve" component={ListaFluturimeveDashboard} />
                 <Route key={location.key} path={['/addPunetori', '/manage/:id']} component={PunetoriForm}/>                
                 <Route key={location.key} path={['/addFluturimi', '/managee/:id']} component={FluturimiForm}/>                
+                <Route key={location.key} path={['/addOferta', '/menaxho/:id']} component={OfertaForm}/>                
+                
                 {/* <Route path='/errors' component={TestErrors}/> */}
                 <Route path='/server-error' component={ServerError} />
                 {/* <Route path='/login' component={LoginForm}/>  */}

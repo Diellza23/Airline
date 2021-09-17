@@ -41,6 +41,35 @@ namespace Persistency
            };
 
            await context.SaveChangesAsync();
+
+           if (context.Punetoret.Any()) return;
+            
+           var ofertat = new List<Oferta>
+           {
+               new Oferta
+               {
+                    GoingTo = "Australia: InternationalAirport",
+                    CheckIn =DateTime.Now.AddMonths(-2),
+                    CheckOut = DateTime.Now.AddMonths(-2),
+                    Flightclass="2 stars",
+                    Cmimi = "600",
+                    Persons = "2"
+               },
+               new Oferta
+               {
+                    GoingTo = "Kosovo: Prishtina",
+                    CheckIn =DateTime.Now.AddMonths(-2),
+                    CheckOut = DateTime.Now.AddMonths(-2),
+                    Flightclass="3 stars",
+                    Cmimi = "300",
+                    Persons = "1"
+               },
+                                               
+           };
+
+           await context.SaveChangesAsync();
+
+           
        }
        public static async Task SeedDataUdhetaret(DataContext context, UserManager<Udhetari> userManager)
         {

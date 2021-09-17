@@ -84,6 +84,20 @@ export default observer(function Profile() {
             Shto Fluturime
           </Button>
         </a>
+        <a className="item">
+          <div className="ui small label">1</div>
+          <Button
+            as={NavLink}
+            to="/addOferta"
+            style={{
+              backgroundColor: "#28ed8e",
+              color: "white",
+              borderRadius: "7px",
+            }}
+          >
+            Regjistro Oferta
+          </Button>
+        </a>
       </div>
 
       <div

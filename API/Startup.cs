@@ -17,6 +17,7 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Application.Fluturimet;
 using Application.Udhetaret;
+using Application.Ofertat;
 
 namespace API
 {
@@ -47,6 +48,7 @@ namespace API
             services.AddMediatR(typeof(ListaP.Handler).Assembly);
             services.AddMediatR(typeof(ListaF.Handler).Assembly);
             services.AddMediatR(typeof(ListaU.Handler).Assembly);
+            services.AddMediatR(typeof(ListaO.Handler).Assembly);
             services.AddControllers(opt =>
             {
                 var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
@@ -57,6 +59,7 @@ namespace API
                 config.RegisterValidatorsFromAssemblyContaining<KrijoP>();
                 config.RegisterValidatorsFromAssemblyContaining<KrijoF>();
                 config.RegisterValidatorsFromAssemblyContaining<KrijoU>();
+                config.RegisterValidatorsFromAssemblyContaining<KrijoO>();
             });
             services.AddApplicationServices(_config);
             services.AddIdentityServices(_config);
@@ -64,6 +67,7 @@ namespace API
             services.AddMvc().AddFluentValidation(config => config.RegisterValidatorsFromAssemblyContaining<KrijoP>());
             services.AddMvc().AddFluentValidation(config => config.RegisterValidatorsFromAssemblyContaining<KrijoF>());
             services.AddMvc().AddFluentValidation(config => config.RegisterValidatorsFromAssemblyContaining<KrijoU>());
+            services.AddMvc().AddFluentValidation(config => config.RegisterValidatorsFromAssemblyContaining<KrijoO>());
             services.AddAutoMapper(typeof(MappingProfiles).Assembly);
 
   

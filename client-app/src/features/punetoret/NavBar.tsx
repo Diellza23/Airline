@@ -14,6 +14,7 @@ export default observer(function NavBar() {
         </Menu.Item> */}
         <Menu.Item as={NavLink} to="/punetoret" name="Punetoret" style={{textTransform:"uppercase",fontWeight:"bold"}}/>
         <Menu.Item as={NavLink} to="/fluturimet" name="Fluturimet" style={{textTransform:"uppercase",fontWeight:"bold"}}/>
+        <Menu.Item as={NavLink} to="/ofertat" name="Ofertat" style={{textTransform:"uppercase",fontWeight:"bold"}}/>
         <Menu.Item as={NavLink} to="/users" name="Users" style={{textTransform:"uppercase",fontWeight:"bold"}}/>
         {/* <Menu.Item as={NavLink} to="/udhetari" name="Udhetari" style={{textTransform:"uppercase",fontWeight:"bold"}}/> */}
         {/* <Menu.Item as={NavLink} to="/errors" name="Errors" /> */}
@@ -39,60 +40,3 @@ export default observer(function NavBar() {
   );
 })
 
-
-// import { observer } from 'mobx-react-lite';
-// import { NavLink } from 'react-router-dom'
-// import { Icon,  Menu, Segment, Sidebar } from 'semantic-ui-react'
-// import { useStore } from '../../app/stores/store';
-// // import { useStore } from '../../../app/stores/store';
-
-// export default observer(function NavBar() {
-//     const {userStore: {logout, isLoggedIn}} = useStore();
-    
-//     return (
-        
-//         <Sidebar.Pushable className="sideBarA" style={{marginTop:"0"}}>
-//             <Sidebar
-//             as={Menu}
-//             animation='overlay'
-//             icon='labeled'
-//             vertical
-//             visible
-//             width='wide'
-//             direction='left'
-//             >
-//             {isLoggedIn ? (
-//                         <Menu.Item style={{marginTop:"20%"}} as={NavLink} to='/udhetariProfile'>
-//                         <Icon name='user' />
-//                         Profili
-//                     </Menu.Item>
-//                     ) : (
-//                         null
-//                     )}
-           
-           
-//             <Menu.Item as={NavLink} to='/punetoret'>
-//                 <Icon className='suitcase icon' />
-//                 Rezervo Bileta
-//             </Menu.Item>
-
-//             <Menu.Item as={NavLink} to='/fluturimet'>
-//                 <Icon className='bullhorn icon' />
-//                 Njoftimet
-//             </Menu.Item>
-                        
-//             <Menu.Item onClick={logout}>
-//                 <Icon name='log out'/>
-//                 Dil
-//             </Menu.Item>
-           
-//             </Sidebar>
-
-//             <Sidebar.Pusher>
-//             <Segment basic style={{height:"100vh"}}>
-//             </Segment>
-//             </Sidebar.Pusher>
-//         </Sidebar.Pushable>
-//     );
-
-// })
