@@ -18,13 +18,16 @@ export default class RezervimiStore {
     return Array.from(this.rezervimiRegistry.values()).sort(
       (a, b) => a.departure!.getTime() - b.departure!.getTime()
     );
+    
   }
 
   get groupedRezervimet() {
     return Object.entries(   //nje array i objekteve, cdo objekt e ka nje key qe o date dhe per cdo date do kemi array te datave
       this.rezervimetByDate.reduce((rezervimet, rezervimi) => {
-        const date = format(rezervimi.departure!, 'dd MMM yyyy') 
+        const date = format(rezervimi.departure!, 'dd MMM yyyy')
+        const date2 = format(rezervimi.return!, 'dd MMM yyyy') 
         rezervimet[date] = rezervimet[date] ? [...rezervimet[date], rezervimi] : [rezervimi];
+        rezervimet[date2] = rezervimet[date2] ? [...rezervimet[date2], rezervimi] : [rezervimi];
         return rezervimet;
       }, {} as {[key: string]: Rezervimi[]})
     )//change punetori,dateEnd
@@ -68,6 +71,7 @@ export default class RezervimiStore {
 
   private setRezervimi = (rezervimi: Rezervimi) => {
     rezervimi.departure = new Date(rezervimi.departure!);
+    rezervimi.return = new Date(rezervimi.return!);
     this.rezervimiRegistry.set(rezervimi.id, rezervimi);
   };
 

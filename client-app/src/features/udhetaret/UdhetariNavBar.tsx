@@ -39,6 +39,11 @@ export default observer(function UdhetariNavBar() {
           Njoftimet
         </Menu.Item>
 
+        <Menu.Item as={NavLink} to="/listafluturimeve">
+          <Icon className="bullhorn icon" />
+          Shiko Fluturimet
+        </Menu.Item>
+
         <Menu.Item onClick={logoutUdhetari}>
           <Icon name="log out" />
           Dil

@@ -4,8 +4,6 @@ import { Grid } from "semantic-ui-react";
 import LoadingComponent from "../../../app/layout/LoadingComponent";
 import { useStore } from "../../../app/stores/store";
 import UdhetaretList from "../UdhetaretList";
-// import FluturimiList from "./FluturimiList";
-
 
 export default observer(function UdhetariDashboard() {
   const { udhetariStore } = useStore();
@@ -16,7 +14,7 @@ export default observer(function UdhetariDashboard() {
   }, [udhetariRegistry.size, loadUdhetaret]);
 
   if (udhetariStore.loadingInitial)
-    return <LoadingComponent content="Loading Fluturimet.." />;
+    return <LoadingComponent content="Loading.." />;
 
   return (
      

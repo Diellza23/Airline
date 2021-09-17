@@ -18,7 +18,10 @@ export default observer(function UdhetaretList() {
   const { udhetariStore, modalStore } = useStore();
   const { deleteUdhetarin, udhetaretByDate, loading } = udhetariStore;
 
+
   const [target, setTarget] = useState("");
+
+  
 
   function handleUdhetariDelete(
     e: SyntheticEvent<HTMLButtonElement>,
@@ -30,14 +33,14 @@ export default observer(function UdhetaretList() {
 
   return (
     <>
-      {/* <SegmentExm/> */}
       <NavBar />
+      <div style={{marginTop:"120px"}}>
       <Menu
         attached="top"
         compact
         inverted
         widths={6}
-        style={{ margin: "5px" }}
+        style={{ margin: "5px"}}
       >
         <Menu.Item as="a">Emri</Menu.Item>
         <Menu.Item as="a">Mbiemri</Menu.Item>
@@ -46,7 +49,7 @@ export default observer(function UdhetaretList() {
         <Menu.Item as="a">Username</Menu.Item>
         <Menu.Item as="a">Email</Menu.Item>
         <Menu.Item as="a"></Menu.Item>
-      </Menu>
+      </Menu></div>
       {udhetaretByDate.map((udhetari) => (
         <Table attached inverted celled selectable>
           <Table.Body widths={7} >

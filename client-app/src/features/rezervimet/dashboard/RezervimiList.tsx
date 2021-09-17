@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import { useStore } from '../../../app/stores/store';
 import { Button } from 'semantic-ui-react';
+import { format } from 'date-fns';
 // import { useStore } from '../../../app/stores/store';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -65,10 +66,10 @@ export default function RezervimiList() {
                   {rezervimi.vendi_Mberritjes}
                 </Typography>
                 <Typography variant="body2" color="textSecondary">
-                  {rezervimi.departure}
+                {format(rezervimi.departure!, "dd MMM yyyy h:mm aa")}
                 </Typography>
                 <Typography variant="body2" color="textSecondary">
-                  {rezervimi.return}
+                {format(rezervimi.return!, "dd MMM yyyy h:mm aa")}
                 </Typography>
                 <Typography variant="body2" color="textSecondary">
                   {rezervimi.personat}
@@ -80,7 +81,7 @@ export default function RezervimiList() {
                   loading={loading && target === rezervimi.id}
                   onClick={(e) => handleRezervimiDelete(e, rezervimi.id)}
                   floated="right"
-                  content="FSHIJ"
+                  content="REZERVO"
                   color="pink"
                 />
               </Grid>

@@ -21,8 +21,6 @@ export default class FluturimiStore {
     );
   }
 
-
-
   get groupedFluturimet() {
     return Object.entries(   //nje array i objekteve, cdo objekt e ka nje key qe o date dhe per cdo date do kemi array te datave
       this.fluturimetByDate.reduce((fluturimet, fluturimi) => {
@@ -30,7 +28,7 @@ export default class FluturimiStore {
         fluturimet[date] = fluturimet[date] ? [...fluturimet[date], fluturimi] : [fluturimi];
         return fluturimet;
       }, {} as {[key: string]: Fluturimi[]})
-    )//change punetori,dateEnd
+    )
   }
 
   loadFluturimet = async () => {

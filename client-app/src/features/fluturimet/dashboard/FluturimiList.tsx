@@ -20,6 +20,7 @@ export default observer(function FluturimiList() {
   return (      
   <>
   <NavBar/>
+  <div style={{marginTop:"120px"}}>
     <Segment style={{backgroundColor:"rgb(67,179,174)", marginTop:"40px"}}>
       <Item.Group divided>
       <h3 style={{textAlign:"center",color:"white",marginBottom:"30px",fontSize:"23px"}}>LISTA E FLUTURIMEVE</h3>
@@ -51,7 +52,7 @@ export default observer(function FluturimiList() {
           </Item>
         ))}
       </Item.Group>
-    </Segment>
+    </Segment></div>
     </>
   );
 });

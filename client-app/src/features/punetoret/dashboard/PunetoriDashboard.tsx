@@ -15,7 +15,7 @@ export default observer(function PunetoriDashboard() {
   }, [punetoriRegistry.size, loadPunetoret]);
 
   if (punetoriStore.loadingInitial)
-    return <LoadingComponent content="Loading Punetoret.." />;
+    return <LoadingComponent content="Loading..." />;
 
   return (
      <div

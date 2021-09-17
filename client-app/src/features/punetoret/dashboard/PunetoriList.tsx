@@ -28,17 +28,18 @@ export default observer(function PunetoriList() {
   <>
   {/* <SegmentExm/> */}
   <NavBar/>
-    <Segment style={{backgroundColor:"rgba(255, 246, 143, 1)", marginTop:"40px",border:"2px solid orange"}}>
+  <div style={{marginTop:"120px"}}>
+    <Segment style={{backgroundColor:"#DB7093", marginTop:"40px",border:"2px solid orange"}}>
       <Item.Group divided>
-      <h3 style={{textAlign:"center",color:"black",marginBottom:"30px",fontSize:"23px"}}>LISTA E STUARDESEVE</h3>
+      <h3 style={{textAlign:"center",color:"white",marginBottom:"30px",fontSize:"23px"}}>LISTA E STUARDESEVE</h3>
         {punetoretByDate.map((punetori) => (
            <Item key={punetori.id}>
             <Item.Content>
-              <Item.Header style={{color:"black",marginTop:"20px",marginBottom:"20px"}}>AEROPLANI NE LINJE :{punetori.aeroplanId}</Item.Header>
+              <Item.Header style={{color:"white",marginTop:"20px",marginBottom:"20px"}}>AEROPLANI NE LINJE :{punetori.aeroplanId}</Item.Header>
               <br/>
-              <Item.Extra as="a" style={{color:"black"}}>EMRI: {punetori.emri}</Item.Extra>
-              <Item.Meta style={{color:"black"}}> MBIEMRI: {punetori.mbiemri}</Item.Meta>
-              <Item.Meta style={{color:"black"}}>DATA E FILLIMIT TE PUNES: {format(punetori.date!,'dd MMM yyyy h:mm aa')}</Item.Meta>
+              <Item.Extra as="a" style={{color:"white"}}>EMRI: {punetori.emri}</Item.Extra>
+              <Item.Meta style={{color:"white"}}> MBIEMRI: {punetori.mbiemri}</Item.Meta>
+              <Item.Meta style={{color:"white"}}>DATA E FILLIMIT TE PUNES: {format(punetori.date!,'dd MMM yyyy h:mm aa')}</Item.Meta>
               <Item.Extra>
                 <Button
                   as={Link}
@@ -54,7 +55,7 @@ export default observer(function PunetoriList() {
                   onClick={(e) => handlePunetoriDelete(e, punetori.id)}
                   floated="right"
                   content="FSHIJ"
-                  color="pink"
+                  color="purple"
                 />
               </Item.Extra>
             </Item.Content>
@@ -62,7 +63,7 @@ export default observer(function PunetoriList() {
         ))}
       </Item.Group>
       
-    </Segment>
+    </Segment></div>
     </>
   );
 });

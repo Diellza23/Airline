@@ -26,6 +26,7 @@ import DetajetRezervimi from "../../features/rezervimet/detajet/DetajetRezervimi
 import RezervimiDashboard from "../../features/rezervimet/dashboard/RezervimiDashboard";
 import RezervimiForm from "../../features/rezervimet/form/RezervimiForm";
 import UdhetariDashboard from "../../features/udhetaret/dashboard/UdhetariDashboard";
+import ListaFluturimeveDashboard from "../../features/udhetaret/dashboard/ListaFluturimeveDashboard";
 // import UdhetaretList from "../../features/udhetaret/UdhetaretList";
 
 function App() {
@@ -60,7 +61,7 @@ function App() {
 
         
             <>
-             <Container style={{ padding: 0, margin: 0 }}>
+             <Container style={{  }}>
                 <Switch>    
                   <Route exact path="/punetoret" component={PunetoriDashboard} />
                   <Route path="/profile" component={Profile} />
@@ -68,6 +69,7 @@ function App() {
                 <Route path='/punetoret/:id' component={DetajetPunetori} /> 
                 <Route path='/fluturimet/:id' component={DetajetFluturimi} />
                 <Route exact path="/users" component={UdhetariDashboard} />
+                <Route exact path="/listafluturimeve" component={ListaFluturimeveDashboard} />
                 <Route key={location.key} path={['/addPunetori', '/manage/:id']} component={PunetoriForm}/>                
                 <Route key={location.key} path={['/addFluturimi', '/managee/:id']} component={FluturimiForm}/>                
                 {/* <Route path='/errors' component={TestErrors}/> */}

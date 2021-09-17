@@ -46,11 +46,11 @@ export default observer(function HomePage() {
         )}
           {udhetariStore.isLoggedIn ? (
                     <>
+                    <Header as='h2'  content='Welcome to Airlines'/>
                         <Button as={Link} to='/udhetariProfile' size='huge' inverted>
                             Vazhdo te profili
                         </Button>
                     </>
-
                 ) : (
                     <Button onClick={() => modalStore.openModal(<LoginFormUdhetari />)} size='huge' style={{color:"grey",backgroundColor:"#ffeb33"}}>
                         Login User
