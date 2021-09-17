@@ -5,6 +5,7 @@ import { Button, Card } from "semantic-ui-react";
 import LoadingComponent from "../../../app/layout/LoadingComponent";
 import { useStore } from "../../../app/stores/store";
 import {format} from 'date-fns';
+import NavBar from "../NavBar";
 
 export default observer(function DetajetPunetori() {
   const { punetoriStore } = useStore();
@@ -21,10 +22,12 @@ export default observer(function DetajetPunetori() {
 
   return (
     <>
+    <NavBar/>
+    <div style={{width:"700px",marginTop:"100px",marginLeft:"215px"}}>
     <h1 style={{textAlign:"center",color:"white",backgroundColor:"rgba(190, 144, 212,1)", padding:"20px"}}>DETAJET E PUNETORIT</h1>
     <Card fluid style={{backgroundColor:'rgba(232, 236, 241, 1)'}}>
-      <Card.Content style={{backgroundColor:'whitesmoke', padding: '12px 8px 12px 40px',margin:'40px',background: '#eee',fontSize: '15px',borderLeft:'4px solid grey',
-      borderBottom:"5px solid pink"
+      <Card.Content style={{backgroundColor:'whitesmoke', padding: '12px 8px 12px 40px',margin:'40px',background: '#eee',fontSize: '15px',borderLeft:'4px solid green',
+      borderBottom:"4px solid purple"
     }}>
         <Card.Header style={{textTransform:'uppercase',borderBottom:"1px solid black"}}> Aeroplani: {punetori.aeroplanId}</Card.Header>
         <br/>
@@ -50,6 +53,7 @@ export default observer(function DetajetPunetori() {
         </Button.Group>
       </Card.Content>
     </Card>
+    </div>
     </>
   );
 });

@@ -22,8 +22,8 @@ export default observer(function DetajetOferta() {
     <>
     <NavBar/>
     <div style={{width:"700px",marginLeft:"200px"}}>
-    <h1 style={{textAlign:"center",color:"white",backgroundColor:"#87CEEB", padding:"25px",marginTop:"100px",textTransform:'uppercase'}}>Oferta details</h1>
-    <Card fluid style={{backgroundColor:'#B0E0E6'}}>
+    <h1 style={{textAlign:"center",color:"white",backgroundColor:"#66CDAA", padding:"25px",marginTop:"100px",textTransform:'uppercase'}}>Oferta details</h1>
+    <Card fluid style={{backgroundColor:'#66CDAA'}}>
       <Card.Content style={{backgroundColor:'#F5F5DC', padding: '12px 8px 12px 40px',margin:'40px',background: '#eee',fontSize: '15px',borderLeft:'3px solid grey',
     }}>
         <Card.Header style={{textTransform:'uppercase',borderBottom:"1px solid black",textAlign:"center"}}> Vendi i nisjes: {oferta.goingTo}</Card.Header>
