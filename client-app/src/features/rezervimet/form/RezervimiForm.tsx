@@ -27,7 +27,8 @@ export default observer(function RezervimiForm() {
     vendi_Mberritjes:'',
     departure: null,
     return: null,
-    personat:''
+    personat:'',
+    cmimi:''
   })
 
   const validationSchema = Yup.object({
@@ -70,14 +71,16 @@ export default observer(function RezervimiForm() {
       onSubmit={values => handleFormSubmit(values)}>
         {({ handleSubmit, isValid, isSubmitting, dirty}) => (
             <Form className='ui form' onSubmit={handleSubmit} autoComplete="off">
-                <h4>Emri:</h4>
-                <MyTextInput name='emri' placeholder='Emri..'/>
-                <h4>Mbiemri:</h4>
-                <MyTextInput placeholder="Mbiemri.." name='mbiemri'/>
-                <h4>Data e fillimit te punes:</h4>
-                <MyDateInput placeholderText='Zgjedh daten'  name='date' showTimeSelect timeCaption='time' dateFormat='MMMM d, yyyy h:mm aa' />
-                <h4>Aeroplani: </h4>
-                <MySelectInput options={categoryOptions}placeholder="Linja e Aeroplanit.." name="aeroplanId"  />
+                <h4>Vendi i nisjes:</h4>
+                <MyTextInput name='vendi_Nisjes' placeholder='pristina..'/>
+                <h4>Destinacioni:</h4>
+                <MyTextInput placeholder="destinacioni.." name='hamburg..'/>
+                <h4>Data e nisjes:</h4>
+                <MyDateInput placeholderText='Zgjedh daten'  name='departure' showTimeSelect timeCaption='time' dateFormat='MMMM d, yyyy h:mm aa' />
+                <h4>Data e mberritjes:</h4>
+                <MyDateInput placeholderText='Zgjedh daten'  name='return' showTimeSelect timeCaption='time' dateFormat='MMMM d, yyyy h:mm aa' />
+                <h4>Rezervim per sa persona: </h4>
+                <MySelectInput options={categoryOptions}placeholder="Linja e Aeroplanit.." name="personat"  />
                 <Button 
                 disabled={isSubmitting || !dirty || !isValid}
                 loading={loading} floated="right"  positive type="submit" content="SHTO"/>

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Persistency.Migrations
 {
-    public partial class Entities : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -78,14 +78,31 @@ namespace Persistency.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Rezervimet",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    Vendi_Nisjes = table.Column<string>(type: "TEXT", nullable: true),
+                    Vendi_Mberritjes = table.Column<string>(type: "TEXT", nullable: true),
+                    Departure = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Return = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Personat = table.Column<string>(type: "TEXT", nullable: true),
+                    Cmimi = table.Column<string>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Rezervimet", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Udhetaret",
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "TEXT", nullable: false),
                     DisplayName = table.Column<string>(type: "TEXT", nullable: true),
-                    Birthday = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Emri = table.Column<string>(type: "TEXT", nullable: true),
                     Mbiemri = table.Column<string>(type: "TEXT", nullable: true),
+                    Birthday = table.Column<DateTime>(type: "TEXT", nullable: false),
                     UserName = table.Column<string>(type: "TEXT", nullable: true),
                     NormalizedUserName = table.Column<string>(type: "TEXT", nullable: true),
                     Email = table.Column<string>(type: "TEXT", nullable: true),
@@ -272,6 +289,9 @@ namespace Persistency.Migrations
 
             migrationBuilder.DropTable(
                 name: "Punetoret");
+
+            migrationBuilder.DropTable(
+                name: "Rezervimet");
 
             migrationBuilder.DropTable(
                 name: "Udhetaret");

@@ -135,6 +135,9 @@ namespace Persistency.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Cmimi")
+                        .HasColumnType("TEXT");
+
                     b.Property<DateTime>("Departure")
                         .HasColumnType("TEXT");
 

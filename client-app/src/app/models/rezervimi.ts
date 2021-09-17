@@ -5,5 +5,6 @@ export interface Rezervimi {
     departure: Date | null
     return: Date | null
     personat: string
+    cmimi: string
   }
   

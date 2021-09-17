@@ -58,7 +58,6 @@ export default function RezervimiList() {
             <Grid item xs container direction="column" spacing={2}>
               <Grid item xs>
                 <Typography gutterBottom variant="subtitle1">
-
                 {rezervimi.vendi_Nisjes}
 
                 </Typography>
@@ -87,7 +86,7 @@ export default function RezervimiList() {
               </Grid>
             </Grid>
             <Grid item>
-              <Typography variant="subtitle1">$690.99</Typography>
+              <Typography variant="subtitle1">{rezervimi.cmimi}</Typography>
             </Grid>
           </Grid>
           ))}

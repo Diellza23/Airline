@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using Persistency;
-// using Application.Udhetaret;
+using Application.Ofertat;
 
 namespace API.Extensions
 {
@@ -33,7 +33,7 @@ namespace API.Extensions
             });
             services.AddMediatR(typeof(ListaP.Handler).Assembly);
             services.AddMediatR(typeof(ListaF.Handler).Assembly);
-            // services.AddMediatR(typeof(ListaU.Handler).Assembly);
+            services.AddMediatR(typeof(ListaO.Handler).Assembly);
             services.AddAutoMapper(typeof(MappingProfiles).Assembly);
 
             return services;

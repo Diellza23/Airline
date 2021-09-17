@@ -14,6 +14,9 @@ namespace Persistency
         public DbSet<Fluturimi> Fluturimet {get; set;}
         public DbSet<Udhetari> Udhetaret {get; set;}
         public DbSet<Rezervimi> Rezervimet{get;set;}
+        public DbSet<Oferta> Ofertat{get;set;}
+
+        
 
         // protected override void OnModelCreating(ModelBuilder builder)
         // {
