@@ -21,16 +21,16 @@ export default observer(function FluturimiList() {
   <>
   <NavBar/>
   <div style={{marginTop:"120px"}}>
-    <Segment style={{backgroundColor:"rgb(67,179,174)", marginTop:"40px"}}>
+    <Segment style={{backgroundColor:"#D8BFD8", marginTop:"40px"}}>
       <Item.Group divided>
-      <h3 style={{textAlign:"center",color:"white",marginBottom:"30px",fontSize:"23px"}}>LISTA E FLUTURIMEVE</h3>
+      <h3 style={{paddingTop:"10px",textAlign:"center",color:"solid grey",marginBottom:"30px",fontSize:"25px",textTransform:"uppercase"}}>LISTA E FLUTURIMEVE</h3>
         {fluturimetByDate.map((fluturimi) => (
            <Item key={fluturimi.id}>
-            <Item.Content style={{borderLeft:"1px solid yellow",padding:"20px",borderRight:"1px solid yellow",borderBottom:"1px solid yellow",borderTop:"1px solid yellow",
-          }}>
-              <Item.Header style={{color:"white",textTransform:"Uppercase",marginBottom:"20px"}}>Vendi i Nisjes :{fluturimi.vendiNisjes}</Item.Header>
-              <Item.Extra as="a" style={{color:"white",textTransform:"Uppercase",fontSize:"17px",marginBottom:"20px",paddingTop:"10px",borderTop:"1px solid yellow"}}>destinacioni: {fluturimi.vendiMberritjes}</Item.Extra>
-              <Item.Meta style={{color:"white",textTransform:"Uppercase",fontSize:"17px",marginBottom:"20px",paddingTop:"10px",paddingBottom:"10px",borderTop:"1px solid yellow",borderBottom:"1px solid yellow"}}>DATA E FLUTURIMIT : {format(fluturimi.date!,'dd MMM yyyy h:mm aa')}</Item.Meta>
+            <Item.Content style={{margin:"20px",borderLeft:"4px solid grey",padding:"30px",borderRight:"2px solid orange",borderBottom:"2px solid orange",borderTop:"3px solid grey"}}
+          >
+              <Item.Header style={{color:"black",textTransform:"Uppercase",marginBottom:"20px"}}>Vendi i Nisjes :{fluturimi.vendiNisjes}</Item.Header>
+              <Item.Extra as="a" style={{color:"black",textTransform:"Uppercase",fontSize:"17px",marginBottom:"15px",paddingTop:"10px",borderTop:"2px solid purple"}}>destinacioni: {fluturimi.vendiMberritjes}</Item.Extra>
+              <Item.Meta style={{color:"black",textTransform:"Uppercase",fontSize:"17px",marginBottom:"20px",paddingTop:"10px",paddingBottom:"10px",borderTop:"2px solid purple",borderBottom:"2px solid purple"}}>DATA E FLUTURIMIT : {format(fluturimi.date!,'dd MMM yyyy h:mm aa')}</Item.Meta>
               <Item.Extra>
                 <Button
                   as={Link}
