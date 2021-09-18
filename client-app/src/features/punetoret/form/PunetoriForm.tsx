@@ -57,8 +57,8 @@ export default observer(function PunetoriForm() {
 
   return (
     <>
+    <div style={{marginTop:"50px",width:"900px",marginLeft:"120px"}}>
     <h1 style={{textAlign:"center",color:"white",backgroundColor:"rgba(148, 124, 176, 1)", padding:"25px",textTransform:"uppercase"}}>Detajet e punetorit</h1>
-    
     <Segment clearing>
       <Formik
       validationSchema={validationSchema} 
@@ -84,6 +84,7 @@ export default observer(function PunetoriForm() {
       </Formik>
       
     </Segment>
+    </div>
     </>
   );
 })

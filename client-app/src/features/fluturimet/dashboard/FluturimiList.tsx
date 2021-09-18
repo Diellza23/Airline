@@ -26,8 +26,7 @@ export default observer(function FluturimiList() {
       <h3 style={{paddingTop:"10px",textAlign:"center",color:"solid grey",marginBottom:"30px",fontSize:"25px",textTransform:"uppercase"}}>LISTA E FLUTURIMEVE</h3>
         {fluturimetByDate.map((fluturimi) => (
            <Item key={fluturimi.id}>
-            <Item.Content style={{margin:"20px",borderLeft:"4px solid grey",padding:"30px",borderRight:"2px solid orange",borderBottom:"2px solid orange",borderTop:"3px solid grey"}}
-          >
+            <Item.Content style={{margin:"20px",borderLeft:"4px solid grey",padding:"30px",borderRight:"2px solid orange",borderBottom:"2px solid orange",borderTop:"3px solid grey"}}>
               <Item.Header style={{color:"black",textTransform:"Uppercase",marginBottom:"20px"}}>Vendi i Nisjes :{fluturimi.vendiNisjes}</Item.Header>
               <Item.Extra as="a" style={{color:"black",textTransform:"Uppercase",fontSize:"17px",marginBottom:"15px",paddingTop:"10px",borderTop:"2px solid purple"}}>destinacioni: {fluturimi.vendiMberritjes}</Item.Extra>
               <Item.Meta style={{color:"black",textTransform:"Uppercase",fontSize:"17px",marginBottom:"20px",paddingTop:"10px",paddingBottom:"10px",borderTop:"2px solid purple",borderBottom:"2px solid purple"}}>DATA E FLUTURIMIT : {format(fluturimi.date!,'dd MMM yyyy h:mm aa')}</Item.Meta>

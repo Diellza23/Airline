@@ -53,9 +53,9 @@ export const categoryPersona = [
     {text:"2 Persona", value:'2'},
 ]
 export const categoryStars = [
-    {text: "1 star", value:'1'},
-    {text:"2 stars", value:'2'},
-    {text:"3 stars", value:'3'},
-    {text:"4 stars", value:'4'},
-    {text:"5 stars", value:'5'},
+    {text: "1 yje", value:'First-Class'},
+    {text:"2 yje", value:'Second-Class'},
+    {text:"3 yje", value:'3 yje'},
+    {text:"4 yje", value:'4 yje'},
+    {text:"5 yje", value:'5 yje'},
 ]

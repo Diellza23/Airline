@@ -36,7 +36,7 @@ export default observer(function OfertaList() {
               <br/>
               <Item.Header style={{color:"white",textTransform:"Uppercase",fontSize:"17px",marginBottom:"20px",paddingTop:"10px",borderTop:"1px solid grey",width:"100%"}}>Persona :{oferta.persons}</Item.Header>
               <br/>
-              <Item.Header style={{color:"white",textTransform:"Uppercase",fontSize:"17px",marginBottom:"20px",paddingTop:"10px",borderTop:"1px solid white",width:"100%"}}>Cmimi :{oferta.cmimi}</Item.Header>
+              <Item.Header style={{color:"white",textTransform:"Uppercase",fontSize:"17px",marginBottom:"20px",paddingTop:"10px",paddingBottom:"10px",borderTop:"1px solid white",width:"100%",borderBottom:"1px solid white"}}>Cmimi :{oferta.cmimi}</Item.Header>
               <Item.Extra>
                 <Button
                   as={Link}

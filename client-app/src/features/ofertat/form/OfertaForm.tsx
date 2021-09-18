@@ -62,8 +62,9 @@ export default observer(function OfertaForm() {
 
   return (
     <>
-    <h1 style={{textAlign:"center",textTransform:"uppercase",border:"1px solid green",borderRadius:"5px",backgroundColor:"#41d9a0",color:"white",padding:"20px",marginBottom:"50px"}}>Oferta-Detajet</h1>
-    <Segment clearing style={{backgroundColor:"#b0cbf5"}}>
+    <div style={{marginTop:"60px",width:"1000px",marginLeft:"65px",}}>
+    <h1 style={{textAlign:"center",textTransform:"uppercase",border:"1px solid grey",borderRadius:"5px",backgroundColor:"grey",color:"white",padding:"20px",marginBottom:"50px"}}>Oferta-Detajet</h1>
+    <Segment clearing style={{backgroundColor:"grey"}}>
       <Formik
       validationSchema={validationSchema} 
       enableReinitialize 
@@ -71,34 +72,35 @@ export default observer(function OfertaForm() {
       onSubmit={values => handleFormSubmit(values)}>
         {({ handleSubmit, isValid, isSubmitting, dirty}) => (
             <Form className='ui form' onSubmit={handleSubmit} autoComplete="off" >
-                <h4 style={{textTransform:"uppercase",fontFamily:"sans-serif"}}>Destinacioni</h4>
+                <h4 style={{textTransform:"uppercase",fontFamily:"sans-serif",color:"white"}}>Destinacioni: </h4>
                 <MySelectInput options={categoryOpts}placeholder="Destinacioni.." name="goingTo"/>
 
-                <h4 style={{textTransform:"uppercase",fontFamily:"sans-serif"}}>Data e nisjes:</h4>
+                <h4 style={{textTransform:"uppercase",fontFamily:"sans-serif",color:"white"}}>Data e nisjes:</h4>
                 <MyDateInput placeholderText='Zgjedh daten'  name='checkIn' showTimeSelect timeCaption='time' dateFormat='MMMM d, yyyy h:mm aa' />
                 
 
-                <h4 style={{textTransform:"uppercase",fontFamily:"sans-serif"}}>Data e kthimit:</h4>
+                <h4 style={{textTransform:"uppercase",fontFamily:"sans-serif",color:"white"}}>Data e kthimit:</h4>
                 <MyDateInput placeholderText='Zgjedh daten'  name='checkOut' showTimeSelect timeCaption='time' dateFormat='MMMM d, yyyy h:mm aa' />
                 
-                <h4 style={{textTransform:"uppercase",fontFamily:"sans-serif"}}>Klasa e fluturimit:</h4>
+                <h4 style={{textTransform:"uppercase",fontFamily:"sans-serif",color:"white"}}>Klasa e fluturimit:</h4>
                 <MySelectInput options={categoryStars}placeholder="Destinacioni.." name="flightClass"/>
 
-                <h4 style={{textTransform:"uppercase",fontFamily:"sans-serif"}}>Numri i personave:</h4>
+                <h4 style={{textTransform:"uppercase",fontFamily:"sans-serif",color:"white"}}>Numri i personave:</h4>
                 <MySelectInput options={categoryPersona}placeholder="1.." name="persons"/>
 
-                <h4 style={{textTransform:"uppercase",fontFamily:"sans-serif"}}>Cmimi:</h4>
+                <h4 style={{textTransform:"uppercase",fontFamily:"sans-serif",color:"white"}}>Cmimi:</h4>
                 <MyTextInput name='cmimi' placeholder='10..'/>
 
                 <Button 
                 disabled={isSubmitting || !dirty || !isValid}
                 loading={loading} floated="right"  positive type="submit" content="SHTO"/>
-                <Button as={Link} to ='/fluturimet' floated="right" type="button" content="ANULO" color="orange"/>
+                <Button as={Link} to ='/ofertat' floated="right" type="button" content="ANULO" color="pink"/>
             </Form>
         )}
       </Formik>
       
     </Segment>
+    </div>
     </>
   );
 })

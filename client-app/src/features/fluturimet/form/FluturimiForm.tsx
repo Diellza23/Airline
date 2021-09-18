@@ -56,8 +56,9 @@ export default observer(function FluturimiForm() {
 
   return (
     <>
-    <h1 style={{textAlign:"center",textTransform:"uppercase",border:"1px solid green",borderRadius:"5px",backgroundColor:"#41d9a0",color:"white",padding:"20px",marginBottom:"50px"}}>Detajet e Fluturimit</h1>
-    <Segment clearing style={{backgroundColor:"#b0cbf5"}}>
+    <div style={{marginTop:"60px",width:"900px",marginLeft:"120px"}}>
+    <h1 style={{marginTop:"60px",textAlign:"center",textTransform:"uppercase",border:"1px solid green",borderRadius:"5px",backgroundColor:"rgba(92, 151, 191, 1)",color:"white",padding:"20px",marginBottom:"50px"}}>Detajet e Fluturimit</h1>
+    <Segment clearing style={{backgroundColor:"rgba(92, 151, 191, 1)"}}>
       <Formik
       validationSchema={validationSchema} 
       enableReinitialize 
@@ -65,11 +66,11 @@ export default observer(function FluturimiForm() {
       onSubmit={values => handleFormSubmit(values)}>
         {({ handleSubmit, isValid, isSubmitting, dirty}) => (
             <Form className='ui form' onSubmit={handleSubmit} autoComplete="off" >
-                <h4 style={{textTransform:"uppercase",fontFamily:"sans-serif"}}>Vendi i nisjes:</h4>
+                <h4 style={{textTransform:"uppercase",fontFamily:"sans-serif",color:"white"}}>Vendi i nisjes:</h4>
                 <MyTextInput name='vendiNisjes' placeholder='Vendi i nisjes'/>
-                <h4 style={{textTransform:"uppercase",fontFamily:"sans-serif"}}>Vendi i mberritjes:</h4>
+                <h4 style={{textTransform:"uppercase",fontFamily:"sans-serif",color:"white"}}>Vendi i mberritjes:</h4>
                 <MySelectInput options={categoryOpsions}placeholder="Destinacioni.." name="vendiMberritjes"  />
-                <h4 style={{textTransform:"uppercase",fontFamily:"sans-serif"}}>Data e fluturimit:</h4>
+                <h4 style={{textTransform:"uppercase",fontFamily:"sans-serif",color:"white"}}>Data e fluturimit:</h4>
                 <MyDateInput placeholderText='Zgjedh daten'  name='date' showTimeSelect timeCaption='time' dateFormat='MMMM d, yyyy h:mm aa' />
                 <Button 
                 disabled={isSubmitting || !dirty || !isValid}
@@ -78,8 +79,8 @@ export default observer(function FluturimiForm() {
             </Form>
         )}
       </Formik>
-      
     </Segment>
+    </div>
     </>
   );
 })
