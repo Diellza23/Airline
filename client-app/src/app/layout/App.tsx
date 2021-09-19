@@ -39,13 +39,13 @@ function App() {
   const {commonStore, userStore, udhetariStore} = useStore();
 
   commonStore.setAppLoaded();
-  useEffect(() => {
-    if(commonStore.token) {
-      userStore.getUser().finally(() => commonStore.setAppLoaded());
-    } else {
-      commonStore.setAppLoaded();
-    }
-  }, [commonStore, userStore])
+  // useEffect(() => {
+  //   if(commonStore.token) {
+  //     userStore.getUser().finally(() => commonStore.setAppLoaded());
+  //   } else {
+  //     commonStore.setAppLoaded();
+  //   }
+  // }, [commonStore, userStore])
 
   //  useEffect(() => {
   //   if(commonStore.token) {

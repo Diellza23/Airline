@@ -9,7 +9,7 @@ import { Formik, Form } from "formik";
 import * as Yup from 'yup';
 import MyTextInput from "../../../app/common/form/MyTextInput";
 // import MySelectInput from "./MySelectInput";
-import { categoryOptions } from "../../../app/common/options/categoryOptions";
+import { categoryOptions, categoryPersona } from "../../../app/common/options/categoryOptions";
 import MyDateInput from "../../../app/common/form/MyDateInput";
 import { Rezervimi } from "../../../app/models/rezervimi";
 import MySelectInput from "../../punetoret/form/MySelectInput";
@@ -32,11 +32,11 @@ export default observer(function RezervimiForm() {
   })
 
   const validationSchema = Yup.object({
-    vendi_Nisjes: Yup.string().required('Emri i punetorit i nevojitur!'),
-    vendi_Mberritjes: Yup.string().required('Mbiemri i punetorit i nevojitur!'),
-    departure: Yup.string().required('Data e punesimit e nevojitur!').nullable(),
-    return: Yup.string().required('Data e punesimit e nevojitur!').nullable(),
-    personat: Yup.string().required('Id e Aeroplanit e nevojitur!')
+    vendi_Nisjes: Yup.string().required('Vendi i nevojitur!'),
+    vendi_Mberritjes: Yup.string().required('Vendi i nevojitur!'),
+    departure: Yup.string().required('Data e nisjes e nevojitur!').nullable(),
+    return: Yup.string().required('Data e kthimit e nevojitur!').nullable(),
+    personat: Yup.string().required('Numri i personave i nevojitur!')
   })
 
   useEffect(() =>{
@@ -61,7 +61,7 @@ export default observer(function RezervimiForm() {
 
   return (
     <>
-    <h1 style={{textAlign:"center",color:"white",backgroundColor:"#c159cf", padding:"25px",textTransform:"uppercase"}}>Detajet e punetorit</h1>
+    <h1 style={{textAlign:"center",color:"white",backgroundColor:"#c159cf", padding:"25px",textTransform:"uppercase"}}>Detajet e rezervimit</h1>
     
     <Segment clearing>
       <Formik
@@ -74,13 +74,15 @@ export default observer(function RezervimiForm() {
                 <h4>Vendi i nisjes:</h4>
                 <MyTextInput name='vendi_Nisjes' placeholder='pristina..'/>
                 <h4>Destinacioni:</h4>
-                <MyTextInput placeholder="destinacioni.." name='hamburg..'/>
+                <MyTextInput placeholder="destinacioni.." name='vendi_Mberritjes..'/>
                 <h4>Data e nisjes:</h4>
                 <MyDateInput placeholderText='Zgjedh daten'  name='departure' showTimeSelect timeCaption='time' dateFormat='MMMM d, yyyy h:mm aa' />
                 <h4>Data e mberritjes:</h4>
                 <MyDateInput placeholderText='Zgjedh daten'  name='return' showTimeSelect timeCaption='time' dateFormat='MMMM d, yyyy h:mm aa' />
                 <h4>Rezervim per sa persona: </h4>
-                <MySelectInput options={categoryOptions}placeholder="Linja e Aeroplanit.." name="personat"  />
+                <MySelectInput options={categoryPersona} placeholder="1.." name="personat"  />
+                <h4>Cmimi: </h4>
+                <MyTextInput name='cmimi' placeholder='12.0$..'/>
                 <Button 
                 disabled={isSubmitting || !dirty || !isValid}
                 loading={loading} floated="right"  positive type="submit" content="SHTO"/>
