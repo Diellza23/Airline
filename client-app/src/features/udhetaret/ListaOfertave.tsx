@@ -41,12 +41,12 @@ export default function ListaOfertave() {
 
   return (
     <>
-    <div style={{backgroundColor:"white",width:"1240px",height:"1300px",marginLeft:"-50px",marginBottom:"0"}}>
+    <div style={{backgroundColor:"white",width:"1240px",height:"1990px",marginLeft:"-50px",marginBottom:"-50px"}}>
       <div>
         <img
           alt="complex"
-          src="/assets/discount.png"
-          style={{ width: "1240px", marginLeft: "-55px", height: "500px" }}
+          src="/assets/sea.png"
+          style={{ width: "1285px", marginLeft: "-55px", height: "530px" }}
         />
       </div>
       <div
@@ -104,19 +104,19 @@ export default function ListaOfertave() {
       </div>
       <div
         className="ui two column grid"
-        style={{ float: "right", marginTop: "-213px" }}
+        style={{ float: "right", marginTop: "-213px",marginRight:"110px" }}
       >
         <div
           className="column"
-          style={{ marginRight: "200px", marginTop: "-650px", width: "550px" }}
+          style={{marginTop: "-650px", width: "650px" }}
         >
           <div
             className="ui raised segment"
             style={{
               backgroundColor: "#0770e3",
-              width: "950px",
+              width: "940px",
               height: "130px",
-              marginLeft: "-390px",
+              marginLeft: "-360px",
               marginTop:"-500px"
             }}
           >
@@ -141,14 +141,14 @@ export default function ListaOfertave() {
               test before returning from your country from a non-red country.
             </p>
 
-            <img src="/assets/first.png" style={{width:"150px",marginTop:"-75px",borderRadius:"3px"}}/>
+            <img src="/assets/first.png" style={{width:"150px",marginTop:"-95px",borderRadius:"3px",paddingBottom:"8px"}}/>
             
             <Button
               floated="right"
               content="See the full update->"
               style={{
-                marginRight: "595px",
-                marginTop: "-10px",
+                marginRight: "565px",
+                marginTop: "-20px",
                 color: "white",
                 backgroundColor: "#0770e3",
               }}
@@ -171,12 +171,16 @@ export default function ListaOfertave() {
               style={{
                 color: "white",
                 backgroundColor: "#00a698",
-                marginTop:"300px",
+                marginTop:"70px",
                 width:"160px",
                 height:"35px",
                 paddingTop:"10px",
               }}
             />
+          </div>
+          <div style={{marginTop:"-900px",marginLeft:"25%"}}>
+            <p style={{color:"white",fontSize:"45px"}}>Let the journey begin</p>
+            <p style={{color:"white",fontSize:"40px"}}>Book now.</p>
           </div>
         </div></div>
     </>
