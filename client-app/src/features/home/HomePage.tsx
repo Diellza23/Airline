@@ -100,13 +100,13 @@ export default observer(function HomePage() {
             </>
           ) : (
             <>
-              <h3
+              <p
                 style={{
                   color: "white",
                   fontSize: "40px",
                   textTransform: "uppercase",
                   fontFamily: "Roboto Condensed, sans-serif",
-                  marginTop: "-680px",
+                  marginTop: "-690px",
                   marginLeft: "120px",
                   paddingBottom: "60px",
                   letterSpacing:"-1.5px",
@@ -114,7 +114,7 @@ export default observer(function HomePage() {
                 }}
               >
                 Upgrade your flights
-              </h3>
+              </p>
               <span
                 style={{
                   width: "73px",
@@ -122,23 +122,23 @@ export default observer(function HomePage() {
                   margin: "8px auto 0",
                   display: "block",
                   backgroundColor: "#ff3366",
-                  marginTop:"-60px"
+                  marginTop:"-90px"
                 }}
               ></span>
 
-              <h3
+              <p
                 style={{
                   color: "white",
                   fontSize: "20px",
-                  fontFamily: "Roboto Condensed sans-serif",
+                  fontFamily: "Work sans,sans-serif",
                   paddingBottom: "30px",
                   marginLeft: "50px",
-                  marginTop:"70px"
+                  marginTop:"60px"
                 }}
               >
                 Enjoy secret offers up to -70% off the best luxury hotels every
                 Sunday.
-              </h3>
+              </p>
 
               <Button
                 onClick={() => modalStore.openModal(<LoginForm />)}
@@ -163,14 +163,16 @@ export default observer(function HomePage() {
                   color: "white",
                   marginLeft: "280px",
                   fontSize: "13px",
+                  fontFamily:"work sans,sans-serif"
                   
                 }}
               >
                 Discover the experience
               </h3>
-              <div style={{backgroundColor:"rgba(192,192,192,0.5)",width:"1270px",height:"140px",
-              marginLeft:"-300px",marginTop:"248px",
+              <div style={{backgroundColor:"rgba(192,192,192,0.3)",width:"1270px",height:"140px",
+              marginLeft:"-300px",marginTop:"258px",
               }}>
+                <p style={{fontWeight:"bolder",color:"orange",marginLeft:"100px"}}>About us</p>
               </div>
             </>
           )}

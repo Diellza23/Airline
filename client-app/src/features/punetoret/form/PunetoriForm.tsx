@@ -63,6 +63,7 @@ export default observer(function PunetoriForm() {
       <Formik
       validationSchema={validationSchema} 
       enableReinitialize 
+      
       initialValues={punetori} 
       onSubmit={values => handleFormSubmit(values)}>
         {({ handleSubmit, isValid, isSubmitting, dirty}) => (

@@ -47,14 +47,14 @@ function App() {
   //   }
   // }, [commonStore, userStore])
 
-  //  useEffect(() => {
-  //   if(commonStore.token) {
-  //     udhetariStore.getUdhetari().finally(() => commonStore.setAppLoaded());
-  //   } else {
-  //     commonStore.setAppLoaded();
-  //   }
+   useEffect(() => {
+    if(commonStore.token) {
+      udhetariStore.getUdhetari().finally(() => commonStore.setAppLoaded());
+    } else {
+      commonStore.setAppLoaded();
+    }
    
-  //  }, [commonStore, udhetariStore])
+   }, [commonStore, udhetariStore])
 
   if(!commonStore.appLoaded) return <LoadingComponent content='Loading app..'/>
 
