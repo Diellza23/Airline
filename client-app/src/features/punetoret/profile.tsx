@@ -118,7 +118,7 @@ export default observer(function Profile() {
 
       <div
         className="ui category search"
-        style={{ float: "right", marginTop: "-335px", marginRight: "20px" }}
+        style={{ float: "right", marginTop: "-400px", marginRight: "20px" }}
       >
         <div className="ui icon input">
           <input className="prompt" type="text" placeholder="Search..." />

@@ -3,7 +3,7 @@ body {
 }
 
 .ui.inverted.top.fixed.menu {
-    background-image: linear-gradient( 135deg, rgb(86, 201, 195) 0%, rgb(95, 156, 179) 69%, rgb(15, 159, 255) 89%) !important;
+    background-image: linear-gradient( #333333) !important;
 }
 
 .container {

@@ -33,6 +33,7 @@ export default observer(function HomePage() {
             marginRight: "395px",
             fontSize: "20px",
             fontFamily: "Roboto Condensed ,sans-serif",
+            textTransform:"uppercase"
           }}
         >
           oneair
@@ -74,20 +75,22 @@ export default observer(function HomePage() {
           </>
         )}
       </div>
-      <Segment>
+      <Segment style={{paddingBottom:"0em",paddingTop:"2em",}}>
         <div style={{ marginTop: "-29px" }}>
           <Image
             size="massive"
-            src="/assets/airline.png"
+            src="/assets/air.png"
             alt="logo"
             style={{
               minWidth: "1250px",
               marginLeft: "-20px",
+              marginTop:"-43px"
+              // height:"700px"
             }}
           />
         </div>
-        <Container text style={{ marginTop: "-450px" }}>
-          {/* <Header as="h1">Airline</Header> */}
+        <Container text style={{ marginTop: "-450px", }}>
+         
           {userStore.isLoggedIn ? (
             <>
               <Header as="h2" content="Welcome to Airlines" />
@@ -103,10 +106,11 @@ export default observer(function HomePage() {
                   fontSize: "40px",
                   textTransform: "uppercase",
                   fontFamily: "Roboto Condensed, sans-serif",
-                  marginTop: "-670px",
+                  marginTop: "-680px",
                   marginLeft: "120px",
                   paddingBottom: "60px",
-                  letterSpacing:"-1.5px"
+                  letterSpacing:"-1.5px",
+                  
                 }}
               >
                 Upgrade your flights
@@ -164,6 +168,10 @@ export default observer(function HomePage() {
               >
                 Discover the experience
               </h3>
+              <div style={{backgroundColor:"rgba(192,192,192,0.5)",width:"1270px",height:"140px",
+              marginLeft:"-300px",marginTop:"248px",
+              }}>
+              </div>
             </>
           )}
         </Container>
