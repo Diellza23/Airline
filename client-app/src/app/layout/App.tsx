@@ -24,12 +24,14 @@ import UdhetariNavBar from "../../features/udhetaret/UdhetariNavBar";
 import UdhetariProfile from "../../features/udhetaret/UdhetariProfile";
 import DetajetRezervimi from "../../features/rezervimet/detajet/DetajetRezervimi";
 import RezervimiDashboard from "../../features/rezervimet/dashboard/RezervimiDashboard";
-import RezervimiForm from "../../features/rezervimet/form/RezervimiForm";
 import UdhetariDashboard from "../../features/udhetaret/dashboard/UdhetariDashboard";
 import ListaFluturimeveDashboard from "../../features/udhetaret/dashboard/ListaFluturimeveDashboard";
 import OfertaDashboard from "../../features/ofertat/dashboard/OfertaDashboard";
 import DetajetOferta from "../../features/ofertat/detajet/DetajetOferta";
 import OfertaForm from "../../features/ofertat/form/OfertaForm";
+import DashboardOferta from "../../features/udhetaret/dashboard/DashboardOferta";
+// import RezForm from "../../features/rezervimet/RezForm";
+import RezervimiForm from "../../features/rezervimet/form/RezervimiForm";
 // import UdhetaretList from "../../features/udhetaret/UdhetaretList";
 
 function App() {
@@ -37,22 +39,22 @@ function App() {
   const {commonStore, userStore, udhetariStore} = useStore();
 
   commonStore.setAppLoaded();
-  useEffect(() => {
-    if(commonStore.token) {
-      userStore.getUser().finally(() => commonStore.setAppLoaded());
-    } else {
-      commonStore.setAppLoaded();
-    }
-  }, [commonStore, userStore])
-
-  //  useEffect(() => {
+  // useEffect(() => {
   //   if(commonStore.token) {
-  //     udhetariStore.getUdhetari().finally(() => commonStore.setAppLoaded());
+  //     userStore.getUser().finally(() => commonStore.setAppLoaded());
   //   } else {
   //     commonStore.setAppLoaded();
   //   }
+  // }, [commonStore, userStore])
+
+   useEffect(() => {
+    if(commonStore.token) {
+      udhetariStore.getUdhetari().finally(() => commonStore.setAppLoaded());
+    } else {
+      commonStore.setAppLoaded();
+    }
    
-  //  }, [commonStore, udhetariStore])
+   }, [commonStore, udhetariStore])
 
   if(!commonStore.appLoaded) return <LoadingComponent content='Loading app..'/>
 
@@ -70,12 +72,20 @@ function App() {
                   <Route exact path="/ofertat" component={OfertaDashboard} />
                   <Route path="/profile" component={Profile} />
                   <Route exact path="/fluturimet" component={FluturimiDashboard} />
+
+                  <Route exact path="/rezervimet" component={RezervimiDashboard} />
+
                 <Route path='/punetoret/:id' component={DetajetPunetori} /> 
+
+                <Route path='/rezervimet/:id' component={DetajetRezervimi} /> 
+
                 <Route path='/fluturimet/:id' component={DetajetFluturimi} />
                 <Route path='/ofertat/:id' component={DetajetOferta} />
                 <Route exact path="/users" component={UdhetariDashboard} />
                 <Route exact path="/listafluturimeve" component={ListaFluturimeveDashboard} />
-                <Route key={location.key} path={['/addPunetori', '/manage/:id']} component={PunetoriForm}/>                
+                <Route exact path="/listaofertave" component={DashboardOferta} />
+                <Route key={location.key} path={['/addPunetori', '/manage/:id']} component={PunetoriForm}/>
+                <Route key={location.key} path={['/addRezervimi', '/menaxhoR/:id']} component={RezervimiForm}/>                
                 <Route key={location.key} path={['/addFluturimi', '/managee/:id']} component={FluturimiForm}/>                
                 <Route key={location.key} path={['/addOferta', '/menaxho/:id']} component={OfertaForm}/>                
                 
@@ -97,9 +107,9 @@ function App() {
                 <Switch>    
                   {/* <Route exact path="/udhetariProfile" component={UdhetariProfile} /> */}
                   <Route path="/udhetariProfile" component={UdhetariProfile} />
-                  <Route key={location.key} path={['/addRezervimi', '/manageee/:id']} component={RezervimiForm}/>  
-                  <Route exact path="/rezervimet" component={RezervimiDashboard} />
-                  <Route path='/rezervimet/:id' component={DetajetRezervimi} />
+                  {/* <Route key={location.key} path={['/addRezervimi', '/manageee/:id']} component={RezervimiForm}/>   */}
+                  {/* <Route exact path="/rezervimet" component={RezervimiDashboard} /> */}
+                  {/* <Route path='/rezervimet/:id' component={DetajetRezervimi} /> */}
                 {/* <Route path='/loginUdhetari' component={LoginFormUdhetari}/>  */}
                 </Switch>
                 

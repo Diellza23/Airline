@@ -29,9 +29,13 @@ export default observer(function UdhetariNavBar() {
           Profili
         </Menu.Item>
         {/* ) : null} */}
-        <Menu.Item as={NavLink} to="/rezervimet">
+        <Menu.Item as={NavLink} to="/listaofertave">
           <Icon className="suitcase icon" />
-          Rezervo Bileta
+          Ofertat
+        </Menu.Item>
+        <Menu.Item as={NavLink} to="/addRezervimi">
+          <Icon className="suitcase icon" />
+          Rezervimet
         </Menu.Item>
 
         <Menu.Item as={NavLink} to="/njoftimet">

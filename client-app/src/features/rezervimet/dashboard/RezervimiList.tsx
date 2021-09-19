@@ -1,39 +1,14 @@
-import React, { SyntheticEvent, useState } from 'react';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import ButtonBase from '@material-ui/core/ButtonBase';
-import { useStore } from '../../../app/stores/store';
-import { Button } from 'semantic-ui-react';
-import { format } from 'date-fns';
-// import { useStore } from '../../../app/stores/store';
+import { format } from "date-fns";
+import { observer } from "mobx-react-lite";
+import React, { SyntheticEvent, useState } from "react";
+import { Link } from "react-router-dom";
+import { Button, Item, Segment } from "semantic-ui-react";
+import { useStore } from "../../../app/stores/store";
+// import NavBar from "../NavBar";
+// import SegmentExm from "./SegmentExm";
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      flexGrow: 1,
-    },
-    paper: {
-      padding: theme.spacing(2),
-      margin: 'auto',
-      maxWidth: 500,
-    },
-    image: {
-      width: 128,
-      height: 128,
-    },
-    img: {
-      margin: 'auto',
-      display: 'block',
-      maxWidth: '100%',
-      maxHeight: '100%',
-    },
-  }),
-);
 
-export default function RezervimiList() {
-  const classes = useStyles();
+export default observer(function RezervimiList() {
   const { rezervimiStore } = useStore();
   const { deleteRezervimi, rezervimetByDate, loading } = rezervimiStore;
 
@@ -43,55 +18,53 @@ export default function RezervimiList() {
     setTarget(e.currentTarget.name);
     deleteRezervimi(id);
   }
+  const theme ={
+    float:'right',
+    display: 'flex',
+    justifyContent: 'space-around'
+  }
 
-  return (
-    <div className={classes.root}>
-      <Paper className={classes.paper}>
-        <Grid container spacing={2}>
-          <Grid item>
-            <ButtonBase className={classes.image}>
-              <img className={classes.img} alt="complex" src="/assets/user.png" />
-            </ButtonBase>
-          </Grid>
-          {rezervimetByDate.map((rezervimi) => (
-          <Grid item xs={12} sm container>
-            <Grid item xs container direction="column" spacing={2}>
-              <Grid item xs>
-                <Typography gutterBottom variant="subtitle1">
-                {rezervimi.vendi_Nisjes}
-
-                </Typography>
-                <Typography variant="body2" gutterBottom>
-                  {rezervimi.vendi_Mberritjes}
-                </Typography>
-                <Typography variant="body2" color="textSecondary">
-                {format(rezervimi.departure!, "dd MMM yyyy h:mm aa")}
-                </Typography>
-                <Typography variant="body2" color="textSecondary">
-                {format(rezervimi.return!, "dd MMM yyyy h:mm aa")}
-                </Typography>
-                <Typography variant="body2" color="textSecondary">
-                  {rezervimi.personat}
-                </Typography>
-              </Grid>
-              <Grid item>
-              <Button
+  return (      
+  <>
+  {/* <SegmentExm/> */}
+  {/* <UdhetariNavBar/> */}
+  <div style={{marginTop:"120px"}}>
+    <Segment style={{backgroundColor:"#702963", marginTop:"40px",border:"2px solid pink"}}>
+      <Item.Group divided>
+      <h3 style={{paddingTop:"10px",textAlign:"center",color:"white",marginBottom:"30px",fontSize:"23px",textTransform:"uppercase"}}>Rezervimet e  regjistruar</h3>
+        {rezervimetByDate.map((rezervimi) => (
+           <Item key={rezervimi.id}>
+            <Item.Content style={{margin:"20px",borderLeft:"8px solid white",padding:"30px",borderRight:"2px solid white",borderBottom:"2px solid yellow",borderTop:"2px solid yellow"}}>
+              <Item.Header style={{color:"white",textTransform:"Uppercase",marginBottom:"20px"}}>Vendi i nisjes :{rezervimi.vendi_Nisjes}</Item.Header>
+              <br/>
+              <Item.Extra as="a" style={{color:"white",textTransform:"Uppercase",fontSize:"17px",marginBottom:"15px",paddingTop:"10px",borderTop:"1px solid white"}}>EMRI: {rezervimi.vendi_Mberritjes}</Item.Extra>
+              <Item.Meta style={{color:"white",textTransform:"Uppercase",fontSize:"17px",marginBottom:"5px",paddingTop:"10px",paddingBottom:"10px",borderTop:"1px solid white"}}> MBIEMRI: {rezervimi.cmimi}</Item.Meta>
+              <Item.Meta style={{color:"white",textTransform:"Uppercase",fontSize:"17px",marginBottom:"20px",paddingTop:"10px",paddingBottom:"10px",borderTop:"1px solid white",borderBottom:"1px solid white"}}>Rez {format(rezervimi.departure!,'dd MMM yyyy h:mm aa')}</Item.Meta>
+              <Item.Meta style={{color:"white",textTransform:"Uppercase",fontSize:"17px",marginBottom:"20px",paddingTop:"10px",paddingBottom:"10px",borderTop:"1px solid white",borderBottom:"1px solid white"}}>Rez: {format(rezervimi.return!,'dd MMM yyyy h:mm aa')}</Item.Meta>
+              <Item.Extra>
+                <Button
+                  as={Link}
+                  to={`/rezervimet/${rezervimi.id}`}
+                  floated="right"
+                  content="SHIKO"
+                  color="blue"
+                />
+                
+                <Button
                   name={rezervimi.id}
                   loading={loading && target === rezervimi.id}
                   onClick={(e) => handleRezervimiDelete(e, rezervimi.id)}
                   floated="right"
-                  content="REZERVO"
-                  color="pink"
+                  content="FSHIJ"
+                  color="red"
                 />
-              </Grid>
-            </Grid>
-            <Grid item>
-              <Typography variant="subtitle1">{rezervimi.cmimi}</Typography>
-            </Grid>
-          </Grid>
-          ))}
-        </Grid>
-      </Paper>
-    </div>
+              </Item.Extra>
+            </Item.Content>
+          </Item>
+        ))}
+      </Item.Group>
+      
+    </Segment></div>
+    </>
   );
-}
+});

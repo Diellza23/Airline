@@ -41,7 +41,7 @@ export default observer(function DetajetRezervimi() {
         <Button.Group widths="2">
           <Button
             as={Link}
-            to={`/manage/${rezervimi.id}`} 
+            to={`/menaxhoR/${rezervimi.id}`} 
             
             color="blue"
             content="MODIFIKO"
