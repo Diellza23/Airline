@@ -33,7 +33,7 @@ export default class UdhetariStore {
             const udhetaret = await agent.AccountUdhetari.login(creds);
             store.commonStore.setToken(udhetaret.token);
             runInAction(() => this.udhetariSelected = udhetaret);
-            history.push("/udhetariProfile");
+            history.push("/listaofertave");
             window.location.reload()
             store.modalStore.closeModal();
         } catch(error) {

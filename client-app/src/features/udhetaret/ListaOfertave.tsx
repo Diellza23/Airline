@@ -5,9 +5,11 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import ButtonBase from "@material-ui/core/ButtonBase";
 import { useStore } from "../../app/stores/store";
-import { Button } from "semantic-ui-react";
+import { Button, Icon } from "semantic-ui-react";
 import { format } from "date-fns";
 import OfertaStore from "../../app/stores/ofertaStore";
+import { NavLink } from "react-router-dom";
+import { Box } from "@material-ui/core";
 // import "./listaOfertave.css";
 // import "./script.js";
 
@@ -19,7 +21,9 @@ const useStyles = makeStyles((theme: Theme) =>
     paper: {
       padding: theme.spacing(2),
       margin: "auto",
-      maxWidth: 500,
+      maxWidth: 1200,
+      minHeight:500,
+      marginLeft:"-105px"
     },
     image: {
       width: 128,
@@ -41,6 +45,9 @@ export default function ListaOfertave() {
 
   return (
     <>
+
+    
+    <Icon className="arrow alternate circle left icon" as={NavLink} to="/udhetariProfile" style={{marginTop:"-135%",marginLeft:"-50px",width:"1240px"}}>Go back to your profile</Icon>
     <div style={{backgroundColor:"white",width:"1240px",height:"1990px",marginLeft:"-50px",marginBottom:"-50px"}}>
       <div>
         <img
@@ -49,75 +56,83 @@ export default function ListaOfertave() {
           style={{ width: "1285px", marginLeft: "-55px", height: "530px" }}
         />
       </div>
+      <>
       <div
         className={classes.root}
         style={{
           backgroundColor: "white",
           width: "800px",
-          marginLeft: "400px",
-          marginTop: "1000px",
+          marginLeft: "230px",
+          marginTop: "900px",
           // marginBottom:"-700px"
         }}
-      >
-        <Paper className={classes.paper}>
+       >
+
+        <Paper elevation={5} className={classes.paper}>
           <Grid container spacing={2} style={{}}>
             <Grid item>
-              <ButtonBase className={classes.image}>
-                <img
+              {/* <ButtonBase className={classes.image}>
+                 <img
                   className={classes.img}
                   alt="complex"
                   src="/assets/book.png"
-                />
-              </ButtonBase>
+                /> 
+              </ButtonBase> */}
             </Grid>
             {ofertatByDate.map((oferta) => (
               <Grid item xs={12} sm container>
                 <Grid item xs container direction="column" spacing={2}>
                   <Grid item xs>
                     <Typography gutterBottom variant="subtitle1">
-                      {oferta.goingTo}
+                      Vendi: {oferta.goingTo}
                     </Typography>
                     <Typography variant="body2" gutterBottom>
-                      {oferta.flightClass}
+                      Klasa: {oferta.flightClass}
                     </Typography>
                     <Typography variant="body2" color="textSecondary">
-                      {format(oferta.checkIn!, "dd MMM yyyy h:mm aa")}
+                      Data e nisjes:{format(oferta.checkIn!, "dd MMM yyyy h:mm aa")}
                     </Typography>
                     <Typography variant="body2" color="textSecondary">
-                      {format(oferta.checkOut!, "dd MMM yyyy h:mm aa")}
+                      Data e mberritjes{format(oferta.checkOut!, "dd MMM yyyy h:mm aa")}
                     </Typography>
                     <Typography variant="body2" color="textSecondary">
-                      {oferta.persons}
+                      Personat:{oferta.persons}
                     </Typography>
                   </Grid>
                   <Grid item>
-                    <Button floated="right" content="BIG SALE" color="pink" />
-                  </Grid>
+                  <Typography variant="subtitle1">Cmimi:{oferta.cmimi}</Typography>
+                </Grid>
                 </Grid>
                 <Grid item>
-                  <Typography variant="subtitle1">{oferta.cmimi}</Typography>
-                </Grid>
+                    <Button floated="right" content=" SALE" color="pink" />
+                  </Grid>
+                
               </Grid>
             ))}
           </Grid>
         </Paper>
       </div>
+      </>
+
+
+
+
       <div
-        className="ui two column grid"
+        
         style={{ float: "right", marginTop: "-213px",marginRight:"110px" }}
       >
         <div
-          className="column"
-          style={{marginTop: "-650px", width: "650px" }}
+          // className="column"
+          style={{ width: "650px" }}
         >
           <div
-            className="ui raised segment"
+            // className="ui raised segment"
             style={{
               backgroundColor: "#0770e3",
               width: "940px",
               height: "130px",
-              marginLeft: "-360px",
-              marginTop:"-500px"
+              marginLeft: "-350px",
+              marginTop:"-1120px"
             }}
           >
             {/* <a className="ui yellow ribbon label">Don't miss it</a> */}
@@ -125,7 +140,8 @@ export default function ListaOfertave() {
               style={{
                 lineHeight: "1.5",
                 fontSize: "30px",
-                marginBottom: ".5rem!important",
+                // marginBottom: ".3rem!important",
+                marginTop:"-10px",
                 fontWeight: 700,
                 color: "white",
                 fontFamily: "sans-serif",
@@ -135,20 +151,20 @@ export default function ListaOfertave() {
               Travel gets easier
             </span>
             <p
-              style={{ fontSize: "13px", color: "white", marginLeft: "175px" }}
+              style={{ fontSize: "13px", color: "white", marginLeft: "175px"}}
             >
               Fully vaccinated? From 4 October you won't need a pre-departure
               test before returning from your country from a non-red country.
             </p>
 
-            <img src="/assets/first.png" style={{width:"150px",marginTop:"-95px",borderRadius:"3px",paddingBottom:"8px"}}/>
+            <img src="/assets/first.png" style={{width:"150px",marginTop:"-60px",borderRadius:"3px",paddingBottom:"8px",marginLeft:"10px"}}/>
             
             <Button
               floated="right"
               content="See the full update->"
               style={{
-                marginRight: "565px",
-                marginTop: "-20px",
+                marginRight: "615px",
+                marginTop: "-40px",
                 color: "white",
                 backgroundColor: "#0770e3",
               }}
