@@ -22,22 +22,22 @@ export default observer(function HomePage() {
           backgroundColor: "#28282a",
           height: "65px",
           display: "flex",
-          justifyContent: "flex-end",
           fontWeight: 700,
+          justifyContent:"flex-end"
         }}
       >
-        <h3
+        <p
           style={{
             color: "white",
-            marginTop: "20px",
-            marginRight: "395px",
             fontSize: "20px",
-            fontFamily: "Roboto Condensed ,sans-serif",
-            textTransform:"uppercase"
+            textTransform: "uppercase",
+            fontFamily: "Roboto Condensed,sans-serif",
+            margin:"20px 37% 75px 100px",
+            
           }}
         >
           oneair
-        </h3>
+        </p>
 
         {udhetariStore.isLoggedIn ? (
           <>
@@ -55,6 +55,7 @@ export default observer(function HomePage() {
                 fontFamily: "Roboto Condensed, sans-serif",
                 fontSize: "14px",
                 marginRight: "-15px",
+                
               }}
             >
               Sign In
@@ -75,22 +76,24 @@ export default observer(function HomePage() {
           </>
         )}
       </div>
-      <Segment style={{paddingBottom:"0em",paddingTop:"2em",}}>
+
+      <Segment
+        style={{ paddingBottom: "0em", paddingTop: "2em",paddingRight:"0em",paddingLeft:"0em"  }}
+      >
         <div style={{ marginTop: "-29px" }}>
           <Image
             size="massive"
             src="/assets/air.png"
             alt="logo"
             style={{
-              minWidth: "1250px",
-              marginLeft: "-20px",
-              marginTop:"-43px"
+              width: "100%",
+              // marginLeft: "-20px",
+              marginTop: "-43px",
               // height:"700px"
             }}
           />
         </div>
-        <Container text style={{ marginTop: "-450px", }}>
-         
+        <Container text style={{ marginTop: "-50%",  }}>
           {userStore.isLoggedIn ? (
             <>
               <Header as="h2" content="Welcome to Airlines" />
@@ -106,23 +109,23 @@ export default observer(function HomePage() {
                   fontSize: "40px",
                   textTransform: "uppercase",
                   fontFamily: "Roboto Condensed, sans-serif",
-                  marginTop: "-690px",
-                  marginLeft: "120px",
-                  paddingBottom: "60px",
-                  letterSpacing:"-1.5px",
-                  
+                  marginTop: "-30%",
+                  paddingBottom: "8%",
+                  letterSpacing: "-1.5px",
+                  textAlign: "center",
+                  fontWeight: 700
                 }}
               >
                 Upgrade your flights
               </p>
               <span
                 style={{
-                  width: "73px",
+                  width: "10%",
                   height: "4px",
                   margin: "8px auto 0",
                   display: "block",
                   backgroundColor: "#ff3366",
-                  marginTop:"-90px"
+                  marginTop: "-12%",
                 }}
               ></span>
 
@@ -131,9 +134,9 @@ export default observer(function HomePage() {
                   color: "white",
                   fontSize: "20px",
                   fontFamily: "Work sans,sans-serif",
-                  paddingBottom: "30px",
-                  marginLeft: "50px",
-                  marginTop:"60px"
+                  paddingBottom: "4.5%",
+                  marginLeft: "7%",
+                  marginTop: "8%",
                 }}
               >
                 Enjoy secret offers up to -70% off the best luxury hotels every
@@ -146,14 +149,14 @@ export default observer(function HomePage() {
                 style={{
                   color: "white",
                   backgroundColor: "#FF3366",
-                  width: "180px",
+                  width: "28%",
                   borderRadius: "0px",
                   height: "55px",
                   fontFamily: "Roboto Condensed, sans-serif",
                   fontSize: "13px",
-                  marginLeft: "260px",
-                  marginTop: "-100px",
-                  letterSpacing:"1px"
+                  marginLeft: "39%",
+                  marginTop: "-10%",
+                  letterSpacing: "1px",
                 }}
               >
                 ADMIN
@@ -161,19 +164,33 @@ export default observer(function HomePage() {
               <h3
                 style={{
                   color: "white",
-                  marginLeft: "280px",
+                  marginLeft: "41%",
                   fontSize: "13px",
-                  fontFamily:"work sans,sans-serif"
-                  
+                  fontFamily: "work sans,sans-serif",
                 }}
               >
                 Discover the experience
               </h3>
-              <div style={{backgroundColor:"rgba(192,192,192,0.3)",width:"1270px",height:"140px",
-              marginLeft:"-300px",marginTop:"258px",
-              }}>
-                <p style={{fontWeight:"bolder",color:"orange",marginLeft:"100px"}}>About us</p>
-              </div>
+
+              {/* <div
+                style={{
+                  backgroundColor: "rgba(192,192,192,0.3)",
+                  width: "146%",
+                  height: "140px",
+                  marginLeft: "-24%",
+                  marginTop: "2.56%",
+                }}
+              >
+                <p
+                  style={{
+                    fontWeight: "bolder",
+                    color: "orange",
+                    marginLeft: "100px",
+                  }}
+                >
+                  About us
+                </p>
+              </div> */}
             </>
           )}
         </Container>

@@ -1,6 +1,6 @@
 import React, { SyntheticEvent, useState } from "react";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
+//import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import ButtonBase from "@material-ui/core/ButtonBase";
@@ -9,7 +9,7 @@ import { Button, Icon } from "semantic-ui-react";
 import { format } from "date-fns";
 import OfertaStore from "../../app/stores/ofertaStore";
 import { NavLink } from "react-router-dom";
-import { Box } from "@material-ui/core";
+import { Box, Grid } from "@material-ui/core";
 // import "./listaOfertave.css";
 // import "./script.js";
 
