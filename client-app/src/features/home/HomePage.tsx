@@ -4,13 +4,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Container, Header, Segment, Image, Button } from "semantic-ui-react";
 import { useStore } from "../../app/stores/store";
-import udhetariStore from "../../app/stores/udhetariStore";
-import UdhetariStore from "../../app/stores/udhetariStore";
+// import udhetariStore from "../../app/stores/udhetariStore";
 import LoginFormUdhetari from "../udhetaret/form/LoginFormUdhetari";
 import RegisterFormUdhetari from "../udhetaret/form/RegisterFormUdhetari";
 // import LoginFormUdhetari from '../udhetaret/form/LoginFormUdhetari';
 import LoginForm from "../users/LoginForm";
-import RegisterForm from "../users/RegisterForm";
+// import RegisterForm from "../users/RegisterForm";
 
 export default observer(function HomePage() {
   const { userStore, modalStore, udhetariStore } = useStore();
@@ -32,7 +31,7 @@ export default observer(function HomePage() {
             fontSize: "20px",
             textTransform: "uppercase",
             fontFamily: "Roboto Condensed,sans-serif",
-            margin:"20px 37% 75px 100px",
+            margin:"20px 33% 75px 100px",
             
           }}
         >

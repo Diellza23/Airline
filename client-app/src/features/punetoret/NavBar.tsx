@@ -1,7 +1,7 @@
 import { observer } from "mobx-react-lite";
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Button, Container, Menu, Image, Dropdown } from "semantic-ui-react";
+import { Container, Menu, Image, Dropdown } from "semantic-ui-react";
 import { useStore } from "../../app/stores/store";
 
 export default observer(function NavBar() {
@@ -29,7 +29,7 @@ export default observer(function NavBar() {
           <Image src={user?.image || '/assets/admin.png'} avatar spaced='right' style={{width:"35px",height:"35px"}}/>
           <Dropdown pointing='top right' text={user?.displayName} style={{fontFamily:"BR Cobane, sans-serif",color:"white"}}>
             <Dropdown.Menu style={{marginRight:"-20px"}}>
-              <Dropdown.Item as={Link} to={`/profile/`} text='My profile' icon='user secret icon'/>
+              <Dropdown.Item as={Link} to={`/profile/`} text='My profile' icon='user secret'/>
               <Dropdown.Item onClick={logout} text='Logout' icon='power'/>
             </Dropdown.Menu>
           </Dropdown>

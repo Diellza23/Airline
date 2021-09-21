@@ -1,26 +1,20 @@
 import { format } from "date-fns";
 import { observer } from "mobx-react-lite";
-import React, { SyntheticEvent, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, {  } from "react";//SyntheticEvent
+import { NavLink } from "react-router-dom";
 import {
   Button,
-  Grid,
-  Icon,
-  Item,
-  Menu,
   Message,
-  Segment,
   Table,
 } from "semantic-ui-react";
 import { useStore } from "../../app/stores/store";
-import UdhetariNavBar from "./UdhetariNavBar";
+// import UdhetariNavBar from "./UdhetariNavBar";
 // import NavBar from "../punetoret/NavBar";
 
 export default observer(function ListaFluturimeve() {
   const { fluturimiStore } = useStore();
-  const { fluturimetByDate, loading } = fluturimiStore;
+  const { fluturimetByDate } = fluturimiStore;
 
-  //   const [target, setTarget] = useState("");
 
   return (
     <>

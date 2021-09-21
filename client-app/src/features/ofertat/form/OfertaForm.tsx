@@ -1,14 +1,14 @@
 import { observer } from "mobx-react-lite";
 import React, { useEffect, useState } from "react";
 import { Link, useHistory, useParams } from "react-router-dom";
-import { Button, Header, Label, Segment } from "semantic-ui-react";
+import { Button, Segment } from "semantic-ui-react";
 import LoadingComponent from "../../../app/layout/LoadingComponent";
 import { useStore } from "../../../app/stores/store";
 import { v4 as uuid } from "uuid";
 import { Formik, Form } from "formik";
 import * as Yup from 'yup';
 import MyTextInput from "../../../app/common/form/MyTextInput";
-import { categoryOpsions, categoryOptions, categoryOpts, categoryPersona, categoryStars } from "../../../app/common/options/categoryOptions";
+import { categoryOpts, categoryPersona, categoryStars } from "../../../app/common/options/categoryOptions";
 import { Oferta } from "../../../app/models/oferta";
 import MyDateInput from "../../../app/common/form/MyDateInput";
 import MySelectInput from "../../punetoret/form/MySelectInput";

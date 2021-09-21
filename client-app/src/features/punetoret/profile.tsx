@@ -1,10 +1,10 @@
 import React from "react";
-import { Link, NavLink, Route } from "react-router-dom";
-import { Button, Grid } from "semantic-ui-react";
+import { NavLink } from "react-router-dom";
+import { Button  } from "semantic-ui-react";
 import NavBar from "./NavBar";
 import { useStore } from "../../app/stores/store";
-import FluturimiForm from "../fluturimet/form/FluturimiForm";
-import PunetoriForm from "./form/PunetoriForm";
+// import FluturimiForm from "../fluturimet/form/FluturimiForm";
+// import PunetoriForm from "./form/PunetoriForm";
 import { observer } from "mobx-react-lite";
 
 export default observer(function Profile() {
@@ -43,6 +43,7 @@ export default observer(function Profile() {
         <img
           src="/assets/pilot.png"
           style={{ width: "200px", height: "200px", marginLeft: "923px" }}
+          alt="Pilot picture"
         />
       </div>
 

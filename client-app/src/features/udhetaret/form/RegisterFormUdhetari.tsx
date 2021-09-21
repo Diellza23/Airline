@@ -1,9 +1,8 @@
 import { ErrorMessage, Form, Formik } from 'formik';
 import { observer } from 'mobx-react-lite';
 import React from 'react';
-import { Button, Header } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 import * as Yup from 'yup';
-import { Link } from 'react-router-dom';
 import { useStore } from '../../../app/stores/store';
 import MyTextInput from '../../../app/common/form/MyTextInput';
 import ValidationErrors from '../../errors/ValidationErrors';
@@ -28,7 +27,6 @@ export default observer (function RegisterFormUdhetari() {
         >
             {({handleSubmit, isSubmitting, errors, isValid,dirty}) =>(
                 <Form className='ui form error' onSubmit={handleSubmit} autoComplete='off' style={{height:"200px",padding:"10px"}}>
-                    {/* <Header  as="h2" content="Create Account" color="teal" textAlign='center'/> */}
                     <h2 style={{textAlign:"center",color:"#28bdb1",marginBottom:"30px",fontFamily:"arial"}}>Create Account</h2>
                     <h4>Name:</h4>
                     <MyTextInput name='displayName' placeholder='Diellza..' />
@@ -52,7 +50,7 @@ export default observer (function RegisterFormUdhetari() {
                     style={{borderRadius:"20px"}}/>
                     <h5>Already have an account? Login instead. </h5>
                     
-                    <h6 style={{float:"left"}}>Copyright<img src="/assets/copy.png" width="13" height="10"/>2021 All rights reserved.</h6>
+                    <h6 style={{float:"left"}}>Copyright<img src="/assets/copy.png" width="13" height="10" alt="copyright logo"/>2021 All rights reserved.</h6>
                     
                 </Form>
             )}

@@ -1,14 +1,12 @@
 import { ErrorMessage, Form, Formik } from 'formik';
 import { observer } from 'mobx-react-lite';
 import React from 'react';
-import { Button, Header } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 import MyTextInput from '../../app/common/form/MyTextInput';
 import { useStore } from '../../app/stores/store';
 import * as Yup from 'yup';
 import ValidationErrors from '../errors/ValidationErrors';
-import modalStore from '../../app/stores/modalStore';
-import LoginForm from './LoginForm';
-import { Link } from 'react-router-dom';
+
 
 export default observer (function RegisterForm() {
     const {userStore} = useStore();
@@ -27,7 +25,6 @@ export default observer (function RegisterForm() {
         >
             {({handleSubmit, isSubmitting, errors, isValid,dirty}) =>(
                 <Form className='ui form error' onSubmit={handleSubmit} autoComplete='off' style={{height:"200px",padding:"10px"}}>
-                    {/* <Header  as="h2" content="Create Account" color="teal" textAlign='center'/> */}
                     <h2 style={{textAlign:"center",color:"#28bdb1",marginBottom:"30px",fontFamily:"arial"}}>Create Account</h2>
                     <h4>Name:</h4>
                     <MyTextInput name='displayName' placeholder='Diellza..' />

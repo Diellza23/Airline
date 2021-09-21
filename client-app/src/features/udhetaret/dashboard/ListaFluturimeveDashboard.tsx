@@ -4,7 +4,7 @@ import { Grid } from "semantic-ui-react";
 import LoadingComponent from "../../../app/layout/LoadingComponent";
 import { useStore } from "../../../app/stores/store";
 import ListaFluturimeve from "../ListaFluturimeve";
-import UdhetaretList from "../UdhetaretList";
+// import UdhetaretList from "../UdhetaretList";
 
 export default observer(function ListaFluturimeveDashboard() {
   const { fluturimiStore } = useStore();

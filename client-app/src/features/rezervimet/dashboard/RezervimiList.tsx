@@ -4,9 +4,6 @@ import React, { SyntheticEvent, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button, Item, Segment } from "semantic-ui-react";
 import { useStore } from "../../../app/stores/store";
-// import NavBar from "../NavBar";
-// import SegmentExm from "./SegmentExm";
-
 
 export default observer(function RezervimiList() {
   const { rezervimiStore } = useStore();
@@ -18,16 +15,10 @@ export default observer(function RezervimiList() {
     setTarget(e.currentTarget.name);
     deleteRezervimi(id);
   }
-  const theme ={
-    float:'right',
-    display: 'flex',
-    justifyContent: 'space-around'
-  }
+
 
   return (      
   <>
-  {/* <SegmentExm/> */}
-  {/* <UdhetariNavBar/> */}
   <div style={{marginTop:"120px"}}>
     <Segment style={{backgroundColor:"#702963", marginTop:"40px",border:"2px solid pink"}}>
       <Item.Group divided>
@@ -49,7 +40,6 @@ export default observer(function RezervimiList() {
                   content="SHIKO"
                   color="blue"
                 />
-                
                 <Button
                   name={rezervimi.id}
                   loading={loading && target === rezervimi.id}

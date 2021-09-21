@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite';
-import { Container, Grid, Divider, Header, Table, Icon } from 'semantic-ui-react'
+import { Container, Grid, Header, Table, Icon } from 'semantic-ui-react'
 import { useStore } from '../../app/stores/store';
 import UdhetariNavBar from './UdhetariNavBar';
 

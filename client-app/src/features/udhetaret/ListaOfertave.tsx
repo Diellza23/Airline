@@ -1,17 +1,11 @@
-import React, { SyntheticEvent, useState } from "react";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
-//import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import ButtonBase from "@material-ui/core/ButtonBase";
 import { useStore } from "../../app/stores/store";
 import { Button, Icon } from "semantic-ui-react";
 import { format } from "date-fns";
-import OfertaStore from "../../app/stores/ofertaStore";
 import { NavLink } from "react-router-dom";
-import { Box, Grid } from "@material-ui/core";
-// import "./listaOfertave.css";
-// import "./script.js";
+import { Grid } from "@material-ui/core";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -41,17 +35,15 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function ListaOfertave() {
   const classes = useStyles();
   const { ofertaStore } = useStore();
-  const { deleteOferta, ofertatByDate, loading } = ofertaStore;
+  const {  ofertatByDate } = ofertaStore;
 
   return (
     <>
-
-    
     <Icon className="arrow alternate circle left icon" as={NavLink} to="/udhetariProfile" style={{marginTop:"-135%",marginLeft:"-50px",width:"1240px"}}>Go back to your profile</Icon>
     <div style={{backgroundColor:"white",width:"1240px",height:"1990px",marginLeft:"-50px",marginBottom:"-50px"}}>
       <div>
         <img
-          alt="complex"
+          alt="The sea"
           src="/assets/sea.png"
           style={{ width: "1285px", marginLeft: "-55px", height: "530px" }}
         />
@@ -71,13 +63,6 @@ export default function ListaOfertave() {
         <Paper elevation={5} className={classes.paper}>
           <Grid container spacing={2} style={{}}>
             <Grid item>
-              {/* <ButtonBase className={classes.image}>
-                 <img
-                  className={classes.img}
-                  alt="complex"
-                  src="/assets/book.png"
-                /> 
-              </ButtonBase> */}
             </Grid>
             {ofertatByDate.map((oferta) => (
               <Grid item xs={12} sm container>
@@ -113,20 +98,14 @@ export default function ListaOfertave() {
         </Paper>
       </div>
       </>
-
-
-
-
       <div
         
         style={{ float: "right", marginTop: "-213px",marginRight:"110px" }}
       >
         <div
-          // className="column"
           style={{ width: "650px" }}
         >
           <div
-            // className="ui raised segment"
             style={{
               backgroundColor: "#0770e3",
               width: "940px",
@@ -135,12 +114,10 @@ export default function ListaOfertave() {
               marginTop:"-1120px"
             }}
           >
-            {/* <a className="ui yellow ribbon label">Don't miss it</a> */}
             <span
               style={{
                 lineHeight: "1.5",
                 fontSize: "30px",
-                // marginBottom: ".3rem!important",
                 marginTop:"-10px",
                 fontWeight: 700,
                 color: "white",
@@ -157,7 +134,7 @@ export default function ListaOfertave() {
               test before returning from your country from a non-red country.
             </p>
 
-            <img src="/assets/first.png" style={{width:"150px",marginTop:"-60px",borderRadius:"3px",paddingBottom:"8px",marginLeft:"10px"}}/>
+            <img src="/assets/first.png" style={{width:"150px",marginTop:"-60px",borderRadius:"3px",paddingBottom:"8px",marginLeft:"10px"}} alt="First Class Airplane Ticket"/>
             
             <Button
               floated="right"
@@ -177,6 +154,7 @@ export default function ListaOfertave() {
           <img
             src="/assets/map.png"
             style={{ width: "420px", height: "300px",marginLeft:"530px" }}
+            alt="Picture of a map"
           />
           <div style={{marginLeft: "30px",marginTop:"-280px",width:"350px", }}>
             <p style={{fontWeight:700,fontSize:"25px",color: "black"}}>Get the COVID-19 travel info you need</p>

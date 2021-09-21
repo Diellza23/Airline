@@ -18,11 +18,6 @@ export default observer(function PunetoriList() {
     setTarget(e.currentTarget.name);
     deletePunetori(id);
   }
-  const theme ={
-    float:'right',
-    display: 'flex',
-    justifyContent: 'space-around'
-  }
 
   return (      
   <>

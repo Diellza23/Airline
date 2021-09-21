@@ -1,21 +1,12 @@
-import { format } from "date-fns";
+// import { format } from "date-fns";
 import { observer } from "mobx-react-lite";
-import React, { SyntheticEvent, useState } from "react";
-import { Link } from "react-router-dom";
-import { Button, Grid, Item, Menu, Segment, Table } from "semantic-ui-react";
+import { SyntheticEvent, useState } from "react";
+import { Button, Menu, Table } from "semantic-ui-react";
 import { useStore } from "../../app/stores/store";
 import NavBar from "../punetoret/NavBar";
-import {
-  UdhetariUser,
-  UdhetariuserFormValues,
-} from "../../app/models/udhetariUser";
-// import modalUdhetari from "../../app/stores/modalUdhetari";
-import LoginForm from "../users/LoginForm";
-import RegisterForm from "../users/RegisterForm";
-import modalStore from "../../app/stores/modalStore";
 
 export default observer(function UdhetaretList() {
-  const { udhetariStore, modalStore } = useStore();
+  const { udhetariStore } = useStore();
   const { deleteUdhetarin, udhetaretByDate, loading } = udhetariStore;
 
 
@@ -73,9 +64,6 @@ export default observer(function UdhetaretList() {
           </Table.Body>
         </Table>
       ))}
-      {/* <Button onClick={() => modalStore.openModal(<RegisterForm/>)} size='huge' style={{color:"white",backgroundColor:"#ff9f45"}}>
-                Register User!
-              </Button> */}
     </>
   );
 });

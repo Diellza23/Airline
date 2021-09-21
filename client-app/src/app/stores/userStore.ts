@@ -1,7 +1,6 @@
 import { makeAutoObservable, runInAction } from "mobx";
 import { history } from "../..";
 import agent from "../api/metodaAgent";
-import { Udhetari } from "../models/udhetari";
 import { UdhetariUser, UdhetariuserFormValues } from "../models/udhetariUser";
 import { User, UserFormValues } from "../models/user";
 import { store } from "./store";
