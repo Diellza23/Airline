@@ -15,8 +15,8 @@ const useStyles = makeStyles((theme: Theme) =>
     paper: {
       padding: theme.spacing(2),
       margin: "auto",
-      width: '60%',
-      maxWidth:"65%",
+      width: "60%",
+      maxWidth: "65%",
       minHeight: 500,
       marginLeft: "9%",
     },
@@ -40,8 +40,20 @@ export default function ListaOfertave() {
 
   return (
     <>
-      <Icon className="arrow alternate circle left icon" as={NavLink} to="/udhetariProfile" style={{marginTop:"-181.8%",marginLeft:"-57.6%",width:"220.5%",paddingLeft:"54%"}}>Go back to your profile</Icon>
-      
+      <Icon
+        className="arrow alternate circle left icon"
+        as={NavLink}
+        to="/udhetariProfile"
+        style={{
+          marginTop: "-181.8%",
+          marginLeft: "-57.6%",
+          width: "220.5%",
+          paddingLeft: "54%",
+        }}
+      >
+        Go back to your profile
+      </Icon>
+
       <div
         style={{
           backgroundColor: "white",
@@ -53,14 +65,14 @@ export default function ListaOfertave() {
         }}
       >
         <img
-          src="/assets/lituania.png"
+          src="/assets/sea.png"
           alt="logoooo"
           style={{
             width: "82%",
-            backgroundSize: 'cover',
-            height:"20%",
+            backgroundSize: "cover",
+            height: "20%",
             // marginTop: "-6.4%",
-            backgroundRepeat:"no-repeat"
+            backgroundRepeat: "no-repeat",
           }}
         />
 
@@ -186,9 +198,7 @@ export default function ListaOfertave() {
             style={{ width: "420px", height: "90%", marginLeft: "57.3%" }}
             alt="Picture of a map"
           />
-          <div
-            style={{ marginLeft: "30px", marginTop: "-25%", width: "35%" }}
-          >
+          <div style={{ marginLeft: "30px", marginTop: "-25%", width: "35%" }}>
             <p style={{ fontWeight: 700, fontSize: "25px", color: "black" }}>
               Get the COVID-19 travel info you need
             </p>
@@ -210,19 +220,142 @@ export default function ListaOfertave() {
               style={{
                 color: "white",
                 backgroundColor: "#00a698",
-                marginTop: "-28%",
+                marginTop: "-32%",
                 width: "160px",
                 height: "35px",
                 paddingTop: "10px",
               }}
             />
           </div>
-          <div style={{marginLeft:"15%"}}>
-            <p style={{color:"white",fontSize:"45px",marginTop:"-180%"}}>Let the journey begin</p>
-            <p style={{color:"white",fontSize:"40px"}}>Book now.</p>
+          <div style={{ marginLeft: "15%", marginTop: "-90%", color: "white" }}>
+            <p style={{ fontSize: "47px", fontWeight: "bolder" }}>
+              Let the journey begin
+            </p>
+            <p style={{ fontSize: "40px" }}>Book now.</p>
+            <Button
+              content="Make room for Zanzibar ->"
+              style={{
+                color: "white",
+                backgroundColor: "purple",
+                marginLeft: "-31%",
+                marginTop: "8%",
+              }}
+            />
           </div>
         </div>
       </div>
+      <div style={{ marginTop: "-195%" }}>
+        <p style={{ color: "black", fontSize: "25px", fontWeight: "bold" }}>
+          Plan your next Staycation
+        </p>
+        <Button
+          basic
+          color="blue"
+          content="Zanzibar"
+          style={{
+            marginRight: "15px",
+            color: "white",
+            backgroundColor: "green",
+            borderRadius: "25px",
+          }}
+        />
+        <Button
+          basic
+          color="green"
+          content="Edinburgh"
+          style={{
+            marginRight: "15px",
+            backgroundColor: "blue",
+            borderRadius: "25px",
+          }}
+        />
+        <Button
+          basic
+          color="red"
+          content="Bora-Bora"
+          style={{
+            marginRight: "15px",
+            backgroundColor: "red",
+            borderRadius: "25px",
+          }}
+        />
+        <Button
+          basic
+          color="purple"
+          content="Maldives"
+          style={{
+            marginRight: "15px",
+            backgroundColor: "orange",
+            borderRadius: "25px",
+          }}
+        />
+        <Button
+          basic
+          color="yellow"
+          content="Lithuania"
+          style={{
+            marginRight: "15px",
+            backgroundColor: "purple",
+            borderRadius: "25px",
+          }}
+        />
+      </div>
+
+      <div
+        style={{
+          marginTop: "95%",
+          backgroundColor: "#f1f2f8",
+          width: "187%",
+          marginLeft: "-7%",
+          height: "20%",
+          display: "flex",
+          justifyContent: "space-around",
+        }}
+      >
+        <img
+          src="/assets/firstpillar.png"
+          alt=""
+          style={{ width: "14%", height: "55%", marginTop: "3%" }}
+        />
+        <img
+          src="/assets/secondpillar.png"
+          alt=""
+          style={{ width: "14%", height: "55%", marginTop: "3%" }}
+        />
+        <img
+          src="/assets/thirdpillar.png"
+          alt=""
+          style={{ width: "14%", height: "55%", marginTop: "3%" }}
+        />
+      </div>
+      <div style={{ display: "flex", justifyContent: "space-around" }}>
+        <h3 style={{ marginTop: "-23%", marginLeft: "-6%" }}>
+          Ready when you are
+        </h3>
+        <h3 style={{ marginTop: "-23%", marginRight: "8%" }}>
+          Plan with confidence
+        </h3>
+        <h3 style={{ marginTop: "-23%", marginRight: "-80%" }}>
+          Keep it simple
+        </h3>
+      </div>
+      <div style={{display:"flex",justifyContent:"space-around",textAlign:"center",color:"grey"}}>
+        <p style={{ marginLeft: "0%", marginTop: "-15%" }}>
+          See where you can travel to right now and find the best deals across
+          thousands of flights, hotels and car hire options
+        </p>
+        <p style={{ marginLeft: "10%", marginTop: "-15%",color:"grey" }}>
+          Stay one step ahead with flexible flight tickets, free hotel and car
+          cancellation and the cleanest rooms around.
+        </p>
+        <p style={{ marginRight: "-85%", marginTop: "-15%",color:"grey" }}>
+          No hidden fees. No hidden charges. No funny business. With us, you’ll
+          always know exactly where your money goes. So you can relax before
+          your trip even begins.
+        </p>
+        
+      </div>
+      <h6 style={{marginLeft:"145%",width:"30%"}}>Copyright<img src="/assets/copy.png" width="13" height="10"/>2021 All rights reserved.</h6>
     </>
   );
 }
