@@ -151,7 +151,7 @@ export default function ListaOfertave() {
               Travel gets easier
             </span>
             <p
-              style={{ fontSize: "13px", color: "white", marginLeft: "175px" }}
+              style={{ fontSize: "13px", color: "white", marginLeft: "190px" }}
             >
               Fully vaccinated? From 4 October you won't need a pre-departure
               test before returning from your country from a non-red country.
@@ -174,7 +174,7 @@ export default function ListaOfertave() {
               floated="right"
               content="See the full update->"
               style={{
-                marginRight: "64.5%",
+                marginRight: "66%",
                 marginTop: "0",
                 color: "white",
                 backgroundColor: "#0770e3",
