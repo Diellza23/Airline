@@ -328,18 +328,18 @@ export default function ListaOfertave() {
         />
       </div>
       <div style={{ display: "flex", justifyContent: "space-around" }}>
-        <h3 style={{ marginTop: "-23%", marginLeft: "-6%",fontSize:"24px" }}>
+        <h3 style={{ marginTop: "-23%", marginLeft: "-19%",fontSize:"24px" }}>
           Ready when you are
         </h3>
         <h3 style={{ marginTop: "-23%", marginRight: "3%",fontSize:"24px" }}>
           Plan with confidence
         </h3>
-        <h3 style={{ marginTop: "-23%", marginRight: "-68%",fontSize:"24px" }}>
+        <h3 style={{ marginTop: "-23%", marginRight: "-75%",fontSize:"24px" }}>
           Keep it simple
         </h3>
       </div>
       <div style={{display:"flex",justifyContent:"space-around",textAlign:"center",color:"grey"}}>
-        <p style={{ marginLeft: "0%", marginTop: "-15%" }}>
+        <p style={{ marginLeft: "-19%", marginTop: "-15%" }}>
           See where you can travel to right now
           <br />
            and find the best deals across
@@ -348,14 +348,15 @@ export default function ListaOfertave() {
           <br />
            hire options
         </p>
-        <p style={{ marginLeft: "5%", marginTop: "-15%",color:"grey" }}>
+        <p style={{ marginLeft: "4%", marginTop: "-15%",color:"grey" }}>
           Stay one step ahead with flexible 
           <br />
           flight tickets, free hotel and car
           <br />
-          cancellation and the cleanest rooms around.
+          cancellation and the cleanest 
+          <br/> rooms around.
         </p>
-        <p style={{ marginRight: "-70%", marginTop: "-15%",color:"grey" }}>
+        <p style={{ marginRight: "-81%", marginTop: "-15%",color:"grey" }}>
           No hidden fees. No hidden charges.
           <br />
            No funny business. With us, you’ll
