@@ -31,7 +31,7 @@ export default observer(function HomePage() {
             fontSize: "20px",
             textTransform: "uppercase",
             fontFamily: "Roboto Condensed,sans-serif",
-            margin: "20px 33% 75px 100px",
+            margin: "20px 34% 75px 100px",
           }}
         >
           oneair

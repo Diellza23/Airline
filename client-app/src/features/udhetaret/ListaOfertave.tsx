@@ -45,9 +45,9 @@ export default function ListaOfertave() {
         as={NavLink}
         to="/udhetariProfile"
         style={{
-          marginTop: "-181.8%",
+          marginTop: "-185%",
           marginLeft: "-57.6%",
-          width: "220.5%",
+          width: "228.9%",
           paddingLeft: "54%",
         }}
       >
@@ -68,7 +68,7 @@ export default function ListaOfertave() {
           src="/assets/sea.png"
           alt="logoooo"
           style={{
-            width: "82%",
+            width: "85.5%",
             backgroundSize: "cover",
             height: "20%",
             // marginTop: "-6.4%",
@@ -130,7 +130,7 @@ export default function ListaOfertave() {
           <div
             style={{
               backgroundColor: "#0770e3",
-              width: "108%",
+              width: "106%",
               height: "130px",
               marginTop: "-140%",
               marginLeft: "52%",
@@ -236,14 +236,14 @@ export default function ListaOfertave() {
               style={{
                 color: "white",
                 backgroundColor: "purple",
-                marginLeft: "-31%",
+                marginLeft: "-38%",
                 marginTop: "8%",
               }}
             />
           </div>
         </div>
       </div>
-      <div style={{ marginTop: "-195%"}}>
+      <div style={{ marginTop: "-200%"}}>
         <p style={{ color: "black", fontSize: "25px", fontWeight: "bold" }}>
           Plan your next Staycation
         </p>
@@ -304,8 +304,8 @@ export default function ListaOfertave() {
         style={{
           marginTop: "95%",
           backgroundColor: "#f1f2f8",
-          width: "187%",
-          marginLeft: "-7%",
+          width: "197%",
+          marginLeft: "-17%",
           height: "20%",
           display: "flex",
           justifyContent: "space-around",
