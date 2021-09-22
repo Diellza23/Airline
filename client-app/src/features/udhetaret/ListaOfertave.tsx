@@ -169,7 +169,6 @@ export default function ListaOfertave() {
               }}
               alt="First Class Airplane Ticket"
             />
-
             <Button
               floated="right"
               content="See the full update->"
@@ -244,7 +243,7 @@ export default function ListaOfertave() {
           </div>
         </div>
       </div>
-      <div style={{ marginTop: "-195%" }}>
+      <div style={{ marginTop: "-195%"}}>
         <p style={{ color: "black", fontSize: "25px", fontWeight: "bold" }}>
           Plan your next Staycation
         </p>
@@ -332,26 +331,41 @@ export default function ListaOfertave() {
         <h3 style={{ marginTop: "-23%", marginLeft: "-6%" }}>
           Ready when you are
         </h3>
-        <h3 style={{ marginTop: "-23%", marginRight: "8%" }}>
+        <h3 style={{ marginTop: "-23%", marginRight: "3%" }}>
           Plan with confidence
         </h3>
-        <h3 style={{ marginTop: "-23%", marginRight: "-80%" }}>
+        <h3 style={{ marginTop: "-23%", marginRight: "-68%" }}>
           Keep it simple
         </h3>
       </div>
       <div style={{display:"flex",justifyContent:"space-around",textAlign:"center",color:"grey"}}>
         <p style={{ marginLeft: "0%", marginTop: "-15%" }}>
-          See where you can travel to right now and find the best deals across
-          thousands of flights, hotels and car hire options
+          See where you can travel to right now
+          <br />
+           and find the best deals across
+           <br />
+          thousands of flights, hotels and car
+          <br />
+           hire options
         </p>
-        <p style={{ marginLeft: "10%", marginTop: "-15%",color:"grey" }}>
-          Stay one step ahead with flexible flight tickets, free hotel and car
+        <p style={{ marginLeft: "5%", marginTop: "-15%",color:"grey" }}>
+          Stay one step ahead with flexible 
+          <br />
+          flight tickets, free hotel and car
+          <br />
           cancellation and the cleanest rooms around.
         </p>
-        <p style={{ marginRight: "-85%", marginTop: "-15%",color:"grey" }}>
-          No hidden fees. No hidden charges. No funny business. With us, you’ll
-          always know exactly where your money goes. So you can relax before
-          your trip even begins.
+        <p style={{ marginRight: "-70%", marginTop: "-15%",color:"grey" }}>
+          No hidden fees. No hidden charges.
+          <br />
+           No funny business. With us, you’ll
+           <br />
+          always know exactly where your 
+          <br />
+          money goes. So you can relax before
+          your 
+          <br />
+          trip even begins.
         </p>
         
       </div>
