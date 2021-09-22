@@ -15,9 +15,10 @@ const useStyles = makeStyles((theme: Theme) =>
     paper: {
       padding: theme.spacing(2),
       margin: "auto",
-      width: '80%',
+      width: '60%',
+      maxWidth:"65%",
       minHeight: 500,
-      marginLeft: "-1%",
+      marginLeft: "9%",
     },
     image: {
       width: 128,
@@ -26,7 +27,7 @@ const useStyles = makeStyles((theme: Theme) =>
     img: {
       margin: "auto",
       display: "block",
-      maxWidth: "100%",
+      maxWidth: "10s0%",
       maxHeight: "100%",
     },
   })
@@ -39,15 +40,8 @@ export default function ListaOfertave() {
 
   return (
     <>
-      <Icon
-        className="arrow alternate circle left icon"
-        as={NavLink}
-        to="/udhetariProfile"
-        style={{ marginLeft: "-57.7%", width: "269.2%",marginTop:"-205%",padding:"4% 12%" }}
-      >
-        Go back to your profile
-      </Icon>
-
+      <Icon className="arrow alternate circle left icon" as={NavLink} to="/udhetariProfile" style={{marginTop:"-181.8%",marginLeft:"-57.6%",width:"220.5%",paddingLeft:"54%"}}>Go back to your profile</Icon>
+      
       <div
         style={{
           backgroundColor: "white",
@@ -55,19 +49,18 @@ export default function ListaOfertave() {
           width: "280%",
           marginLeft: "-60%",
           paddingRight: "-10%",
-          paddingTop:"6em"
+          // paddingTop:"3em"
         }}
       >
-        <Image
-          size="massive"
-          src="/assets/sea.png"
-          alt="logo"
+        <img
+          src="/assets/lituania.png"
+          alt="logoooo"
           style={{
-            width: "100%",
-            height: "23%",
-            // marginLeft: "-20px",
-            marginTop: "-43px",
-            // height:"700px"
+            width: "82%",
+            backgroundSize: 'cover',
+            height:"20%",
+            // marginTop: "-6.4%",
+            backgroundRepeat:"no-repeat"
           }}
         />
 
