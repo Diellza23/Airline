@@ -328,13 +328,13 @@ export default function ListaOfertave() {
         />
       </div>
       <div style={{ display: "flex", justifyContent: "space-around" }}>
-        <h3 style={{ marginTop: "-23%", marginLeft: "-6%" }}>
+        <h3 style={{ marginTop: "-23%", marginLeft: "-6%",fontSize:"24px" }}>
           Ready when you are
         </h3>
-        <h3 style={{ marginTop: "-23%", marginRight: "3%" }}>
+        <h3 style={{ marginTop: "-23%", marginRight: "3%",fontSize:"24px" }}>
           Plan with confidence
         </h3>
-        <h3 style={{ marginTop: "-23%", marginRight: "-68%" }}>
+        <h3 style={{ marginTop: "-23%", marginRight: "-68%",fontSize:"24px" }}>
           Keep it simple
         </h3>
       </div>
