@@ -22,17 +22,16 @@ export default observer(function HomePage() {
           height: "65px",
           display: "flex",
           fontWeight: 700,
-          justifyContent:"flex-end"
+          justifyContent: "flex-end",
         }}
-      >
-        <p
+       >
+         <p
           style={{
             color: "white",
             fontSize: "20px",
             textTransform: "uppercase",
             fontFamily: "Roboto Condensed,sans-serif",
-            margin:"20px 33% 75px 100px",
-            
+            margin: "20px 33% 75px 100px",
           }}
         >
           oneair
@@ -54,7 +53,6 @@ export default observer(function HomePage() {
                 fontFamily: "Roboto Condensed, sans-serif",
                 fontSize: "14px",
                 marginRight: "-15px",
-                
               }}
             >
               Sign In
@@ -77,7 +75,12 @@ export default observer(function HomePage() {
       </div>
 
       <Segment
-        style={{ paddingBottom: "0em", paddingTop: "2em",paddingRight:"0em",paddingLeft:"0em"  }}
+        style={{
+          paddingBottom: "0em",
+          paddingTop: "2em",
+          paddingRight: "0em",
+          paddingLeft: "0em",
+        }}
       >
         <div style={{ marginTop: "-29px" }}>
           <Image
@@ -92,7 +95,7 @@ export default observer(function HomePage() {
             }}
           />
         </div>
-        <Container text style={{ marginTop: "-50%",  }}>
+        <Container text style={{ marginTop: "-50%" }}>
           {userStore.isLoggedIn ? (
             <>
               <Header as="h2" content="Welcome to Airlines" />
@@ -112,7 +115,7 @@ export default observer(function HomePage() {
                   paddingBottom: "8%",
                   letterSpacing: "-1.5px",
                   textAlign: "center",
-                  fontWeight: 700
+                  fontWeight: 700,
                 }}
               >
                 Upgrade your flights
