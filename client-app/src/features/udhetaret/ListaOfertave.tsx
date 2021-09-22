@@ -48,7 +48,7 @@ export default function ListaOfertave() {
           marginTop: "-185%",
           marginLeft: "-57.6%",
           width: "228.9%",
-          paddingLeft: "54%",
+          paddingLeft: "45%",
         }}
       >
         Go back to your profile
