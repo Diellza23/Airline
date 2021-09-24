@@ -156,7 +156,7 @@ export default observer(function HomePage() {
                   height: "55px",
                   fontFamily: "Roboto Condensed, sans-serif",
                   fontSize: "13px",
-                  marginLeft: "39%",
+                  marginLeft: "37%",
                   marginTop: "-10%",
                   letterSpacing: "1px",
                 }}
@@ -166,9 +166,10 @@ export default observer(function HomePage() {
               <h3
                 style={{
                   color: "white",
-                  marginLeft: "41%",
+                  marginLeft: "40.5%",
                   fontSize: "13px",
                   fontFamily: "work sans,sans-serif",
+                  marginTop:"13px"
                 }}
               >
                 Discover the experience
