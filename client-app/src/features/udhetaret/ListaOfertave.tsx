@@ -240,6 +240,15 @@ export default function ListaOfertave() {
                 marginTop: "8%",
               }}
             />
+            <Button
+              content="Click here to book a reservation-->"
+              style={{
+                color: "white",
+                backgroundColor: "blue",
+                marginLeft: "48%",
+              }}
+              as={NavLink} to="/addRezervimi"
+            />
           </div>
         </div>
       </div>

@@ -9,7 +9,7 @@ import { Formik, Form } from "formik";
 import * as Yup from 'yup';
 import MyTextInput from "../../../app/common/form/MyTextInput";
 // import MySelectInput from "./MySelectInput";
-import { categoryPersona } from "../../../app/common/options/categoryOptions";
+import { categoryOpsions, categoryOpts, categoryPersona } from "../../../app/common/options/categoryOptions";
 import MyDateInput from "../../../app/common/form/MyDateInput";
 import { Rezervimi } from "../../../app/models/rezervimi";
 import MySelectInput from "../../punetoret/form/MySelectInput";
@@ -36,12 +36,14 @@ export default observer(function RezervimiForm() {
     vendi_Mberritjes: Yup.string().required('Vendi i nevojitur!'),
     departure: Yup.string().required('Data e nisjes e nevojitur!').nullable(),
     return: Yup.string().required('Data e kthimit e nevojitur!').nullable(),
-    personat: Yup.string().required('Numri i personave i nevojitur!')
+    personat: Yup.string().required('Numri i personave i nevojitur!'),
+    cmimi: Yup.string().required('Cmimi i nevojitur!'),
+    
   })
 
   useEffect(() =>{
     if(id) loadRezervimi(id).then(rezervimi => setRezervimi(rezervimi!))
-  }, [id, loadRezervimi]); //dependency 
+  }, [id, loadRezervimi]); 
 
 
   function handleFormSubmit(rezervimi: Rezervimi) {
@@ -72,15 +74,16 @@ export default observer(function RezervimiForm() {
         {({ handleSubmit, isValid, isSubmitting, dirty}) => (
             <Form className='ui form' onSubmit={handleSubmit} autoComplete="off">
                 <h4>Vendi i nisjes:</h4>
-                <MyTextInput name='vendi_Nisjes' placeholder='pristina..'/>
+                <MySelectInput options={categoryOpsions} placeholder="vendi i nisjes.." name='vendi_Nisjes'/>
+                {/* <MyTextInput name='vendi_Nisjes' placeholder='pristina..'/> */}
                 <h4>Destinacioni:</h4>
-                <MyTextInput placeholder="destinacioni.." name='vendi_Mberritjes..'/>
+                <MySelectInput options={categoryOpts} placeholder="destinacioni.." name='vendi_Mberritjes'/>
                 <h4>Data e nisjes:</h4>
-                <MyDateInput placeholderText='Zgjedh daten'  name='departure' showTimeSelect timeCaption='time' dateFormat='MMMM d, yyyy h:mm aa' />
+                <MyDateInput placeholderText='zgjedh daten../'  name='departure' showTimeSelect timeCaption='time' dateFormat='MMMM d, yyyy h:mm aa' />
                 <h4>Data e mberritjes:</h4>
-                <MyDateInput placeholderText='Zgjedh daten'  name='return' showTimeSelect timeCaption='time' dateFormat='MMMM d, yyyy h:mm aa' />
-                <h4>Rezervim per sa persona: </h4>
-                <MySelectInput options={categoryPersona} placeholder="1.." name="personat"  />
+                <MyDateInput placeholderText='zgjedh daten../'  name='return' showTimeSelect timeCaption='time' dateFormat='MMMM d, yyyy h:mm aa' />
+                <h4>Sa persona: </h4>
+                <MySelectInput options={categoryPersona} placeholder="1/2.." name="personat"  />
                 <h4>Cmimi: </h4>
                 <MyTextInput name='cmimi' placeholder='12.0$..'/>
                 <Button 

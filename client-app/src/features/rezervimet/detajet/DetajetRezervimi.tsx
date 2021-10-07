@@ -21,32 +21,33 @@ export default observer(function DetajetRezervimi() {
 
   return (
     <>
-    <h1 style={{textAlign:"center",color:"whitesmoke",backgroundColor:"#ff7a7a", padding:"20px"}}>DETAJET E PUNETORIT</h1>
-    <Card fluid style={{backgroundColor:'#b9fae2'}}>
+    <h1 style={{textAlign:"center",color:"whitesmoke",backgroundColor:"#92b9f7", padding:"20px"}}>Rezervimi juaj</h1>
+    <Card fluid style={{backgroundColor:'#92b9f7'}}>
       <Card.Content style={{backgroundColor:'#f0ffff', padding: '12px 8px 12px 40px',margin:'40px',background: '#eee',fontSize: '15px',borderLeft:'6px solid black',
       borderBottom:'4px solid black',
     }}>
-        <Card.Header style={{textTransform:'uppercase',borderBottom:"1px solid black"}}> Aeroplani: {rezervimi.vendi_Nisjes}</Card.Header>
+        <Card.Header style={{textTransform:'uppercase',borderBottom:"1px solid black"}}> Vendi i nisjes: {rezervimi.vendi_Nisjes}</Card.Header>
         <br/>
-        {/* <hr/> */}
-        <Card.Meta style={{textTransform:'uppercase',color:"black",fontSize:"17px",borderBottom:"1px solid black"}}>Emri: Data e fillimit te punes: {format(rezervimi.return!, 'dd MMM yyyy h:mm aa')}</Card.Meta>
+        <Card.Header style={{textTransform:'uppercase',borderBottom:"1px solid black"}}> Vendi i mberritjes: {rezervimi.vendi_Mberritjes}</Card.Header>
         <br/>
-        <Card.Meta style={{color:'black', textTransform:'uppercase',fontSize:"17px",borderBottom:"1px solid black"}}>
-          <span>Mbiemri: {rezervimi.vendi_Mberritjes}</span>
-        </Card.Meta>
+        <Card.Meta style={{textTransform:'uppercase',fontSize:"19px",color:"red",fontWeight:"bold"}}>Nisja behet me daten: {format(rezervimi.departure!, 'dd MMM yyyy h:mm aa')}</Card.Meta>
         <br/>
-        <Card.Meta style={{textTransform:'uppercase',fontSize:"17px",color:"black"}}>Data e fillimit te punes: {format(rezervimi.departure!, 'dd MMM yyyy h:mm aa')}</Card.Meta>
-      </Card.Content>
+        <Card.Meta style={{textTransform:'uppercase',color:"red",fontSize:"19px",borderBottom:"1px solid black",fontWeight:"bold"}}>Kthimi behet me daten: {format(rezervimi.return!, 'dd MMM yyyy h:mm aa')}</Card.Meta>
+        <br/>
+        <Card.Header style={{textTransform:'uppercase',borderBottom:"1px solid black"}}> Rezervimi per: {rezervimi.personat} person</Card.Header>
+        <br/>
+        <Card.Header style={{textTransform:'uppercase',borderBottom:"1px solid black"}}> Cmimi i paguar: {rezervimi.cmimi}</Card.Header>
+        </Card.Content>
       <Card.Content extra>
         <Button.Group widths="2">
           <Button
             as={Link}
             to={`/menaxhoR/${rezervimi.id}`} 
             
-            color="blue"
+            color="green"
             content="MODIFIKO"
           />
-          <Button as={Link} to="/punetoret" color="pink" content="ANULO" />
+          <Button as={Link} to="/rezervimet" color="pink" content="ANULO" />
         </Button.Group>
       </Card.Content>
     </Card>
