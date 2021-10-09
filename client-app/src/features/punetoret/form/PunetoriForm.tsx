@@ -75,7 +75,7 @@ export default observer(function PunetoriForm() {
                 <h4>Data e fillimit te punes:</h4>
                 <MyDateInput placeholderText='Zgjedh daten'  name='date' showTimeSelect timeCaption='time' dateFormat='MMMM d, yyyy h:mm aa' />
                 <h4>Aeroplani: </h4>
-                <MySelectInput options={categoryOptions}placeholder="Linja e Aeroplanit.." name="aeroplanId"  />
+                <MySelectInput options={categoryOptions} placeholder="Linja e Aeroplanit.." name="aeroplanId"  />
                 <Button 
                 disabled={isSubmitting || !dirty || !isValid}
                 loading={loading} floated="right"  positive type="submit" content="SHTO"/>

@@ -11,18 +11,19 @@ namespace Persistency
         }
 
         public DbSet<Punetori> Punetoret { get; set; }
-        public DbSet<Fluturimi> Fluturimet {get; set;}
-        public DbSet<Udhetari> Udhetaret {get; set;}
-        public DbSet<Rezervimi> Rezervimet{get;set;}
-        public DbSet<Oferta> Ofertat{get;set;}
+        public DbSet<Fluturimi> Fluturimet { get; set; }
+        public DbSet<Udhetari> Udhetaret { get; set; }
+        public DbSet<Rezervimi> Rezervimet { get; set; }
+        public DbSet<Oferta> Ofertat { get; set; }
+        public DbSet<Kerkesa> Kerkesat { get; set; }
 
-        
+
 
         // protected override void OnModelCreating(ModelBuilder builder)
         // {
         //     base.OnModelCreating(builder);
         //     builder.Entity<PunetoretUseret>(x => x.HasKey(aa => new {aa.AppUserId, aa.PunetoriId}));
-            
+
         //     builder.Entity<PunetoretUseret>()
         //     .HasOne(u => u.AppUser)
         //     .WithMany(a => a.Punetoret)
@@ -33,6 +34,6 @@ namespace Persistency
         //     .WithMany(a => a.Vizitoret)
         //     .HasForeignKey(aa => aa.PunetoriId);
         // }
-        
+
     }
 }

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Persistency.Migrations
 {
-    public partial class Entities : Migration
+    public partial class Entitetet : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -63,6 +63,22 @@ namespace Persistency.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Kerkesat",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    Titulli = table.Column<string>(type: "TEXT", nullable: true),
+                    Description = table.Column<string>(type: "TEXT", nullable: true),
+                    Vendi_Nisjes = table.Column<string>(type: "TEXT", nullable: true),
+                    Destinacioni = table.Column<string>(type: "TEXT", nullable: true),
+                    Date = table.Column<DateTime>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Kerkesat", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Ofertat",
                 columns: table => new
                 {
@@ -103,7 +119,10 @@ namespace Persistency.Migrations
                     Vendi_Mberritjes = table.Column<string>(type: "TEXT", nullable: true),
                     Departure = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Return = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    Personat = table.Column<string>(type: "TEXT", nullable: true)
+                    Personat = table.Column<string>(type: "TEXT", nullable: true),
+                    CardNumber = table.Column<string>(type: "TEXT", nullable: true),
+                    SecurityCode = table.Column<string>(type: "TEXT", nullable: true),
+                    ZipCode = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -302,6 +321,9 @@ namespace Persistency.Migrations
 
             migrationBuilder.DropTable(
                 name: "Fluturimet");
+
+            migrationBuilder.DropTable(
+                name: "Kerkesat");
 
             migrationBuilder.DropTable(
                 name: "Ofertat");

@@ -29,28 +29,31 @@ import DetajetOferta from "../../features/ofertat/detajet/DetajetOferta";
 import OfertaForm from "../../features/ofertat/form/OfertaForm";
 import DashboardOferta from "../../features/udhetaret/dashboard/DashboardOferta";
 import RezervimiForm from "../../features/rezervimet/form/RezervimiForm";
+import KerkesaDashboard from "../../features/kerkesat/dashboard/KerkesaDashboard";
+import DetajetKerkesa from "../../features/kerkesat/detajet/DetajetKerkesa";
+import KerkesaForm from "../../features/kerkesat/form/KerkesaForm";
 
 function App() {
   const location = useLocation();
   const { commonStore, userStore, udhetariStore } = useStore();
 
   commonStore.setAppLoaded();
-  useEffect(() => {
-    if (commonStore.token) {
-      userStore.getUser().finally(() => commonStore.setAppLoaded());
-    } else {
-      commonStore.setAppLoaded();
-    }
-  }, [commonStore, userStore]);
-
-  //  useEffect(() => {
-  //   if(commonStore.token) {
-  //     udhetariStore.getUdhetari().finally(() => commonStore.setAppLoaded());
+  // useEffect(() => {
+  //   if (commonStore.token) {
+  //     userStore.getUser().finally(() => commonStore.setAppLoaded());
   //   } else {
   //     commonStore.setAppLoaded();
   //   }
+  // }, [commonStore, userStore]);
 
-  //  }, [commonStore, udhetariStore])
+   useEffect(() => {
+    if(commonStore.token) {
+      udhetariStore.getUdhetari().finally(() => commonStore.setAppLoaded());
+    } else {
+      commonStore.setAppLoaded();
+    }
+
+   }, [commonStore, udhetariStore])
 
   if (!commonStore.appLoaded)
     return <LoadingComponent content="Loading app.." />;
@@ -65,6 +68,7 @@ function App() {
         <Container style={{}}>
           <Switch>
             <Route exact path="/punetoret" component={PunetoriDashboard} />
+            <Route exact path="/kerkesat" component={KerkesaDashboard} />
             <Route exact path="/ofertat" component={OfertaDashboard} />
             <Route path="/profile" component={Profile} />
             <Route exact path="/fluturimet" component={FluturimiDashboard} />
@@ -72,6 +76,7 @@ function App() {
             <Route exact path="/rezervimet" component={RezervimiDashboard} />
 
             <Route path="/punetoret/:id" component={DetajetPunetori} />
+            <Route path="/kerkesat/:id" component={DetajetKerkesa} />
 
             <Route path="/rezervimet/:id" component={DetajetRezervimi} />
 
@@ -103,6 +108,11 @@ function App() {
               key={location.key}
               path={["/addOferta", "/menaxho/:id"]}
               component={OfertaForm}
+            />
+             <Route
+              key={location.key}
+              path={["/addKerkesa", "/manageKerkesa/:id"]}
+              component={KerkesaForm}
             />
 
             {/* <Route path='/errors' component={TestErrors}/> */}

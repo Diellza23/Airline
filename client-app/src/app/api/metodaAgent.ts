@@ -10,6 +10,7 @@ import { Udhetari } from "../models/udhetari";
 import { UdhetariUser, UdhetariuserFormValues } from "../models/udhetariUser";
 import { Rezervimi } from "../models/rezervimi";
 import { Oferta } from "../models/oferta";
+import { Kerkesa } from "../models/kerkesa";
 
 const sleep = (delay: number) => {
   return new Promise((resolve) => {
@@ -93,6 +94,14 @@ const Fluturimet = {
   delete:(id: string) => axios.delete<void>("/fluturimet/"+id)
 };
 
+const Kerkesat = {
+  list: () => requests.get<Kerkesa[]>("/kerkesat"),
+  details:(id: string) => requests.get<Kerkesa>("/kerkesat/"+id),
+  create: (kerkesa : Kerkesa) => requests.post<void>("/kerkesat", kerkesa),
+  update: (kerkesa: Kerkesa) => requests.put<void>(`/kerkesat/${kerkesa.id}`, kerkesa),
+  delete:(id: string) => axios.delete<void>("/kerkesat/"+id)
+};
+
 const Ofertat = {
   list: () => requests.get<Oferta[]>("/ofertat"),
   details:(id: string) => requests.get<Oferta>("/ofertat/"+id),
@@ -144,7 +153,8 @@ const agent = {
   Udhetaret,
   Rezervimet,
   AccountUdhetari,
-  Ofertat
+  Ofertat,
+  Kerkesat
 
 };
 

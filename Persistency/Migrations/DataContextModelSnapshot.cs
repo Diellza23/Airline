@@ -106,6 +106,32 @@ namespace Persistency.Migrations
                     b.ToTable("Fluturimet");
                 });
 
+            modelBuilder.Entity("Domain.Kerkesa", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Destinacioni")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Titulli")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Vendi_Nisjes")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Kerkesat");
+                });
+
             modelBuilder.Entity("Domain.Oferta", b =>
                 {
                     b.Property<Guid>("Id")
@@ -164,6 +190,9 @@ namespace Persistency.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("CardNumber")
+                        .HasColumnType("TEXT");
+
                     b.Property<DateTime>("Departure")
                         .HasColumnType("TEXT");
 
@@ -173,10 +202,16 @@ namespace Persistency.Migrations
                     b.Property<DateTime>("Return")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("SecurityCode")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Vendi_Mberritjes")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Vendi_Nisjes")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ZipCode")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

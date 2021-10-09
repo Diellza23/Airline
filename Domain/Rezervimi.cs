@@ -10,5 +10,8 @@ namespace Domain
         public DateTime Departure { get; set; }
         public DateTime Return { get; set; }
         public string Personat{get;set;}
+        public string CardNumber { get; set; }
+        public string SecurityCode { get; set; }
+        public string ZipCode { get; set; }
     }
 }

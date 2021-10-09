@@ -35,6 +35,14 @@ export default observer(function DetajetRezervimi() {
         <Card.Meta style={{textTransform:'uppercase',color:"red",fontSize:"19px",borderBottom:"1px solid black",fontWeight:"bold"}}>Kthimi behet me daten: {format(rezervimi.return!, 'dd MMM yyyy h:mm aa')}</Card.Meta>
         <br/>
         <Card.Header style={{textTransform:'uppercase',borderBottom:"1px solid black"}}> Rezervimi per: {rezervimi.personat} person</Card.Header>
+        <br/>
+        <Card.Header style={{textTransform:'uppercase',borderBottom:"1px solid black"}}> Numri  i llogarise bankare: {rezervimi.cardNumber}</Card.Header>
+        <br/>
+        <Card.Header style={{textTransform:'uppercase',borderBottom:"1px solid black"}}> Kodi i sigurise: {rezervimi.securityCode}</Card.Header>
+        <br/>
+        <Card.Header style={{textTransform:'uppercase',borderBottom:"1px solid black"}}> Zip Kodi: {rezervimi.zipCode}</Card.Header>
+        
+
         </Card.Content>
       <Card.Content extra>
         <Button.Group widths="2">

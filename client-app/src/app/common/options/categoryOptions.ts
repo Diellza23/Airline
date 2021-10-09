@@ -53,9 +53,9 @@ export const categoryPersona = [
     {text:"2 Persona", value:'2'},
 ]
 export const categoryStars = [
-    {text: "1 yll", value:'1 star'},
-    {text:"2 yje", value:'2 stars'},
-    {text:"3 yje", value:'3 stars'},
-    {text:"4 yje", value:'4 stars'},
-    {text:"5 yje", value:'5 stars'},
+    {text: "1 yll", value:'1 '},
+    {text:"2 yje", value:'2 '},
+    {text:"3 yje", value:'3 '},
+    {text:"4 yje", value:'4 '},
+    {text:"5 yje", value:'5 '},
 ]
