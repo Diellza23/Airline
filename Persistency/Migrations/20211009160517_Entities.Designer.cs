@@ -9,8 +9,8 @@ using Persistency;
 namespace Persistency.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210917215625_Ofertat")]
-    partial class Ofertat
+    [Migration("20211009160517_Entities")]
+    partial class Entities
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -164,9 +164,6 @@ namespace Persistency.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Cmimi")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("Departure")

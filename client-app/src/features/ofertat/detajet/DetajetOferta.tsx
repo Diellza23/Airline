@@ -33,7 +33,7 @@ export default observer(function DetajetOferta() {
         <br/>
         <Card.Meta style={{textTransform:'uppercase',color:"black",fontSize:"17px",borderBottom:"1px solid black",textAlign:"center"}}>Destinacioni: {format(oferta.checkOut!, 'dd MMM yyyy h:mm aa')}</Card.Meta>
         <br/>
-        <Card.Meta style={{textTransform:'uppercase',fontSize:"17px",color:"black",borderBottom:"1px solid black",textAlign:"center"}}>Klasa e fluturimit: {oferta.flightClass}</Card.Meta>
+        <Card.Meta style={{textTransform:'uppercase',fontSize:"17px",color:"black",borderBottom:"1px solid black",textAlign:"center"}}>Klasa e fluturimit: {oferta.flightclass}</Card.Meta>
         <br/>
         <Card.Meta style={{textTransform:'uppercase',fontSize:"17px",color:"black",borderBottom:"1px solid black",textAlign:"center"}}>Cmimi: {oferta.cmimi}</Card.Meta>
         <br/>

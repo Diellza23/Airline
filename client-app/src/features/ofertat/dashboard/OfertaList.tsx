@@ -32,7 +32,7 @@ export default observer(function OfertaList() {
               Vendi i Nisjes :{oferta.goingTo}</Item.Header>
               <Item.Meta style={{color:"white",textTransform:"Uppercase",fontSize:"17px",marginBottom:"20px",paddingTop:"10px",borderTop:"1px solid pink"}}>Nisja : {format(oferta.checkIn!,'dd MMM yyyy h:mm aa')}</Item.Meta>
               <Item.Meta style={{color:"white",textTransform:"Uppercase",fontSize:"17px",marginBottom:"20px",paddingTop:"10px",borderTop:"1px solid yellow"}}>Kthimi : {format(oferta.checkOut!,'dd MMM yyyy h:mm aa')}</Item.Meta>
-              <Item.Header style={{color:"white",textTransform:"Uppercase",fontSize:"17px",marginBottom:"20px",paddingTop:"10px",borderTop:"1px solid orange",width:"100%"}}>Klasa e fluturimit :{oferta.flightClass}</Item.Header>
+              <Item.Header style={{color:"white",textTransform:"Uppercase",fontSize:"17px",marginBottom:"20px",paddingTop:"10px",borderTop:"1px solid orange",width:"100%"}}>Klasa e fluturimit :{oferta.flightclass}</Item.Header>
               <br/>
               <Item.Header style={{color:"white",textTransform:"Uppercase",fontSize:"17px",marginBottom:"20px",paddingTop:"10px",borderTop:"1px solid grey",width:"100%"}}>Persona :{oferta.persons}</Item.Header>
               <br/>

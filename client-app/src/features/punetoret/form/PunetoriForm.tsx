@@ -82,8 +82,7 @@ export default observer(function PunetoriForm() {
                 <Button as={Link} to ='/punetoret' floated="right" type="button" content="ANULO"  color="pink"/>
             </Form>
         )}
-      </Formik>
-      
+      </Formik>  
     </Segment>
     </div>
     </>

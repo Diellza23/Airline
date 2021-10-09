@@ -33,11 +33,6 @@ export default observer(function UdhetariNavBar() {
           <Icon className="suitcase icon" />
           Ofertat
         </Menu.Item>
-        <Menu.Item as={NavLink} to="/addRezervimi">
-          <Icon className="suitcase icon" />
-          Rezervimet
-        </Menu.Item>
-
         <Menu.Item as={NavLink} to="/njoftimet">
           <Icon className="bullhorn icon" />
           Njoftimet

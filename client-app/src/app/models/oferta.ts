@@ -3,7 +3,7 @@ export interface Oferta {
     goingTo: string
     checkIn: Date | null
     checkOut: Date | null
-    flightClass: string
+    flightclass: string
     cmimi:string
     persons:string
   }

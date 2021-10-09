@@ -97,7 +97,7 @@ export default function ListaOfertave() {
                         Vendi: {oferta.goingTo}
                       </Typography>
                       <Typography variant="body2" gutterBottom>
-                        Klasa: {oferta.flightClass}
+                        Klasa: {oferta.flightclass}
                       </Typography>
                       <Typography variant="body2" color="textSecondary">
                         Data e nisjes:

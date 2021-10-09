@@ -31,7 +31,6 @@ export default observer(function DetajetPunetori() {
     }}>
         <Card.Header style={{textTransform:'uppercase',borderBottom:"1px solid black"}}> Aeroplani: {punetori.aeroplanId}</Card.Header>
         <br/>
-        {/* <hr/> */}
         <Card.Meta style={{textTransform:'uppercase',color:"black",fontSize:"17px",borderBottom:"1px solid black"}}>Emri: {punetori.emri}</Card.Meta>
         <br/>
         <Card.Meta style={{color:'black', textTransform:'uppercase',fontSize:"17px",borderBottom:"1px solid black"}}>

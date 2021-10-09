@@ -25,7 +25,7 @@ export default observer(function OfertaForm() {
     goingTo:'',
     checkIn: null,
     checkOut: null,
-    flightClass:'',
+    flightclass:'',
     cmimi:'',
     persons:''
   })
@@ -34,7 +34,7 @@ export default observer(function OfertaForm() {
     goingTo: Yup.string().required('Vendi aktual i nevojitur!'),
     checkIn: Yup.string().required('Vendi i mberritjes i nevojitur!'),
     checkOut: Yup.string().required('Vendi i mberritjes i nevojitur!'),
-    flightClass: Yup.string().required('Klasa e fluturimit required!'),
+    flightclass: Yup.string().required('Klasa e fluturimit required!'),
     cmimi: Yup.string().required('Cmimi i nevojitur!'),
     persons: Yup.string().required('Numri i personave i nevojitur')
   })
@@ -83,10 +83,10 @@ export default observer(function OfertaForm() {
                 <MyDateInput placeholderText='Zgjedh daten'  name='checkOut' showTimeSelect timeCaption='time' dateFormat='MMMM d, yyyy h:mm aa' />
                 
                 <h4 style={{textTransform:"uppercase",fontFamily:"sans-serif",color:"white"}}>Klasa e fluturimit:</h4>
-                <MySelectInput options={categoryStars}placeholder="Destinacioni.." name="flightClass"/>
+                <MySelectInput options={categoryStars} placeholder="Destinacioni.." name='flightclass'/>
 
                 <h4 style={{textTransform:"uppercase",fontFamily:"sans-serif",color:"white"}}>Numri i personave:</h4>
-                <MySelectInput options={categoryPersona}placeholder="1.." name="persons"/>
+                <MySelectInput options={categoryPersona} placeholder="1.." name="persons"/>
 
                 <h4 style={{textTransform:"uppercase",fontFamily:"sans-serif",color:"white"}}>Cmimi:</h4>
                 <MyTextInput name='cmimi' placeholder='10..'/>

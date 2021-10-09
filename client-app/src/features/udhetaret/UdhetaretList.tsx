@@ -1,6 +1,7 @@
 // import { format } from "date-fns";
 import { observer } from "mobx-react-lite";
 import { SyntheticEvent, useState } from "react";
+import { Link } from "react-router-dom";
 import { Button, Menu, Table } from "semantic-ui-react";
 import { useStore } from "../../app/stores/store";
 import NavBar from "../punetoret/NavBar";
@@ -59,6 +60,13 @@ export default observer(function UdhetaretList() {
                   content="FSHIJ"
                   color="red"
                 />
+                {/* <Button size="tiny"
+                  name={udhetari.id}
+                  loading={loading && target === udhetari.id}
+                  onClick={(e) => handleUdhetariUpdate(e, udhetari.id)}
+                  content="FSHIJ"
+                  color="red"
+                /> */}
               </Table.Cell>
             </Table.Row>
           </Table.Body>

@@ -7,7 +7,7 @@ namespace Application.Ofertat
     {
         public OfertaValidator()
         {
-             RuleFor(x => x.Flightclass).NotEmpty();
+            //  RuleFor(x => x.Flightclass).NotEmpty();
             // RuleFor(x => x.VendiMberritjes).NotEmpty();
             // RuleFor(x => x.Date).NotEmpty();
         }

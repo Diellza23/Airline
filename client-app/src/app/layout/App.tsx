@@ -32,74 +32,93 @@ import RezervimiForm from "../../features/rezervimet/form/RezervimiForm";
 
 function App() {
   const location = useLocation();
-  const {commonStore, userStore, udhetariStore} = useStore();
+  const { commonStore, userStore, udhetariStore } = useStore();
 
   commonStore.setAppLoaded();
-  // useEffect(() => {
-  //   if(commonStore.token) {
-  //     userStore.getUser().finally(() => commonStore.setAppLoaded());
-  //   } else {
-  //     commonStore.setAppLoaded();
-  //   }
-  // }, [commonStore, userStore])
-
-   useEffect(() => {
-    if(commonStore.token) {
-      udhetariStore.getUdhetari().finally(() => commonStore.setAppLoaded());
+  useEffect(() => {
+    if (commonStore.token) {
+      userStore.getUser().finally(() => commonStore.setAppLoaded());
     } else {
       commonStore.setAppLoaded();
     }
-   
-   }, [commonStore, udhetariStore])
+  }, [commonStore, userStore]);
 
-  if(!commonStore.appLoaded) return <LoadingComponent content='Loading app..'/>
+  //  useEffect(() => {
+  //   if(commonStore.token) {
+  //     udhetariStore.getUdhetari().finally(() => commonStore.setAppLoaded());
+  //   } else {
+  //     commonStore.setAppLoaded();
+  //   }
+
+  //  }, [commonStore, udhetariStore])
+
+  if (!commonStore.appLoaded)
+    return <LoadingComponent content="Loading app.." />;
 
   return (
+    <>
+      <ToastContainer position="bottom-right" hideProgressBar />
+      <ModalContainer />
+      <Route exact path="/" component={HomePage} />
+
       <>
-      <ToastContainer position='bottom-right' hideProgressBar/>
-      <ModalContainer/>
-        <Route exact path="/" component={HomePage} />
+        <Container style={{}}>
+          <Switch>
+            <Route exact path="/punetoret" component={PunetoriDashboard} />
+            <Route exact path="/ofertat" component={OfertaDashboard} />
+            <Route path="/profile" component={Profile} />
+            <Route exact path="/fluturimet" component={FluturimiDashboard} />
 
-        
-            <>
-             <Container style={{  }}>
-                <Switch>    
-                  <Route exact path="/punetoret" component={PunetoriDashboard} />
-                  <Route exact path="/ofertat" component={OfertaDashboard} />
-                  <Route path="/profile" component={Profile} />
-                  <Route exact path="/fluturimet" component={FluturimiDashboard} />
+            <Route exact path="/rezervimet" component={RezervimiDashboard} />
 
-                  <Route exact path="/rezervimet" component={RezervimiDashboard} />
+            <Route path="/punetoret/:id" component={DetajetPunetori} />
 
-                <Route path='/punetoret/:id' component={DetajetPunetori} /> 
+            <Route path="/rezervimet/:id" component={DetajetRezervimi} />
 
-                <Route path='/rezervimet/:id' component={DetajetRezervimi} /> 
+            <Route path="/fluturimet/:id" component={DetajetFluturimi} />
+            <Route path="/ofertat/:id" component={DetajetOferta} />
+            <Route exact path="/users" component={UdhetariDashboard} />
+            <Route
+              exact
+              path="/listafluturimeve"
+              component={ListaFluturimeveDashboard}
+            />
+            <Route exact path="/listaofertave" component={DashboardOferta} />
+            <Route
+              key={location.key}
+              path={["/addPunetori", "/manage/:id"]}
+              component={PunetoriForm}
+            />
+            <Route
+              key={location.key}
+              path={["/addRezervimi", "/menaxhoR/:id"]}
+              component={RezervimiForm}
+            />
+            <Route
+              key={location.key}
+              path={["/addFluturimi", "/managee/:id"]}
+              component={FluturimiForm}
+            />
+            <Route
+              key={location.key}
+              path={["/addOferta", "/menaxho/:id"]}
+              component={OfertaForm}
+            />
 
-                <Route path='/fluturimet/:id' component={DetajetFluturimi} />
-                <Route path='/ofertat/:id' component={DetajetOferta} />
-                <Route exact path="/users" component={UdhetariDashboard} />
-                <Route exact path="/listafluturimeve" component={ListaFluturimeveDashboard} />
-                <Route exact path="/listaofertave" component={DashboardOferta} />
-                <Route key={location.key} path={['/addPunetori', '/manage/:id']} component={PunetoriForm}/>
-                <Route key={location.key} path={['/addRezervimi', '/menaxhoR/:id']} component={RezervimiForm}/>                
-                <Route key={location.key} path={['/addFluturimi', '/managee/:id']} component={FluturimiForm}/>                
-                <Route key={location.key} path={['/addOferta', '/menaxho/:id']} component={OfertaForm}/>                
-                
-                {/* <Route path='/errors' component={TestErrors}/> */}
-                <Route path='/server-error' component={ServerError} />
-                {/* <Route path='/login' component={LoginForm}/>  */}
-                {/* <Route component={NotFound}/> */}
-                </Switch>
-                
-              </Container>
-              <Switch></Switch>
-            </>
-            <>
-                <Switch>    
-                  <Route path="/udhetariProfile" component={UdhetariProfile} />
-                </Switch>
-            </>
+            {/* <Route path='/errors' component={TestErrors}/> */}
+            <Route path="/server-error" component={ServerError} />
+            {/* <Route path='/login' component={LoginForm}/>  */}
+            {/* <Route component={NotFound}/> */}
+          </Switch>
+        </Container>
+        <Switch></Switch>
       </>
+      <>
+        <Switch>
+          <Route path="/udhetariProfile" component={UdhetariProfile} />
+        </Switch>
+      </>
+    </>
   );
 }
 export default observer(App);

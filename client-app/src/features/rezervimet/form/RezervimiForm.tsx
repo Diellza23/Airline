@@ -28,7 +28,6 @@ export default observer(function RezervimiForm() {
     departure: null,
     return: null,
     personat:'',
-    cmimi:''
   })
 
   const validationSchema = Yup.object({
@@ -37,7 +36,6 @@ export default observer(function RezervimiForm() {
     departure: Yup.string().required('Data e nisjes e nevojitur!').nullable(),
     return: Yup.string().required('Data e kthimit e nevojitur!').nullable(),
     personat: Yup.string().required('Numri i personave i nevojitur!'),
-    cmimi: Yup.string().required('Cmimi i nevojitur!'),
     
   })
 
@@ -84,8 +82,6 @@ export default observer(function RezervimiForm() {
                 <MyDateInput placeholderText='zgjedh daten../'  name='return' showTimeSelect timeCaption='time' dateFormat='MMMM d, yyyy h:mm aa' />
                 <h4>Sa persona: </h4>
                 <MySelectInput options={categoryPersona} placeholder="1/2.." name="personat"  />
-                <h4>Cmimi: </h4>
-                <MyTextInput name='cmimi' placeholder='12.0$..'/>
                 <Button 
                 disabled={isSubmitting || !dirty || !isValid}
                 loading={loading} floated="right"  positive type="submit" content="SHTO"/>

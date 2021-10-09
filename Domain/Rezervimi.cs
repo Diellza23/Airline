@@ -10,6 +10,5 @@ namespace Domain
         public DateTime Departure { get; set; }
         public DateTime Return { get; set; }
         public string Personat{get;set;}
-        public string Cmimi { get; set; }
     }
 }
