@@ -12,133 +12,49 @@ export default observer(function KerkesaList() {
 
   const [target, setTarget] = useState("");
 
-  function handleKerkesaDelete(
-    e: SyntheticEvent<HTMLButtonElement>,
-    id: string
-  ) {
+  function handleKerkesaDelete(e: SyntheticEvent<HTMLButtonElement>, id: string) {
     setTarget(e.currentTarget.name);
     deleteKerkesa(id);
   }
 
-  return (
-    <>
-      <NavBar />
-      <div style={{ marginTop: "120px" }}>
-        <Segment style={{ backgroundColor: "#D8BFD8", marginTop: "40px" }}>
-          <Item.Group divided>
-            <h3
-              style={{
-                paddingTop: "10px",
-                textAlign: "center",
-                color: "solid grey",
-                marginBottom: "30px",
-                fontSize: "25px",
-                textTransform: "uppercase",
-              }}
-            >
-              LISTA E kerkesave
-            </h3>
-            {kerkesatByDate.map((kerkesa) => (
-              <Item key={kerkesa.id}>
-                <Item.Content
-                  style={{
-                    margin: "20px",
-                    borderLeft: "4px solid grey",
-                    padding: "30px",
-                    borderRight: "2px solid orange",
-                    borderBottom: "2px solid orange",
-                    borderTop: "3px solid grey",
-                  }}
-                >
-                  <Item.Header
-                    style={{
-                      color: "black",
-                      textTransform: "Uppercase",
-                      marginBottom: "20px",
-                    }}
-                  >
-                    Titulli:{kerkesa.titulli}
-                  </Item.Header>
-                  <Item.Extra
-                    as="a"
-                    style={{
-                      color: "black",
-                      textTransform: "Uppercase",
-                      fontSize: "17px",
-                      marginBottom: "15px",
-                      paddingTop: "10px",
-                      borderTop: "2px solid purple",
-                    }}
-                  >
-                    Pershkrimi i kerkeses: {kerkesa.description}
-                  </Item.Extra>
-                  <Item.Meta
-                    style={{
-                      color: "black",
-                      textTransform: "Uppercase",
-                      fontSize: "17px",
-                      marginBottom: "20px",
-                      paddingTop: "10px",
-                      paddingBottom: "10px",
-                      borderTop: "2px solid purple",
-                      borderBottom: "2px solid purple",
-                    }}
-                  >
-                    DATA E nisjes : {kerkesa.vendi_Nisjes}
-                  </Item.Meta>
-                  <Item.Meta
-                    style={{
-                      color: "black",
-                      textTransform: "Uppercase",
-                      fontSize: "17px",
-                      marginBottom: "20px",
-                      paddingTop: "10px",
-                      paddingBottom: "10px",
-                      borderTop: "2px solid purple",
-                      borderBottom: "2px solid purple",
-                    }}
-                  >
-                    DATA E kthimit : {kerkesa.destinacioni}
-                  </Item.Meta>
-                  <Item.Meta
-                    style={{
-                      color: "black",
-                      textTransform: "Uppercase",
-                      fontSize: "17px",
-                      marginBottom: "20px",
-                      paddingTop: "10px",
-                      paddingBottom: "10px",
-                      borderTop: "2px solid purple",
-                      borderBottom: "2px solid purple",
-                    }}
-                  >
-                    DATA E kthimit :{" "}
-                    {format(kerkesa.date!, "dd MMM yyyy h:mm aa")}
-                  </Item.Meta>
-                  <Item.Extra>
-                    <Button
-                      as={Link}
-                      to={`/kerkesat/${kerkesa.id}`}
-                      floated="right"
-                      content="SHIKO"
-                      color="purple"
-                    />
-
-                    <Button
-                      name={kerkesa.id}
-                      loading={loading && target === kerkesa.id}
-                      onClick={(e) => handleKerkesaDelete(e, kerkesa.id)}
-                      floated="right"
-                      content="FSHIJ"
-                      color="orange"
-                    />
-                  </Item.Extra>
-                </Item.Content>
-              </Item>
-            ))}
-          </Item.Group>
-        </Segment>
-      </div>
+  return (      
+  <>
+  {/* <NavBar/> */}
+  <div style={{marginTop:"120px"}}>
+    <Segment style={{backgroundColor:"#D8BFD8", marginTop:"40px"}}>
+      <Item.Group divided>
+      <h3 style={{paddingTop:"10px",textAlign:"center",color:"solid grey",marginBottom:"30px",fontSize:"25px",textTransform:"uppercase"}}>Kerkesat e formuluara</h3>
+        {kerkesatByDate.map((kerkesa) => (
+           <Item key={kerkesa.id}>
+            <Item.Content style={{margin:"20px",borderLeft:"4px solid grey",padding:"30px",borderRight:"2px solid orange",borderBottom:"2px solid orange",borderTop:"3px solid grey"}}>
+              <Item.Header style={{color:"black",textTransform:"Uppercase",marginBottom:"20px"}}>Titulli:{kerkesa.titulli}</Item.Header>
+              <Item.Extra as="a" style={{color:"black",textTransform:"Uppercase",fontSize:"17px",marginBottom:"15px",paddingTop:"10px",borderTop:"2px solid purple"}}>Pershkrimi i kerkeses: {kerkesa.description}</Item.Extra>
+              <Item.Meta style={{color:"black",textTransform:"Uppercase",fontSize:"17px",marginBottom:"20px",paddingTop:"10px",paddingBottom:"10px",borderTop:"2px solid purple",borderBottom:"2px solid purple"}}>DATA E nisjes : {kerkesa.vendi_Nisjes}</Item.Meta>
+              <Item.Meta style={{color:"black",textTransform:"Uppercase",fontSize:"17px",marginBottom:"20px",paddingTop:"10px",paddingBottom:"10px",borderTop:"2px solid purple",borderBottom:"2px solid purple"}}>DATA E kthimit : {kerkesa.destinacioni}</Item.Meta>
+              <Item.Meta style={{color:"black",textTransform:"Uppercase",fontSize:"17px",marginBottom:"20px",paddingTop:"10px",paddingBottom:"10px",borderTop:"2px solid purple",borderBottom:"2px solid purple"}}>DATA E kthimit : {format(kerkesa.date!,'dd MMM yyyy h:mm aa')}</Item.Meta>
+              <Item.Extra>
+                <Button
+                  as={Link}
+                  to={`/kerkesat/${kerkesa.id}`}
+                  floated="right"
+                  content="SHIKO"
+                  color="purple"
+                />
+                
+                <Button
+                  name={kerkesa.id}
+                  loading={loading && target === kerkesa.id}
+                  onClick={(e) => handleKerkesaDelete(e, kerkesa.id)}
+                  floated="right"
+                  content="FSHIJ"
+                  color="orange"
+                />
+              </Item.Extra>
+            </Item.Content>
+          </Item>
+        ))}
+      </Item.Group>
+    </Segment></div>
     </>
   );
 });
