@@ -8,5 +8,6 @@ export interface Rezervimi {
     cardNumber: string
     securityCode: string
     zipCode: string
+    udhetariId:string
   }
   

@@ -41,6 +41,7 @@ export default observer(function RezervimiForm() {
     cardNumber: "",
     securityCode: "",
     zipCode: "",
+    udhetariId:''
   });
 
   const validationSchema = Yup.object({
@@ -52,6 +53,7 @@ export default observer(function RezervimiForm() {
     cardNumber: Yup.string().required("Numri i karteles i nevojitur!"),
     securityCode: Yup.string().required("Numri i sigurise i nevojitur!"),
     zipCode: Yup.string().required("Zip kodi i nevojitur!"),
+    udhetariId:Yup.string().required("Id personale e nevojitur!"),
   });
 
   useEffect(() => {
@@ -148,6 +150,9 @@ export default observer(function RezervimiForm() {
               <h4>Zip Kodi: </h4>
               <MyTextInput placeholder="1/2.." name="zipCode" />
               
+              <h4>Id personale: </h4>
+              <MyTextInput placeholder="1/2.." name="udhetariId" />
+
               <Button
                 disabled={isSubmitting || !dirty || !isValid}
                 loading={loading}

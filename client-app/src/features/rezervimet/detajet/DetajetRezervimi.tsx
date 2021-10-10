@@ -41,6 +41,8 @@ export default observer(function DetajetRezervimi() {
         <Card.Header style={{textTransform:'uppercase',borderBottom:"1px solid black"}}> Kodi i sigurise: {rezervimi.securityCode}</Card.Header>
         <br/>
         <Card.Header style={{textTransform:'uppercase',borderBottom:"1px solid black"}}> Zip Kodi: {rezervimi.zipCode}</Card.Header>
+        <br/>
+        <Card.Header style={{textTransform:'uppercase',borderBottom:"1px solid black"}}> Id personale: {rezervimi.udhetariId}</Card.Header>
         
 
         </Card.Content>

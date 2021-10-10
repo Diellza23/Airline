@@ -32,9 +32,10 @@ export default observer(function RezervimiList() {
               <Item.Meta style={{color:"white",textTransform:"Uppercase",fontSize:"17px",marginBottom:"5px",paddingTop:"10px",paddingBottom:"10px",borderTop:"1px solid white"}}> Persona: {rezervimi.personat}</Item.Meta>
               <Item.Meta style={{color:"white",textTransform:"Uppercase",fontSize:"17px",marginBottom:"20px",paddingTop:"10px",paddingBottom:"10px",borderTop:"1px solid white",borderBottom:"1px solid white"}}>Data e nisjes: {format(rezervimi.departure!,'dd MMM yyyy h:mm aa')}</Item.Meta>
               <Item.Meta style={{color:"white",textTransform:"Uppercase",fontSize:"17px",marginBottom:"20px",paddingTop:"10px",paddingBottom:"10px",borderBottom:"1px solid white"}}>Data e kthimit: {format(rezervimi.return!,'dd MMM yyyy h:mm aa')}</Item.Meta>
-              <Item.Extra as="a" style={{color:"white",textTransform:"Uppercase",fontSize:"17px",marginBottom:"15px",paddingTop:"10px",borderTop:"1px solid white"}}>Numri i karteles bankare: {rezervimi.cardNumber}</Item.Extra>
+              <Item.Extra as="a" style={{color:"white",textTransform:"Uppercase",fontSize:"17px",marginBottom:"15px",paddingTop:"10px"}}>Numri i karteles bankare: {rezervimi.cardNumber}</Item.Extra>
               <Item.Meta style={{color:"white",textTransform:"Uppercase",fontSize:"17px",marginBottom:"5px",paddingTop:"10px",paddingBottom:"10px",borderTop:"1px solid white"}}> Kodi i sigurise: {rezervimi.securityCode}</Item.Meta>
               <Item.Meta style={{color:"white",textTransform:"Uppercase",fontSize:"17px",marginBottom:"5px",paddingTop:"10px",paddingBottom:"10px",borderTop:"1px solid white"}}> ZipKodi: {rezervimi.zipCode}</Item.Meta>
+              <Item.Meta style={{color:"white",textTransform:"Uppercase",fontSize:"17px",marginBottom:"5px",paddingTop:"10px",paddingBottom:"10px",borderTop:"1px solid white"}}> Id personale: {rezervimi.udhetariId}</Item.Meta>
               <Item.Extra>
                 <Button
                   as={Link}
