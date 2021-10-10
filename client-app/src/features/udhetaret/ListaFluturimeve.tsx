@@ -1,13 +1,8 @@
 import { format } from "date-fns";
 import { observer } from "mobx-react-lite";
-import React, {  } from "react";//SyntheticEvent
+import React from "react"; //SyntheticEvent
 import { NavLink } from "react-router-dom";
-import {
-  Button,
-  Icon,
-  Message,
-  Table,
-} from "semantic-ui-react";
+import { Button, Icon, Message, Table } from "semantic-ui-react";
 import { useStore } from "../../app/stores/store";
 // import UdhetariNavBar from "./UdhetariNavBar";
 // import NavBar from "../punetoret/NavBar";
@@ -16,10 +11,9 @@ export default observer(function ListaFluturimeve() {
   const { fluturimiStore } = useStore();
   const { fluturimetByDate } = fluturimiStore;
 
-
   return (
     <>
-    <Icon
+      {/* <Icon
         className="arrow alternate circle left icon"
         as={NavLink}
         to="/addKerkesa"
@@ -37,7 +31,7 @@ export default observer(function ListaFluturimeve() {
         <h3 style={{textAlign:"center",color:"white",fontWeight:"bold",textTransform:"uppercase"}}>Nuk gjeni dot fluturimin per vendin e deshiruar?</h3>
         <p style={{textAlign:"center",textShadow: '0 0 3px #FF0000, 0 0 5px #0000FF',fontWeight:"bold"}}>Paraqit kerkesen tuaj ketu dhe ne do u kthejme pergjigje sa me shpejte! KLIKO kudo ne kete zone---</p>
         
-      </Icon>
+      </Icon> */}
       <Button
         as={NavLink}
         to="/udhetariProfile"
@@ -45,12 +39,33 @@ export default observer(function ListaFluturimeve() {
           backgroundColor: "grey",
           color: "white",
           borderRadius: "12px",
-          marginLeft: "-36%",
-          marginTop:"10px"
-          
+          marginLeft: "-30%",
+          marginTop: "-10%",
         }}
-      >Kthehu tek profili</Button>
-      
+      >
+        Kthehu tek profili
+      </Button>
+
+      <Button
+        as={NavLink}
+        to="/addKerkesa"
+        style={{
+          backgroundColor: "orange",
+          color: "white",
+          borderRadius: "12px",
+          marginLeft: "15%",
+          marginTop: "3%",
+          width: "90%",
+          height: "16%",
+        }}
+      >
+        <h4 style={{ textTransform: "uppercase" }}>
+          Nuk gjeni dot fluturimin per vendin e deshiruar? Paraqit kerkesen
+          tuaj!
+        </h4>
+        <p>KLIKO kudo ne kete zone--</p>
+      </Button>
+
       <Message
         attached="top"
         content="VEREJTJE--Shikoni me vemendje listen e fluturimeve,
@@ -59,7 +74,7 @@ export default observer(function ListaFluturimeve() {
         warning
         style={{ marginTop: "60px" }}
       />
-      
+
       <Table attached>
         <Table.Header>
           <Table.HeaderCell>Vendi i Nisjes</Table.HeaderCell>
