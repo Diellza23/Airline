@@ -1,9 +1,7 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Application.Core;
-using AutoMapper;
 using Domain;
-using FluentValidation;
 using MediatR;
 using Persistency;
 
@@ -11,42 +9,49 @@ namespace Application.Rezervimet
 {
     public class Edit
     {
-        public class Command : IRequest<Result<Unit>>
+        public class Command : IRequest
         {
-            public Rezervimi Rezervimi { get; set; }
+
+            public Guid Id { get; set; }
+            public string UdhetariId { get; set; }
+            public Udhetari Udhetari { get; set; }
+            public string Vendi_Nisjes { get; set; }
+            public string Vendi_Mberritjes { get; set; }
+            public DateTime? Departure { get; set; }
+            public DateTime? Return { get; set; }
+            public string CardNumber { get; set; }
+            public string SecurityCode { get; set; }
+            public string ZipCode { get; set; }
+
         }
 
-        public class CommandValidator : AbstractValidator<Command>
-        {
-            public CommandValidator()
-            {
-                RuleFor(x => x.Rezervimi).SetValidator(new RezervimiValidator());
-            }
-        }
-
-        public class Handler : IRequestHandler<Command, Result<Unit>> //type ne kete rast eshte komanda 
+        public class Handler : IRequestHandler<Command>
         {
             private readonly DataContext _context;
-            private readonly IMapper _mapper;
-            public Handler(DataContext context, IMapper mapper)
+            public Handler(DataContext context)
             {
-                _mapper = mapper;
                 _context = context;
+
             }
-
-            public async Task<Result<Unit>> Handle(Command request, CancellationToken cancellationToken)
+            public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
-                var rezervimi = await _context.Rezervimet.FindAsync(request.Rezervimi.Id);
+                var rezervimi = await _context.Rezervimet.FindAsync(request.Id);
 
-                if(rezervimi == null) return null;
+                if (rezervimi == null) throw new Exception("Modifikimi deshtoi");
 
-                _mapper.Map(request.Rezervimi, rezervimi);
-                
-                var result = await _context.SaveChangesAsync() >0;
+                rezervimi.UdhetariId = request.UdhetariId ?? rezervimi.UdhetariId;
+                rezervimi.Vendi_Nisjes = request.Vendi_Nisjes ?? rezervimi.Vendi_Nisjes;
+                rezervimi.Vendi_Mberritjes = request.Vendi_Mberritjes ?? rezervimi.Vendi_Mberritjes;
+                rezervimi.Departure = request.Departure ?? rezervimi.Departure;
+                rezervimi.Return = request.Return ?? rezervimi.Return;
+                rezervimi.CardNumber = request.CardNumber ?? rezervimi.CardNumber;
+                rezervimi.SecurityCode = request.SecurityCode ?? rezervimi.SecurityCode;
+                rezervimi.ZipCode = request.ZipCode ?? rezervimi.ZipCode;
 
-                if(!result) return Result<Unit>.Failure("Modifikimi deshtoi");
+                var success = await _context.SaveChangesAsync() > 0;
 
-                return Result<Unit>.Success(Unit.Value);
+                if (success) return Unit.Value;
+                throw new System.Exception("Error");
             }
         }
     }

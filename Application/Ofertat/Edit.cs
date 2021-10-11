@@ -1,9 +1,6 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Application.Core;
-using AutoMapper;
-using Domain;
-using FluentValidation;
 using MediatR;
 using Persistency;
 
@@ -11,42 +8,44 @@ namespace Application.Ofertat
 {
     public class Edit
     {
-        public class Command : IRequest<Result<Unit>>
+    public class Command : IRequest
         {
-            public Oferta Oferta { get; set; }
+
+           public Guid Id {get; set;}
+        public string GoingTo { get; set; }
+        public DateTime? CheckIn { get; set; }
+        public DateTime? CheckOut { get; set; }
+        public string Flightclass {get;set;}
+        public string Cmimi { get; set; }
+        public string Persons { get; set; }
+
         }
 
-        public class CommandValidator : AbstractValidator<Command>
-        {
-            public CommandValidator()
-            {
-                RuleFor(x => x.Oferta).SetValidator(new OfertaValidator());
-            }
-        }
-
-        public class Handler : IRequestHandler<Command, Result<Unit>> //type ne kete rast eshte komanda 
+        public class Handler : IRequestHandler<Command>
         {
             private readonly DataContext _context;
-            private readonly IMapper _mapper;
-            public Handler(DataContext context, IMapper mapper)
+            public Handler(DataContext context)
             {
-                _mapper = mapper;
                 _context = context;
+
             }
-
-            public async Task<Result<Unit>> Handle(Command request, CancellationToken cancellationToken)
+            public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
-                var oferta = await _context.Ofertat.FindAsync(request.Oferta.Id);
+                var oferta=await _context.Ofertat.FindAsync(request.Id);
 
-                if(oferta == null) return null;
+                if(oferta==null) throw new Exception("Modifikimi deshtoi");
 
-                _mapper.Map(request.Oferta, oferta);
-                
-                var result = await _context.SaveChangesAsync() >0;
+                oferta.GoingTo=request.GoingTo ?? oferta.GoingTo;
+                oferta.CheckIn=request.CheckIn ?? oferta.CheckIn;
+                oferta.CheckOut=request.CheckOut ?? oferta.CheckOut;
+                oferta.Flightclass=request.Flightclass ?? oferta.Flightclass;
+                oferta.Cmimi=request.Cmimi ?? oferta.Cmimi;
+                oferta.Persons=request.Persons ?? oferta.Persons;
 
-                if(!result) return Result<Unit>.Failure("Modifikimi deshtoi");
+                var success = await _context.SaveChangesAsync()>0;
 
-                return Result<Unit>.Success(Unit.Value);
+                if(success) return Unit.Value;
+                throw new System.Exception("Error");
             }
         }
     }

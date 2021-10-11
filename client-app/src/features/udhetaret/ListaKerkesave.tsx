@@ -28,7 +28,7 @@ export default observer(function ListaKerkesave() {
           compact
           
           widths={6}
-          style={{ margin: "5px",backgroundColor:"grey"}}
+          style={{ margin: "5px",backgroundColor:"#57798c"}}
         >
           <Menu.Item as="a" style={{textTransform:"uppercase",color:"white"}}>Id </Menu.Item>
           <Menu.Item as="a" style={{textTransform:"uppercase",color:"white"}}>Subjekti </Menu.Item>

@@ -1,9 +1,6 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Application.Core;
-using AutoMapper;
-using Domain;
-using FluentValidation;
 using MediatR;
 using Persistency;
 
@@ -11,42 +8,38 @@ namespace Application.Fluturimet
 {
     public class Edit
     {
-        public class Command : IRequest<Result<Unit>>
+        public class Command : IRequest
         {
-            public Fluturimi Fluturimi { get; set; }
+
+            public Guid Id { get; set; }
+            public string VendiNisjes { get; set; }
+            public string VendiMberritjes { get; set; }
+            public DateTime? Date { get; set; }
+
         }
 
-        public class CommandValidator : AbstractValidator<Command>
-        {
-            public CommandValidator()
-            {
-                RuleFor(x => x.Fluturimi).SetValidator(new FluturimiValidator());
-            }
-        }
-
-        public class Handler : IRequestHandler<Command, Result<Unit>> //type ne kete rast eshte komanda 
+        public class Handler : IRequestHandler<Command>
         {
             private readonly DataContext _context;
-            private readonly IMapper _mapper;
-            public Handler(DataContext context, IMapper mapper)
+            public Handler(DataContext context)
             {
-                _mapper = mapper;
                 _context = context;
+
             }
-
-            public async Task<Result<Unit>> Handle(Command request, CancellationToken cancellationToken)
+            public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
-                var fluturimi = await _context.Fluturimet.FindAsync(request.Fluturimi.Id);
+                var fluturimi = await _context.Fluturimet.FindAsync(request.Id);
 
-                if(fluturimi == null) return null;
+                if (fluturimi == null) throw new Exception("Modifikimi deshtoi");
 
-                _mapper.Map(request.Fluturimi, fluturimi);
-                
-                var result = await _context.SaveChangesAsync() >0;
+                fluturimi.VendiNisjes = request.VendiNisjes ?? fluturimi.VendiNisjes;
+                fluturimi.VendiMberritjes = request.VendiMberritjes ?? fluturimi.VendiMberritjes;
+                fluturimi.Date = request.Date ?? fluturimi.Date;
 
-                if(!result) return Result<Unit>.Failure("Modifikimi deshtoi");
+                var success = await _context.SaveChangesAsync() > 0;
 
-                return Result<Unit>.Success(Unit.Value);
+                if (success) return Unit.Value;
+                throw new System.Exception("Error");
             }
         }
     }

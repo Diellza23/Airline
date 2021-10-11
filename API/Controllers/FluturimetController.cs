@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Application.Fluturimet;
 using Domain;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,6 +11,12 @@ namespace API.Controllers
     [AllowAnonymous]
     public class FluturimetController : BaseApiController
     {
+        private readonly IMediator _mediator;
+        public FluturimetController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
         [HttpGet]
         public async Task<IActionResult> GetFluturimet()
         {
@@ -28,11 +35,19 @@ namespace API.Controllers
             return HandleResult(await Mediator.Send(new KrijoF.Command { Fluturimi = fluturimi }));
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> ModifikoFluturimi(Guid id, Fluturimi fluturimi)
+        // [HttpPut("{id}")]
+        // public async Task<IActionResult> ModifikoFluturimi(Guid id, Fluturimi fluturimi)
+        // {
+        //     fluturimi.Id = id;
+        //     return Ok(await Mediator.Send(new Edit.Command{Fluturimi = fluturimi}));
+        // }
+
+        [HttpPut("{Id}")]
+
+        public async Task<ActionResult<Unit>> Edit(Guid id, Edit.Command command)
         {
-            fluturimi.Id = id;
-            return Ok(await Mediator.Send(new Edit.Command{Fluturimi = fluturimi}));
+            command.Id = id;
+            return await _mediator.Send(command);
         }
 
         [HttpDelete("{id}")]

@@ -30,7 +30,7 @@ export default observer(function UdhetariNavBar() {
         </Menu.Item>
         {/* ) : null} */}
         <Menu.Item as={NavLink} to="/listaofertave">
-          <Icon className="suitcase icon" />
+          <Icon className="paper plane outline" />
           Ofertat
         </Menu.Item>
         <Menu.Item as={NavLink} to="/rezervimet">
@@ -38,12 +38,12 @@ export default observer(function UdhetariNavBar() {
           Rezervimet
         </Menu.Item>
         <Menu.Item as={NavLink} to="/addKerkesa">
-          <Icon className="bullhorn icon" />
+          <Icon className="edit outline" />
           Kerkesat/formulo kerkese
         </Menu.Item>
 
         <Menu.Item as={NavLink} to="/listafluturimeve">
-          <Icon className="bullhorn icon" />
+          <Icon className="plane" />
           Shiko Fluturimet
         </Menu.Item>
 

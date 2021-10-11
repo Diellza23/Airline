@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Application.Udhetaret;
 using Domain;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,6 +12,11 @@ namespace API.Controllers
     [AllowAnonymous]
     public class UdhetariController : BaseApiController
     {
+         private readonly IMediator _mediator;
+        public UdhetariController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
 
         [HttpGet]
         public async Task<IActionResult> GetUdhetaret()

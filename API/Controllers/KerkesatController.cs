@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Application.Kerkesat;
 using Domain;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,6 +11,12 @@ namespace API.Controllers
     [AllowAnonymous]
     public class KerkesatController : BaseApiController
     {
+        private readonly IMediator _mediator;
+        public KerkesatController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
         [HttpGet]
         public async Task<IActionResult> GetKerkesat()
         {
@@ -28,11 +35,19 @@ namespace API.Controllers
             return HandleResult(await Mediator.Send(new KrijoK.Command { Kerkesa = kerkesa }));
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> ModifikoKerkesa(Guid id, Kerkesa kerkesa)
+        // [HttpPut("{id}")]
+        // public async Task<IActionResult> ModifikoKerkesa(Guid id, Kerkesa kerkesa)
+        // {
+        //     kerkesa.Id = id;
+        //     return Ok(await Mediator.Send(new Edit.Command{Kerkesa = kerkesa}));
+        // }
+
+        [HttpPut("{Id}")]
+
+        public async Task<ActionResult<Unit>> Edit(Guid id, Edit.Command command)
         {
-            kerkesa.Id = id;
-            return Ok(await Mediator.Send(new Edit.Command{Kerkesa = kerkesa}));
+            command.Id = id;
+            return await _mediator.Send(command);
         }
 
         [HttpDelete("{id}")]

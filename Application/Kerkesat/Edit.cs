@@ -1,9 +1,6 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Application.Core;
-using AutoMapper;
-using Domain;
-using FluentValidation;
 using MediatR;
 using Persistency;
 
@@ -11,42 +8,44 @@ namespace Application.Kerkesat
 {
     public class Edit
     {
-        public class Command : IRequest<Result<Unit>>
+        public class Command : IRequest
         {
-            public Kerkesa Kerkesa { get; set; }
+
+            public Guid Id { get; set; }
+            public string UdhetariId { get; set; }
+            public string Titulli { get; set; }
+            public string Description { get; set; }
+            public string Vendi_Nisjes { get; set; }
+            public string Destinacioni { get; set; }
+            public DateTime? Date { get; set; }
+
         }
 
-        public class CommandValidator : AbstractValidator<Command>
-        {
-            public CommandValidator()
-            {
-                RuleFor(x => x.Kerkesa).SetValidator(new KerkesaValidator());
-            }
-        }
-
-        public class Handler : IRequestHandler<Command, Result<Unit>> //type ne kete rast eshte komanda 
+        public class Handler : IRequestHandler<Command>
         {
             private readonly DataContext _context;
-            private readonly IMapper _mapper;
-            public Handler(DataContext context, IMapper mapper)
+            public Handler(DataContext context)
             {
-                _mapper = mapper;
                 _context = context;
+
             }
-
-            public async Task<Result<Unit>> Handle(Command request, CancellationToken cancellationToken)
+            public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
-                var kerkesa = await _context.Kerkesat.FindAsync(request.Kerkesa.Id);
+                var kerkesa = await _context.Kerkesat.FindAsync(request.Id);
 
-                if(kerkesa == null) return null;
+                if (kerkesa == null) throw new Exception("Modifikimi deshtoi");
 
-                _mapper.Map(request.Kerkesa, kerkesa);
-                
-                var result = await _context.SaveChangesAsync() >0;
+                kerkesa.UdhetariId = request.UdhetariId ?? kerkesa.UdhetariId;
+                kerkesa.Titulli = request.Titulli ?? kerkesa.Titulli;
+                kerkesa.Description = request.Description ?? kerkesa.Description;
+                kerkesa.Vendi_Nisjes = request.Vendi_Nisjes ?? kerkesa.Vendi_Nisjes;
+                kerkesa.Destinacioni = request.Destinacioni ?? kerkesa.Destinacioni;
+                kerkesa.Date = request.Date ?? kerkesa.Date;
 
-                if(!result) return Result<Unit>.Failure("Modifikimi deshtoi");
+                var success = await _context.SaveChangesAsync() > 0;
 
-                return Result<Unit>.Success(Unit.Value);
+                if (success) return Unit.Value;
+                throw new System.Exception("Error");
             }
         }
     }

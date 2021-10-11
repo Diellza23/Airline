@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Application.Rezervimet;
 using Domain;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,6 +11,12 @@ namespace API.Controllers
     [AllowAnonymous]
     public class RezervimetController : BaseApiController
     {
+        private readonly IMediator _mediator;
+        public RezervimetController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
         [HttpGet]
         public async Task<IActionResult> GetRezervimet()
         {
@@ -28,11 +35,19 @@ namespace API.Controllers
             return HandleResult(await Mediator.Send(new KrijoR.Command { Rezervimi = rezervimi }));
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> ModifikoRezervimi(Guid id, Rezervimi rezervimi)
+        // [HttpPut("{id}")]
+        // public async Task<IActionResult> ModifikoRezervimi(Guid id, Rezervimi rezervimi)
+        // {
+        //     rezervimi.Id = id;
+        //     return Ok(await Mediator.Send(new Edit.Command{Rezervimi = rezervimi}));
+        // }
+
+        [HttpPut("{Id}")]
+
+        public async Task<ActionResult<Unit>> Edit(Guid id, Edit.Command command)
         {
-            rezervimi.Id = id;
-            return Ok(await Mediator.Send(new Edit.Command{Rezervimi = rezervimi}));
+            command.Id = id;
+            return await _mediator.Send(command);
         }
 
         [HttpDelete("{id}")]

@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Application.Punetoret;
 using Domain;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,6 +11,13 @@ namespace API.Controllers
     [AllowAnonymous]
     public class PunetoretController : BaseApiController
     {
+
+        private readonly IMediator _mediator;
+        public PunetoretController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
         [HttpGet]
         public async Task<IActionResult> GetPunetoret()
         {
@@ -28,11 +36,19 @@ namespace API.Controllers
             return HandleResult(await Mediator.Send(new KrijoP.Command { Punetori = punetori }));
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> ModifikoPunetori(Guid id, Punetori punetori)
+        // [HttpPut("{id}")]
+        // public async Task<IActionResult> ModifikoPunetori(Guid id, Punetori punetori)
+        // {
+        //     punetori.Id = id;
+        //     return Ok(await Mediator.Send(new Edit.Command{Punetori = punetori}));
+        // }
+
+        [HttpPut("{Id}")]
+
+        public async Task<ActionResult<Unit>> Edit(Guid id, Edit.Command command)
         {
-            punetori.Id = id;
-            return Ok(await Mediator.Send(new Edit.Command{Punetori = punetori}));
+            command.Id = id;
+            return await _mediator.Send(command);
         }
 
         [HttpDelete("{id}")]
