@@ -19,18 +19,10 @@ export default observer(function RezervimiDashboard() {
 
   return (
     <>
-      {/* <Message
-        attached="top"
-        content="Ne faqen e ofertave ndodhet opsioni per te rezervuar bilete !"
-        icon="info "
-        color="teal"
-        warning
-        style={{ marginTop: "40px",width:"100%" }}
-      /> */}
+      
       <Button
         content="Shiko ofertat"
-        color="black"
-        basic
+        color="violet"
         as={NavLink}
         to="/ListaOfertave"
         style={{ marginLeft: "-7%", marginTop: "1%" }}

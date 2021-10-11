@@ -13,25 +13,7 @@ export default observer(function ListaFluturimeve() {
 
   return (
     <>
-      {/* <Icon
-        className="arrow alternate circle left icon"
-        as={NavLink}
-        to="/addKerkesa"
-        style={{
-          marginTop: "-26%",
-          // marginLeft: "",
-          width: "30%",
-          paddingLeft: "2%",
-          marginLeft:"-35%",
-          
-          // position:"sticky",
-          // height:"35%"
-        }}
-      >
-        <h3 style={{textAlign:"center",color:"white",fontWeight:"bold",textTransform:"uppercase"}}>Nuk gjeni dot fluturimin per vendin e deshiruar?</h3>
-        <p style={{textAlign:"center",textShadow: '0 0 3px #FF0000, 0 0 5px #0000FF',fontWeight:"bold"}}>Paraqit kerkesen tuaj ketu dhe ne do u kthejme pergjigje sa me shpejte! KLIKO kudo ne kete zone---</p>
-        
-      </Icon> */}
+      
       <Button
         as={NavLink}
         to="/udhetariProfile"
@@ -56,7 +38,7 @@ export default observer(function ListaFluturimeve() {
           marginLeft: "15%",
           marginTop: "3%",
           width: "90%",
-          height: "16%",
+          height: "20%",
         }}
       >
         <h4 style={{ textTransform: "uppercase" }}>

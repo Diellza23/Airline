@@ -25,7 +25,7 @@ export default observer(function RezervimiList() {
         attached="top"
         content="Ne faqen e ofertave ndodhet opsioni per te rezervuar bileta."
         icon="info circle "
-        color="teal"
+        color="violet"
         warning
         style={{ marginTop:"10%",width:"100%" }}
       />

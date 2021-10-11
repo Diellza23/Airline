@@ -86,7 +86,7 @@ export default observer(function KerkesaForm() {
                 <MyDateInput placeholderText='Zgjedh daten'  name='date' showTimeSelect timeCaption='time' dateFormat='MMMM d, yyyy h:mm aa' />
                 <Button 
                 disabled={isSubmitting || !dirty || !isValid}
-                loading={loading} floated="right"  positive type="submit" content="SHTO" basic/>
+                loading={loading} floated="right"  positive type="submit" content="SHTO" />
                 <Button as={Link} to ='/UdhetariProfile' floated="right" type="button" content="ANULO" color="red" basic/>
             </Form>
         )}
