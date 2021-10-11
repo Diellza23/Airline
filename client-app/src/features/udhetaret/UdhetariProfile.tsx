@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite';
-import { Container, Grid, Header, Table, Icon } from 'semantic-ui-react'
+import { Container, Grid, Header, Table, Icon, Message } from 'semantic-ui-react'
 import { useStore } from '../../app/stores/store';
 import UdhetariNavBar from './UdhetariNavBar';
 
@@ -7,6 +7,17 @@ export default observer( function UdhetariProfile () {
   const {udhetariStore: {udhetari}} = useStore();
   
     return (
+      <>
+      <Message
+        attached="bottom"
+        content="INFORMATA rreth sherbimeve--Perdoreni Id e gjeneruar nga aplikacioni per te kryer sherbime
+        (ex. rezervimi i biletes) e cila ndodhet ne tabelen e meposhtme!"
+        icon="info circle"
+        color="black"
+        warning
+        style={{ width:"100%",marginTop:"0%",marginBottom:"-1%" }}
+      />
+
       <Grid divided='vertically'>
         <Grid.Row columns={2}>
         <Grid.Column width='6' >
@@ -93,6 +104,7 @@ export default observer( function UdhetariProfile () {
         </Grid.Column>
         </Grid.Row>
     </Grid>
+    </>
     )
 }
 )

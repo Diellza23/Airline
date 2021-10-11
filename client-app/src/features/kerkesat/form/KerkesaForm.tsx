@@ -27,6 +27,7 @@ export default observer(function KerkesaForm() {
     vendi_Nisjes: '',
     destinacioni: '',
     date: null,
+    udhetariId:""
   })
 
   const validationSchema = Yup.object({
@@ -34,6 +35,8 @@ export default observer(function KerkesaForm() {
     description: Yup.string().required('Pershkrimi i nevojitur!'),
     vendi_Nisjes: Yup.string().required('Vendi i nisjes nevojitur!'),
     destinacioni: Yup.string().required('Destinacioni nevojitur!'),
+    date:Yup.string().required('Destinacioni nevojitur!').nullable(),
+    udhetariId: Yup.string().required('Id e udhetarit e nevojitur!'),
   })
 
   useEffect(() =>{
@@ -59,9 +62,9 @@ export default observer(function KerkesaForm() {
 
   return (
     <>
-    <div style={{marginTop:"60px",width:"900px",marginLeft:"120px"}}>
-    <h1 style={{marginTop:"60px",textAlign:"center",textTransform:"uppercase",border:"1px solid green",borderRadius:"5px",backgroundColor:"rgba(92, 151, 191, 1)",color:"white",padding:"20px",marginBottom:"50px"}}>Detajet e Kerkeses</h1>
-    <Segment clearing style={{backgroundColor:"rgba(92, 151, 191, 1)"}}>
+    <div style={{marginTop:"60px",width:"700px",marginLeft:"19%",backgroundColor:"white",paddingLeft:"2%"}}>
+    <h1 style={{marginTop:"60px",textAlign:"center",textTransform:"uppercase",border:"1px solid white",backgroundColor:"white",borderRadius:"5px",color:"black",padding:"20px",marginBottom:"50px"}}>Kerkesa juaj drejt nesh:</h1>
+    <Segment clearing style={{color:"black"}}>
       <Formik
       validationSchema={validationSchema} 
       enableReinitialize 
@@ -69,20 +72,22 @@ export default observer(function KerkesaForm() {
       onSubmit={values => handleFormSubmit(values)}>
         {({ handleSubmit, isValid, isSubmitting, dirty}) => (
             <Form className='ui form' onSubmit={handleSubmit} autoComplete="off" >
-                <h4 style={{textTransform:"uppercase",fontFamily:"sans-serif",color:"white"}}>Titulli:</h4>
+                <h4 style={{fontFamily:"sans-serif",color:"black"}}>Subjekti:</h4>
                 <MyTextInput name='titulli' placeholder='title..'/>
-                <h4 style={{textTransform:"uppercase",fontFamily:"sans-serif",color:"white"}}>Pershkrimi:</h4>
+                <h4 style={{fontFamily:"sans-serif",color:"black"}}>Pershkrimi:</h4>
                 <MyTextInput name='description' placeholder='kerkesa..'/>
-                <h4 style={{textTransform:"uppercase",fontFamily:"sans-serif",color:"white"}}>Vendi i nisjes:</h4>
+                <h4 style={{fontFamily:"sans-serif",color:"black"}}>Vendi i deshiruar per nisje:</h4>
                 <MyTextInput name='vendi_Nisjes' placeholder='Vendi i nisjes'/>
-                <h4 style={{textTransform:"uppercase",fontFamily:"sans-serif",color:"white"}}>Destinacioni:</h4>
+                <h4 style={{fontFamily:"sans-serif",color:"black"}}>Destinacioni:</h4>
                 <MyTextInput placeholder="Destinacioni.." name="destinacioni"  />
-                <h4 style={{textTransform:"uppercase",fontFamily:"sans-serif",color:"white"}}>Data e formulimit te kerkeses:</h4>
+                <h4 style={{fontFamily:"sans-serif",color:"black"}}>ID Personale:</h4>
+                <MyTextInput placeholder="124.." name="udhetariId"  />
+                <h4 style={{fontFamily:"sans-serif",color:"black"}}>Data e formulimit te kerkeses:</h4>
                 <MyDateInput placeholderText='Zgjedh daten'  name='date' showTimeSelect timeCaption='time' dateFormat='MMMM d, yyyy h:mm aa' />
                 <Button 
                 disabled={isSubmitting || !dirty || !isValid}
-                loading={loading} floated="right"  positive type="submit" content="SHTO"/>
-                <Button as={Link} to ='/kerkesat' floated="right" type="button" content="ANULO" color="orange"/>
+                loading={loading} floated="right"  positive type="submit" content="SHTO" basic/>
+                <Button as={Link} to ='/UdhetariProfile' floated="right" type="button" content="ANULO" color="red" basic/>
             </Form>
         )}
       </Formik>

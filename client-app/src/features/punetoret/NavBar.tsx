@@ -14,10 +14,11 @@ export default observer(function NavBar() {
         </Menu.Item> */}
         <div></div>
         <Menu.Item as={NavLink} to="/fluturimet" name="Fluturimet" style={{borderRadius:"5px",marginRight:"15px",width:"120px",height:"40px",backgroundColor:"#FFD700",fontFamily:"BR Cobane, sans-serif",fontWeight:"bold",paddingRight:"50px",paddingLeft:"25px",color:"white",marginTop:"10px"}}/>
-        <Menu.Item as={NavLink} to="/punetoret" name="Punetoret" style={{borderRadius:"5px",backgroundColor:"",fontFamily:"BR Cobane, sans-serif",fontWeight:"bold",color:"white",height:"40px",marginTop:"10px"}}/>
-        <Menu.Item as={NavLink} to="/ofertat" name="Ofertat" style={{backgroundColor:"",borderRadius:"5px",marginLeft:"15px",width:"120px",height:"40px",fontFamily:"BR Cobane, sans-serif",fontWeight:"bold",paddingRight:"50px",paddingLeft:"35px",color:"white",marginTop:"10px"}}/>
+        <Menu.Item as={NavLink} to="/punetoret" name="Punetoret" style={{borderRadius:"5px",fontFamily:"BR Cobane, sans-serif",fontWeight:"bold",color:"white",height:"40px",marginTop:"10px"}}/>
+        <Menu.Item as={NavLink} to="/ofertat" name="Ofertat" style={{borderRadius:"5px",marginLeft:"15px",width:"120px",height:"40px",fontFamily:"BR Cobane, sans-serif",fontWeight:"bold",paddingRight:"50px",paddingLeft:"35px",color:"white",marginTop:"10px"}}/>
         <Menu.Item as={NavLink} to="/users" name="Users" style={{fontFamily:"BR Cobane, sans-serif",marginLeft:"40px",marginTop:"10px",textTransform:"",fontWeight:"bold",paddingRight:"40px",paddingLeft:"40px",backgroundColor:"rgba(65, 131, 215, 1)",borderRadius:"50px",height:"40px"}}/>
-        <Menu.Item as={NavLink} to="/listarezervimeve" name="Rezervimet" style={{fontFamily:"BR Cobane, sans-serif",marginLeft:"40px",marginTop:"10px",textTransform:"",fontWeight:"bold",paddingRight:"40px",paddingLeft:"40px",backgroundColor:"rgba(65, 131, 215, 1)",borderRadius:"50px",height:"40px"}}/>
+        <Menu.Item as={NavLink} to="/listarezervimeve" name="Rezervimet" style={{fontFamily:"BR Cobane, sans-serif",marginLeft:"40px",marginTop:"10px",fontWeight:"bold",paddingRight:"40px",paddingLeft:"40px",height:"40px"}}/>
+        <Menu.Item as={NavLink} to="/listaKerkesave" name="Kerkesat" style={{backgroundColor:"#1b1c1d",borderRadius:"5px",marginLeft:"15px",width:"120px",height:"40px",fontFamily:"BR Cobane, sans-serif",fontWeight:"bold",paddingRight:"50px",paddingLeft:"2.5%",color:"white",marginTop:"10px"}}/>
         {/* <Menu.Item as={NavLink} to="/udhetari" name="Udhetari" style={{textTransform:"uppercase",fontWeight:"bold"}}/> */}
         {/* <Menu.Item as={NavLink} to="/errors" name="Errors" /> */}
         {/* <Menu.Item>

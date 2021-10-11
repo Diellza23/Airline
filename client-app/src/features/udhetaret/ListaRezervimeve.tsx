@@ -28,22 +28,22 @@ export default observer(function ListaRezervimeve() {
         <Menu
           attached="top"
           compact
-          inverted
+          
           widths={8}
-          style={{ margin: "5px" }}
+          style={{ margin: "5px",backgroundColor:"grey"}}
         >
-          <Menu.Item as="a">Id </Menu.Item>
-          <Menu.Item as="a">Vendi nisjes</Menu.Item>
-          <Menu.Item as="a">Destinacioni</Menu.Item>
-          <Menu.Item as="a">Kodi i sigurise</Menu.Item>
-          <Menu.Item as="a">Numri i karteles</Menu.Item>
-          <Menu.Item as="a">Data nisjes</Menu.Item>
-          <Menu.Item as="a">Data kthimit</Menu.Item>
-          <Menu.Item as="a">Operacione</Menu.Item>
+          <Menu.Item as="a" style={{textTransform:"uppercase",color:"white"}}>Id </Menu.Item>
+          <Menu.Item as="a" style={{textTransform:"uppercase",color:"white"}}>Vendi nisjes</Menu.Item>
+          <Menu.Item as="a" style={{textTransform:"uppercase",color:"white"}}>Destinacioni</Menu.Item>
+          <Menu.Item as="a" style={{textTransform:"uppercase",color:"white"}}> Kodi i sigurise</Menu.Item>
+          <Menu.Item as="a" style={{textTransform:"uppercase",color:"white"}}>Numri i karteles</Menu.Item>
+          <Menu.Item as="a" style={{textTransform:"uppercase",color:"white"}}>Data nisjes</Menu.Item>
+          <Menu.Item as="a" style={{textTransform:"uppercase",color:"white"}}>Data kthimit</Menu.Item>
+          <Menu.Item as="a" style={{textTransform:"uppercase",color:"white"}}>Operacione</Menu.Item>
         </Menu>
       </div>
       {rezervimetByDate.map((rezervimi) => (
-        <Table attached inverted celled selectable>
+        <Table attached  celled selectable>
           <Table.Body widths={4} >
             <Table.Row >
               <Table.Cell style={{width:"12.45%"}}>{rezervimi.udhetariId}</Table.Cell>
@@ -64,7 +64,7 @@ export default observer(function ListaRezervimeve() {
                   loading={loading && target === rezervimi.id}
                   onClick={(e) => handleRezervimiDelete(e, rezervimi.id)}
                   content="FSHIJ"
-                  color="red"
+                  color="blue"
                     style={{marginLeft:"19%"}}
                 />
               </Table.Cell>

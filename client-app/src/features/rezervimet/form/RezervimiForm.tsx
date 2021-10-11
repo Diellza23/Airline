@@ -1,7 +1,7 @@
 import { observer } from "mobx-react-lite";
 import React, { useEffect, useState } from "react";
 import { Link, useHistory, useParams } from "react-router-dom";
-import { Button, Segment } from "semantic-ui-react";
+import { Button, Message, Segment } from "semantic-ui-react";
 import LoadingComponent from "../../../app/layout/LoadingComponent";
 import { useStore } from "../../../app/stores/store";
 import { v4 as uuid } from "uuid";
@@ -16,6 +16,7 @@ import {
 import MyDateInput from "../../../app/common/form/MyDateInput";
 import { Rezervimi } from "../../../app/models/rezervimi";
 import MySelectInput from "../../punetoret/form/MySelectInput";
+import UdhetariNavBar from "../../udhetaret/UdhetariNavBar";
 
 export default observer(function RezervimiForm() {
   const history = useHistory();
@@ -39,7 +40,7 @@ export default observer(function RezervimiForm() {
     cardNumber: "",
     securityCode: "",
     zipCode: "",
-    udhetariId:''
+    udhetariId: "",
   });
 
   const validationSchema = Yup.object({
@@ -50,7 +51,7 @@ export default observer(function RezervimiForm() {
     cardNumber: Yup.string().required("Numri i karteles i nevojitur!"),
     securityCode: Yup.string().required("Numri i sigurise i nevojitur!"),
     zipCode: Yup.string().required("Zip kodi i nevojitur!"),
-    udhetariId:Yup.string().required("Id personale e nevojitur!"),
+    udhetariId: Yup.string().required("Id personale e nevojitur!"),
   });
 
   useEffect(() => {
@@ -74,24 +75,20 @@ export default observer(function RezervimiForm() {
   }
 
   if (loadingInitial)
-    return <LoadingComponent content="Punetoret duke u ngarkuar..." />;
+    return <LoadingComponent content="Rezervimet duke u ngarkuar..." />;
 
   return (
     <>
-      <h1
-        style={{
-          textAlign: "center",
-          color: "white",
-          backgroundColor: "",
-          padding: "25px",
-          textTransform: "uppercase",
-        }}
-      >
-        Detajet e rezervimit
-      </h1>
-
-      <Segment clearing>
-        <h1 style={{marginBottom:"5%"}}>Personal Information</h1>
+      <Message
+        attached="top"
+        content="VEMENDJE--Rezervimi i biletes se fluturimit nuk mund te fshihet dhe pagesa nuk kthehet! Ju lutem keni kujdes!"
+        icon="warning sign"
+        color="black"
+        warning
+        style={{ marginTop: "60px" }}
+      />
+      <Segment clearing style={{ marginTop: "5%" }}>
+        <h1 style={{ marginBottom: "5%" }}>Informata Personale:</h1>
         <Formik
           validationSchema={validationSchema}
           enableReinitialize
@@ -133,7 +130,7 @@ export default observer(function RezervimiForm() {
                 timeCaption="time"
                 dateFormat="MMMM d, yyyy h:mm aa"
               />
-              
+
               <h4>Numri i xhirollogarise: </h4>
               <MyTextInput placeholder="12.." name="cardNumber" />
 
@@ -142,7 +139,7 @@ export default observer(function RezervimiForm() {
 
               <h4>Zip Kodi: </h4>
               <MyTextInput placeholder="1/2.." name="zipCode" />
-              
+
               <h4>Id personale: </h4>
               <MyTextInput placeholder="1/2.." name="udhetariId" />
 

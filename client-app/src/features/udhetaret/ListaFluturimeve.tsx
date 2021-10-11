@@ -50,7 +50,7 @@ export default observer(function ListaFluturimeve() {
         as={NavLink}
         to="/addKerkesa"
         style={{
-          backgroundColor: "orange",
+          backgroundColor: "teal",
           color: "white",
           borderRadius: "12px",
           marginLeft: "15%",
@@ -70,7 +70,8 @@ export default observer(function ListaFluturimeve() {
         attached="top"
         content="VEREJTJE--Shikoni me vemendje listen e fluturimeve,
     pas rezervimit te biletes NUK ka kthim mbrapa!"
-        icon="attention"
+        icon="warning sign"
+        color="black"
         warning
         style={{ marginTop: "60px" }}
       />

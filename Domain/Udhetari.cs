@@ -11,6 +11,7 @@ namespace Domain
         public string Mbiemri { get; set; }
         public DateTime Birthday { get; set; }
         public ICollection<Rezervimi> Rezervimi {get;set;}
+        public ICollection<Kerkesa> Kerkesa {get;set;}
     
     }
 }

@@ -29,10 +29,11 @@ import DetajetOferta from "../../features/ofertat/detajet/DetajetOferta";
 import OfertaForm from "../../features/ofertat/form/OfertaForm";
 import DashboardOferta from "../../features/udhetaret/dashboard/DashboardOferta";
 import RezervimiForm from "../../features/rezervimet/form/RezervimiForm";
-import KerkesaDashboard from "../../features/kerkesat/dashboard/KerkesaDashboard";
+// import KerkesaDashboard from "../../features/kerkesat/dashboard/KerkesaDashboard";
 import DetajetKerkesa from "../../features/kerkesat/detajet/DetajetKerkesa";
 import KerkesaForm from "../../features/kerkesat/form/KerkesaForm";
 import DashboardRezervimi from "../../features/udhetaret/dashboard/DashboardRezervimi";
+import DashboardKerkesa from "../../features/udhetaret/dashboard/DashboardKerkesa";
 
 function App() {
   const location = useLocation();
@@ -69,7 +70,7 @@ function App() {
         <Container style={{}}>
           <Switch>
             <Route exact path="/punetoret" component={PunetoriDashboard} />
-            <Route exact path="/kerkesat" component={KerkesaDashboard} />
+            {/* <Route exact path="/kerkesat" component={KerkesaDashboard} /> */}
             <Route exact path="/ofertat" component={OfertaDashboard} />
             <Route path="/profile" component={Profile} />
             <Route exact path="/fluturimet" component={FluturimiDashboard} />
@@ -91,6 +92,7 @@ function App() {
             />
             <Route exact path="/listaofertave" component={DashboardOferta} />
             <Route exact path="/listarezervimeve" component={DashboardRezervimi} />
+            <Route exact path="/listaKerkesave" component={DashboardKerkesa} />
 
             <Route
               key={location.key}

@@ -5,5 +5,6 @@ export interface Kerkesa {
     vendi_Nisjes: string
     destinacioni: string
     date: Date | null
+    udhetariId: string
   }
   

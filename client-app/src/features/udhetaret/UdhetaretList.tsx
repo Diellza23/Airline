@@ -58,16 +58,9 @@ export default observer(function UdhetaretList() {
                   loading={loading && target === udhetari.id}
                   onClick={(e) => handleUdhetariDelete(e, udhetari.id)}
                   content="FSHIJ"
-                  color="red"
+                  color="purple"
                   style={{marginLeft:"19%"}}
                 />
-                {/* <Button size="tiny"
-                  name={udhetari.id}
-                  loading={loading && target === udhetari.id}
-                  onClick={(e) => handleUdhetariUpdate(e, udhetari.id)}
-                  content="FSHIJ"
-                  color="red"
-                /> */}
               </Table.Cell>
             </Table.Row>
           </Table.Body>

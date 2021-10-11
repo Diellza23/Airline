@@ -20,11 +20,10 @@ export default observer(function DetajetKerkesa() {
 
   return (
     <>
-    <NavBar/>
-    <div style={{width:"700px",marginLeft:"200px",marginTop:"100px", textAlign:"center"}}>
-    <h1 style={{textAlign:"center",color:"white",backgroundColor:"rgba(103, 128, 159, 1)", padding:"25px"}}>FLIGHT DETAILS</h1>
-    <Card fluid style={{backgroundColor:'rgba(103, 128, 159, 1)'}}>
-      <Card.Content style={{backgroundColor:'#f0ffff', padding: '12px 8px 12px 40px',margin:'40px',background: '#eee',fontSize: '15px',borderLeft:'3px solid grey',
+    <div style={{width:"700px",marginLeft:"200px",marginTop:"100px", }}>
+    <h1 style={{textAlign:"left",color:"black",backgroundColor:"white", padding:"25px"}}>Kerkesa</h1>
+    <Card fluid style={{backgroundColor:'white'}}>
+      <Card.Content style={{backgroundColor:'whitesmoke', padding: '12px 8px 12px 40px',margin:'40px',background: '#eee',fontSize: '15px',borderLeft:'3px solid grey',
       
     }}>
         <Card.Header style={{textTransform:'uppercase',borderBottom:"1px solid black",padding:"10px"}}>Titulli: {kerkesa.titulli}</Card.Header>
@@ -32,21 +31,23 @@ export default observer(function DetajetKerkesa() {
         {/* <hr/> */}
         <Card.Meta style={{textTransform:'uppercase',color:"black",fontSize:"17px",borderBottom:"1px solid black",padding:"5px"}}>Pershkrimi: {kerkesa.description}</Card.Meta>
         <br/>
-        <Card.Meta style={{textTransform:'uppercase',fontSize:"17px",color:"black",padding:"5px"}}>Vendi i nisjes {kerkesa.vendi_Nisjes}</Card.Meta>
+        <Card.Meta style={{textTransform:'uppercase',borderBottom:"1px solid black",fontSize:"17px",color:"black",padding:"5px"}}>Vendi i nisjes {kerkesa.vendi_Nisjes}</Card.Meta>
         <br/>
-        <Card.Meta style={{textTransform:'uppercase',fontSize:"17px",color:"black",padding:"5px"}}>Vendi i nisjes {kerkesa.destinacioni}</Card.Meta>
+        <Card.Meta style={{textTransform:'uppercase',borderBottom:"1px solid black",fontSize:"17px",color:"black",padding:"5px"}}>Vendi i nisjes {kerkesa.destinacioni}</Card.Meta>
+        <br/>
+        <Card.Meta style={{textTransform:'uppercase',borderBottom:"1px solid black",fontSize:"17px",color:"black",padding:"5px"}}>Data e formulimit te kerkeses: {kerkesa.udhetariId!}</Card.Meta>
         <br/>
         <Card.Meta style={{textTransform:'uppercase',fontSize:"17px",color:"black",padding:"5px"}}>Data e formulimit te kerkeses: {format(kerkesa.date!, 'dd MMM yyyy h:mm aa')}</Card.Meta>
       </Card.Content>
       <Card.Content extra>
         <Button.Group widths="2">
-          <Button
+          {/* <Button
             as={Link}
             to={`/manageKerkesa/${kerkesa.id}`} 
-            color="green"
+            color="blue" basic
             content="MODIFIKO"
-          />
-          <Button as={Link} to="/kerkesat" color="orange" content="ANULO"/>
+          /> */}
+          <Button as={Link} to="/UdhetariProfile" color="blue" content="Kthehu prapa" basic/>
         </Button.Group>
       </Card.Content>
     </Card>
