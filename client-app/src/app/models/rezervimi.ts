@@ -4,7 +4,6 @@ export interface Rezervimi {
     vendi_Mberritjes: string
     departure: Date | null
     return: Date | null
-    personat: string
     cardNumber: string
     securityCode: string
     zipCode: string

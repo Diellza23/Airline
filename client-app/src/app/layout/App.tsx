@@ -11,7 +11,7 @@ import PunetoriForm from "../../features/punetoret/form/PunetoriForm";
 import FluturimiForm from "../../features/fluturimet/form/FluturimiForm";
 // import TestErrors from "../../features/errors/TestError";
 import { ToastContainer } from "react-toastify";
-// import NotFound from "../../features/errors/NotFound";
+import NotFound from "../../features/errors/NotFound";
 // import LoginForm from "../../features/users/LoginForm";
 import ServerError from "../../features/errors/ServerError";
 import { useStore } from "../stores/store";
@@ -32,6 +32,7 @@ import RezervimiForm from "../../features/rezervimet/form/RezervimiForm";
 import KerkesaDashboard from "../../features/kerkesat/dashboard/KerkesaDashboard";
 import DetajetKerkesa from "../../features/kerkesat/detajet/DetajetKerkesa";
 import KerkesaForm from "../../features/kerkesat/form/KerkesaForm";
+import DashboardRezervimi from "../../features/udhetaret/dashboard/DashboardRezervimi";
 
 function App() {
   const location = useLocation();
@@ -89,6 +90,8 @@ function App() {
               component={ListaFluturimeveDashboard}
             />
             <Route exact path="/listaofertave" component={DashboardOferta} />
+            <Route exact path="/listarezervimeve" component={DashboardRezervimi} />
+
             <Route
               key={location.key}
               path={["/addPunetori", "/manage/:id"]}

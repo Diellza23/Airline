@@ -18,11 +18,9 @@ export default observer(function UdhetariDashboard() {
 
   return (
      
-    <Grid style={{marginLeft:"160px",width:"1300px"}}>
-      <Grid.Column width="10">
+    <Grid >
+      <Grid.Column width="15">
         <UdhetaretList />
-      </Grid.Column>
-      <Grid.Column width="5">
       </Grid.Column>
     </Grid>
   );

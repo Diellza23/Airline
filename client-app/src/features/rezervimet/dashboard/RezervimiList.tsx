@@ -29,7 +29,6 @@ export default observer(function RezervimiList() {
               <Item.Header style={{color:"white",textTransform:"Uppercase",marginBottom:"20px"}}>Vendi i nisjes: {rezervimi.vendi_Nisjes}</Item.Header>
               <br/>
               <Item.Extra as="a" style={{color:"white",textTransform:"Uppercase",fontSize:"17px",marginBottom:"15px",paddingTop:"10px",borderTop:"1px solid white"}}>Destinacioni: {rezervimi.vendi_Mberritjes}</Item.Extra>
-              <Item.Meta style={{color:"white",textTransform:"Uppercase",fontSize:"17px",marginBottom:"5px",paddingTop:"10px",paddingBottom:"10px",borderTop:"1px solid white"}}> Persona: {rezervimi.personat}</Item.Meta>
               <Item.Meta style={{color:"white",textTransform:"Uppercase",fontSize:"17px",marginBottom:"20px",paddingTop:"10px",paddingBottom:"10px",borderTop:"1px solid white",borderBottom:"1px solid white"}}>Data e nisjes: {format(rezervimi.departure!,'dd MMM yyyy h:mm aa')}</Item.Meta>
               <Item.Meta style={{color:"white",textTransform:"Uppercase",fontSize:"17px",marginBottom:"20px",paddingTop:"10px",paddingBottom:"10px",borderBottom:"1px solid white"}}>Data e kthimit: {format(rezervimi.return!,'dd MMM yyyy h:mm aa')}</Item.Meta>
               <Item.Extra as="a" style={{color:"white",textTransform:"Uppercase",fontSize:"17px",marginBottom:"15px",paddingTop:"10px"}}>Numri i karteles bankare: {rezervimi.cardNumber}</Item.Extra>

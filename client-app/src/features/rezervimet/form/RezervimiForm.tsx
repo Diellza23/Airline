@@ -12,7 +12,6 @@ import MyTextInput from "../../../app/common/form/MyTextInput";
 import {
   categoryOpsions,
   categoryOpts,
-  categoryPersona,
 } from "../../../app/common/options/categoryOptions";
 import MyDateInput from "../../../app/common/form/MyDateInput";
 import { Rezervimi } from "../../../app/models/rezervimi";
@@ -37,7 +36,6 @@ export default observer(function RezervimiForm() {
     vendi_Mberritjes: "",
     departure: null,
     return: null,
-    personat: "",
     cardNumber: "",
     securityCode: "",
     zipCode: "",
@@ -49,7 +47,6 @@ export default observer(function RezervimiForm() {
     vendi_Mberritjes: Yup.string().required("Vendi i nevojitur!"),
     departure: Yup.string().required("Data e nisjes e nevojitur!").nullable(),
     return: Yup.string().required("Data e kthimit e nevojitur!").nullable(),
-    personat: Yup.string().required("Numri i personave i nevojitur!"),
     cardNumber: Yup.string().required("Numri i karteles i nevojitur!"),
     securityCode: Yup.string().required("Numri i sigurise i nevojitur!"),
     zipCode: Yup.string().required("Zip kodi i nevojitur!"),
@@ -85,7 +82,7 @@ export default observer(function RezervimiForm() {
         style={{
           textAlign: "center",
           color: "white",
-          backgroundColor: "#c159cf",
+          backgroundColor: "",
           padding: "25px",
           textTransform: "uppercase",
         }}
@@ -94,6 +91,7 @@ export default observer(function RezervimiForm() {
       </h1>
 
       <Segment clearing>
+        <h1 style={{marginBottom:"5%"}}>Personal Information</h1>
         <Formik
           validationSchema={validationSchema}
           enableReinitialize
@@ -135,12 +133,7 @@ export default observer(function RezervimiForm() {
                 timeCaption="time"
                 dateFormat="MMMM d, yyyy h:mm aa"
               />
-              <h4>Sa persona: </h4>
-              <MySelectInput
-                options={categoryPersona}
-                placeholder="1/2.."
-                name="personat"
-              />
+              
               <h4>Numri i xhirollogarise: </h4>
               <MyTextInput placeholder="12.." name="cardNumber" />
 
