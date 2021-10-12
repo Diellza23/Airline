@@ -35,6 +35,7 @@ export default observer(function Profile() {
               Emri: {user?.displayName}
             </th>
             <th>Username : {user?.username}</th>
+            <th >Email : {user?.email}</th>
           </tr>
         </thead>
       </table>
