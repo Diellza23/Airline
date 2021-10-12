@@ -91,7 +91,11 @@ function App() {
               component={ListaFluturimeveDashboard}
             />
             <Route exact path="/listaofertave" component={DashboardOferta} />
-            <Route exact path="/listarezervimeve" component={DashboardRezervimi} />
+            <Route
+              exact
+              path="/listarezervimeve"
+              component={DashboardRezervimi}
+            />
             <Route exact path="/listaKerkesave" component={DashboardKerkesa} />
 
             <Route
@@ -114,7 +118,7 @@ function App() {
               path={["/addOferta", "/menaxho/:id"]}
               component={OfertaForm}
             />
-             <Route
+            <Route
               key={location.key}
               path={["/addKerkesa", "/manageKerkesa/:id"]}
               component={KerkesaForm}
@@ -123,7 +127,7 @@ function App() {
             {/* <Route path='/errors' component={TestErrors}/> */}
             <Route path="/server-error" component={ServerError} />
             {/* <Route path='/login' component={LoginForm}/>  */}
-            {/* <Route component={NotFound}/> */}
+            <Route path="/notFound" component={NotFound} />
           </Switch>
         </Container>
         <Switch></Switch>
