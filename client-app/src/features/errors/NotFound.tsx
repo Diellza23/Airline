@@ -10,8 +10,8 @@ export default function NotFound(){
                 Oops - we've looked everywhere and could not find this.
             </Header>
             <Segment.Inline>
-                <Button as={Link} to='/punetoret' primary>
-                    Return to Punetoret page
+                <Button as={Link} to='/' primary>
+                    Return to HomePage page or login again
                 </Button>
             </Segment.Inline>
         </Segment>

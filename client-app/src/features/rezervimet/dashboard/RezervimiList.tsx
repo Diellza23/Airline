@@ -23,8 +23,8 @@ export default observer(function RezervimiList() {
     <>
       <Message
         attached="top"
-        content="Ne faqen e ofertave ndodhet opsioni per te rezervuar bileta."
-        icon="info circle "
+        content="Ne faqen e ofertave ndodhet opsioni per te rezervuar bileta. Anulimi/fshirja e biletes nuk eshte e mundur!"
+        icon="info circle sign"
         color="violet"
         warning
         style={{ marginTop:"10%",width:"100%" }}
